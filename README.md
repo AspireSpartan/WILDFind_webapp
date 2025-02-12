@@ -10,4 +10,4 @@ you must always do this every time you download a zip from our GitHub project re
 2. npm install react-router-dom
 3. npm install framer-motion
 4. npm install firebase
-5. npm install -g firebase-tools
+5. npm install -g firebase-toolS
