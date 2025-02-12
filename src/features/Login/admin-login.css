@@ -1,0 +1,163 @@
+
+/* Header styling with the upward positioned logo */
+.login-page {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw; /* Ensures it covers the full viewport width */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* 🎨 Background Image */
+  background-image: url("/src/assets/images/backg1.png"); /* Adjust path */
+  background-size: cover; /* Ensures full coverage */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Avoids repetition */
+  background-attachment: fixed; /* Keeps it fixed when scrolling */
+}
+
+
+.login-header {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh; /* Scales dynamically based on viewport height */
+  background-color: rgba(255, 255, 255, 0.9); /* Light transparency */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.logo {
+  width: 100vw;
+  height: auto; /* Makes the logo take full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents unwanted stretching */
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain; /* Ensures the full logo is visible */
+  display: block;
+}
+
+/* 📱 Mobile Optimization: Make the logo bigger on smaller screens */
+@media screen and (max-width: 768px) {
+  .logo img {
+    width: 300%; /* Increase size for smaller screens */
+    max-height: 300vh; /* Allow it to expand beyond viewport height */
+  }
+}
+
+/* Login Form Styling */
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  text-align: center; /* Center align text */
+
+  /* New Background: Deep Red Gradient */
+  background: linear-gradient(
+    120deg,
+    rgba(128, 0, 0, 0.77) 33.64%,
+    rgba(26, 0, 0, 0.77) 68.91%
+  );
+
+  /* Border and Rounded Corners */
+  border-radius: 25px;
+  border: 1px solid rgba(128, 0, 0, 0.9);
+
+  /* Blur Effect & Shadow */
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition on the element */
+}
+
+.login-form:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  /* No transition here! */
+}
+
+/* Welcome text inside the form */
+.welcome-text {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: inline-block;
+  border-bottom: 3px solid white; /* Thicker underline */
+  padding-bottom: 5px;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Login button */
+.login-button {
+  width: 50%;
+  padding: 10px;
+  background-color: #8f6f0d;
+  box-shadow: 0px 0px 13.6px 0px rgba(110, 17, 17, 0.5);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  background-color: #d6a30b;
+}
+
+/* Forgot Password text */
+.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: white; /* Adjust as needed */
+}
+
+/* "Click Here" button */
+.forgot-password-btn {
+  background: none;
+  border: none;
+  color: #fff; /* Highlight color */
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.forgot-password-btn:hover {
+  color: #fff; /* Slightly lighter color on hover */
+}
