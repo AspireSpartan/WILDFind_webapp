@@ -1,96 +1,77 @@
-/* src/dashboard.css */
+/* General Page Styling */
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-/* BASE OF THE WEBPAGE */
-/* Full-screen webpage */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh; /* Allow content to extend */
-    background-color: rgb(231, 221, 221);
+.dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content at the top */
-    overflow-x: hidden; /* Keeps horizontal scrolling disabled */
-    overflow-y: auto; /* Allows vertical scrolling */
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    /*padding: 20px;*/
+    position: relative; /* Ensure positioning context for background images */
 }
 
-/* Background Image Placeholder */
-
-/* if body,html{overflow: hidden; = true}
-
-@keyframes riseUp {
-    from {
-        top: -50%;
-        opacity: 0; 
-    }
-    to {
-        top: 0;
-        opacity: 1; 
-    }
-}
-
-    will-change: transform, opacity;
-    animation: riseUp 1.5s ease-out forwards;
-
-*/
-
-@keyframes riseUp {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.background-wrapper {
+    position: relative; /* Parent container to control the background layering */
+    width: 100%;
+    height: 100%; /* Fill entire viewport */
 }
 
 .background-image-container {
-    position: absolute;
-    top: -50%; /* Start position */
-    left: 0;
+    position: fixed; /* Fix the background image to the viewport */
+    top: 0; /* Ensure it starts at the top of the viewport */
+    left: 0; /* Ensure it stretches across the full width */
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Cover the entire viewport height */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1;
-    overflow-y: hidden; /* Prevent overflow */
-
-    animation: riseUp 3.5s ease-out forwards;
+    z-index: -1; /* Place the background image behind other content */
 }
 
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start fully transparent */
-    }
-    to {
-        opacity: 1; /* Fully visible */
-    }
+.background-image-container2{
+  position: relative; /* or absolute/fixed, depending on your needs */
+  top: 35px;
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed or 500px*/
+  overflow: hidden; /* Ensures the image doesn't overflow the container */
 }
 
-.background-image-container2 {
+.Header_Crack-img {
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container */
+    margin-bottom: 120px;
+}
+
+.group-29 {
     position: absolute;
-    bottom: 140px;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 2;
-    overflow-y: hidden; /* Prevent overflow */
+    top: -150px; /* Positions 20px from the top */
+    left: 50px; /* Positions 20px from the left */
+    right: 50px;
+    display: flex; /* Aligns child elements horizontally */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adds space between the child elements */
+    align-items: center; /* Vertically centers the child elements */
+    z-index: 3;
+  }
+  
+  .wild-text {
+    font-size: 400px; /* Adjust font size */
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+    color: rgba(241, 234, 234, 0.50);
+  }
+  
+  .find-text {
+    font-size: 400px; /* Adjust font size */
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+    color: rgba(241, 234, 234, 0.50); 
+  }
 
-            /* Animation */
-            will-change: opacity;
-            animation: fadeIn 4.5s ease-out forwards;
-}
-
-/* Tint Layer */
 .tint {
     position: fixed;
     top: 0;
@@ -100,336 +81,145 @@ body, html {
     background-color: rgba(125, 115, 115, 0.36); /* Gray tint with 36% opacity */
     z-index: 1;
     overflow: hidden; /* Prevent overflow */
+    
 }
 
-/* Logo Placeholder */
-.header {
-    position: fixed;
-    top: 20px; /* Adjust spacing from the top */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+/* Title */
+.dashboard-title {
+    position: relative; /* Move the container to the middle vertically */
+    left: 100px; /* Move the container to the middle horizontally */
+    transform: translate(-50%, -50%); /* Center the container precisely */
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
     z-index: 2;
 }
 
-/*LOGO Placeholder and animation*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.logo-placeholder img {
+.dashboard-title img {
     width: 450px;
     height: auto;
     object-fit: contain; /* Maintain aspect ratio */
-    /*z-index: 2;  if needed only*/
-
-    /* Animation */
-    opacity: 0; /* Start invisible */
-    animation: fadeIn 2.5s ease-in forwards;
+    position: absolute; /* Allow precise positioning */ /* Move the image to the middle vertically */
+    top: 100%;
+    transform: translate(-50%, -50%); /* Center the image precisely */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .logo-placeholder img {
-        max-width: 150px; /* Smaller logo for mobile */
-    }
-}
-
-/*LOGO Placeholder and animation*/
-
-/* BASE OF THE WEBPAGE */
-
-/* MAIN CONTENT GOES HERE */
-
-/* Main Content Styling */
-.main-content {
+/* Category Section */
+.category-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh; /* Allow content to grow */
-    margin-top: 0;
-    position: relative;
-    gap: 50px; /* Space between items */
-    z-index: 1;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
+/* Items Section */
+.items-section {
+    width: 90%;
+    max-width: 1200px;
+    /*background: #fff;*/
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
 
-/* Group 29 Wrapper - Centered */
-.group-29 {
-    position: absolute;
-    margin-top: 230px;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Perfect center alignment */
-    display: flex;
-    flex-wrap: nowrap; /* Allow elements to stack on smaller screens */
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
+.items-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5a1e1e;
+    margin-bottom: 15px;
+}
+
+/* Search Box */
+.search-box {
     width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #c4c4c4;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.search-box:focus {
+    border-color: #b03a3a;
+    box-shadow: 0px 0px 8px rgba(176, 58, 58, 0.4);
+}
+
+/* Items Grid */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* Item Card */
+.item-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    white-space: nowrap; /* Prevents text from wrapping */
-    z-index: 1;
+    transition: 0.3s ease;
 }
 
-@keyframes slideRight {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.item-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-@keyframes slideLeft {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.item-card p {
+    font-size: 0.9rem;
+    color: #777;
 }
 
-.wild-text, .find-text {
-    will-change: transform, opacity;
+/* Retrieve Button */
+.retrieve-btn {
+    background: #b03a3a;
+    color: white;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
 }
 
-/* "WILD" Text */
-.wild-text {
-    font-size: 380px;
-    font-family: 'Luckiest Guy', cursive;
-    font-weight: 400;
-    color: rgba(241, 234, 234, 0.50);
-    position: relative;
-
-    /* Animation */
-    animation: slideRight 1s ease-out;
-    animation-delay: 0.3s; /* Delayed slightly */
+.retrieve-btn:hover {
+    background: #901f1f;
+    box-shadow: 0px 4px 8px rgba(144, 31, 31, 0.4);
 }
-
-/* "FIND" Text */
-.find-text {
-    font-size: 380px;
-    font-family: 'Luckiest Guy', cursive;
-    font-weight: 400;
-    color: rgba(241, 234, 234, 0.50);
-    position: relative;
-
-    /* Animation */
-    animation: slideLeft 2.5s ease-out;
-}
-
 
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
-    .find-text, .wild-text {
-        font-size: 200px; /* Smaller size for tablets */
-    }
-}
-
 @media (max-width: 768px) {
-    .find-text, .wild-text {
-        font-size: 150px; /* Smaller size for mobile */
+    .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .items-title {
+        font-size: 1.3rem;
     }
 }
 
-/*RECTANGLE*/
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
+@media (max-width: 480px) {
+    .dashboard-title {
+        font-size: 1.5rem;
     }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+
+    .search-box {
+        font-size: 0.9rem;
     }
-}
 
-.rectangle-55 {
-    will-change: transform, opacity;
-}
-
-.rectangle-55 {
-    position: absolute;
-    bottom: -30px;
-    width: 100vw;
-    height: 100vh;
-    max-height: 400.38px;
-    background: #F4EFEF;
-    box-shadow: -10px -76px 62.8px 18px rgba(0, 0, 0, 0.25) inset;
-    border-radius: 50px 50px 0 0;
-    margin-top: 50px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Animation */
-    animation: slideUp 3s ease-out;
-}
-
-/*RECTANGLE*/
-
-/*GROUP-30 TEXT WILDFIND INSIDE RECTANGLE*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start fully transparent */
-    }
-    to {
-        opacity: 1; /* Fully visible */
+    .retrieve-btn {
+        font-size: 0.9rem;
+        padding: 6px 10px;
     }
 }
-
-.group-30 {
-    position: absolute;
-    bottom: -250px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-end; /*this positions at the bottom of the screen*/
-    flex-direction: row;
-    text-align: center;
-    z-index: 2;
-                /* Animation */
-                will-change: opacity;
-                animation: fadeIn 3.5s ease-out forwards;
-}
-
-/* TEXT STYLES (Now Responsive) */
-.wild-text2, .find-text2 {
-    font-size: 300px; /* Scales with screen width */
-    font-family: 'Luckiest Guy', cursive;
-    font-weight: 400;
-    color: rgba(166, 166, 166, 0.105); /* Darker for better readability */
-    position: relative;
-}
-
-/* MEDIA QUERIES for Fine-Tuning */
-@media (max-width: 1024px) {
-    .wild-text2, .find-text2 {
-        font-size: 10vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .wild-text2, .find-text2 {
-        font-size: 12vw;
-    }
-}
-
-/*GROUP-30 TEXT WILDFIND INSIDE RECTANGLE*/
-
-/*BOTTOM_CRACK_RECTANGLE*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start fully transparent */
-    }
-    to {
-        opacity: 1; /* Fully visible */
-    }
-}
-
-.background-image-container3 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: auto; /* ✅ Adjust based on content */
-    min-height: 500px; /* ✅ Ensures visibility */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom; /* ✅ Ensures it's at the bottom */
-    display: flex;
-    align-content:flex-end;
-    align-items: center;
-    z-index: 2; /* ✅ Higher to avoid getting hidden */
-
-        /* Animation */
-        will-change: opacity;
-        animation: fadeIn 4.5s ease-out forwards;
-}
-
-
-/*BOTTOM_CRACK_RECTANGLE*/
-
-
-/* GRADIENT PLACEHOLDERS */
-
-@keyframes slideUpGradient {
-    from {
-        transform: translateY(100%); /* Start off-screen */
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0); /* Fully visible */
-        opacity: 1;
-    }
-}
-
-.gradient-placeholder {
-    position: absolute;
-    width: 100%;
-    height: auto; /* Adjusts based on content */
-    bottom: 0;
-    z-index: 4; /* Above the background but below the main content */
-    display: flex;
-    justify-content: center; /* Ensures the gradients align properly */
-    align-items: flex-end; /* Fixes them to the bottom */
-
-
-        /* Animation */
-        will-change: transform, opacity;
-        animation: slideUpGradient 3.5s ease-out forwards;
-}
-
-.gradient-placeholder img {
-    width: 100vw;  /* Full width of the viewport */
-    height: auto;  /* Maintain aspect ratio */
-    max-width: none; /* Prevents unnecessary constraints */
-    object-fit: cover; /* Ensures it fills the space properly */
-    opacity: 0.5; /* Adjust transparency if needed */
-    transform: scale(1.0); /* Slight scaling to ensure full coverage */
-}
-
-/* Positioning the gradients */
-.gradient1, .gradient2, .gradient3 {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    z-index: 2;
-}
-
-.gradient2 {
-    opacity: 0.75;
-}
-
-.gradient3 {
-    opacity: 1;
-}
-
-
-/* GRADIENT PLACEHOLDERS */
-
-
-/* MAIN CONTENT GOES HERE */

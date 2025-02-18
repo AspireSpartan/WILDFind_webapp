@@ -1,78 +1,60 @@
-// src/App.jsx
-import '../User_Dashboard/dashboard.css';
+import "./dashboard.css";
 import backgroundImage from '../../../assets/images/background-cit.png';
 import backgroundImage2 from '../../../assets/images/Header_Crack.png';
 import backgroundImage3 from '../../../assets/images/Bottom_Rectangle_Crack.png';
 import logoImage from '../../../assets/images/CITLOGO.png';
-import gradient1 from '../../../assets/images/gradient1.png';
-import gradient2 from '../../../assets/images/gradient2.png';
-import gradient3 from '../../../assets/images/gradient3.png';
 
-function App() {
+const Dashboard = ({ items = [] }) => {
   return (
-    <div className="app-container">
-        <div 
-          className="background-image-container"
-          style={{ backgroundImage: `url(${backgroundImage})` }} // Background image
-        >
-          {/* Move background-image-container2 outside of background-image-container */}
+    <div className="dashboard-container"> {/*main container*/}
+        
+        <div className="dashboard-title">
+          <img src={logoImage} alt="CIT Logo" className="logo-image" /> {/* Corrected Logo */}
         </div>
 
+
+      {/* Background Wrapper to prevent overlapping */}
+      <div className="background-wrapper">
         <div 
-          className="background-image-container2"
-          style={{ backgroundImage: `url(${backgroundImage2})` }} // Correct property
+          className="background-image-container"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
         ></div>
 
         <div className="tint"></div> {/* Tint overlay */}
 
-
-      <header className="header">
-      <div className="logo-placeholder">
-          <img src={logoImage} alt="CIT Logo" className="logo-image" /> {/* Corrected Logo */}
-        </div>
-      </header>
-
-      {/* Main Content with "Luckiest Guy" Font */}
-      <main className="main-content">
-        <div className="group-29">
-          <div className="wild-text">WILD</div>
-          <div className="find-text">FIND</div>
+        <div className="background-image-container2">
+          <img src={backgroundImage2} alt="header_crack" className="Header_Crack-img" />
+              <div className="group-29">
+              <div className="wild-text">WILD</div>
+              <div className="find-text">FIND</div>
+            </div>
         </div>
 
-        {/* RECTANGLE COMPONENT */}
-        <div data-layer="Rectangle 55" className="rectangle-55"></div>
-
-        <div className="group-30">
-          <div className="wild-text2">WILD</div>
-          <div className="find-text2">FIND</div>
+        <div>
+          {/*className="background-image-container3"*/}
+          {/*<img src={backgroundImage3} alt="bottom_rectangle" className="Bottom_Rectangle_Crack-img" />*/}
         </div>
+      </div>
 
+      <div className="items-section">
+        <h2 className="items-title">Items Lost</h2>
 
-
-        {/* GRADIENT PLACEHOLDERS */}
-        <div className="gradient-placeholder gradient1">
-          <img src={gradient1} alt="Gradient 1" />
+        <div className="items-grid">
+          {items.length > 0 ? (
+            items.map((item) => (
+              <div key={item.id} className="item-card">
+                <h3>{item.name}</h3>
+                <p>Device: {item.device || "Unknown"}</p>
+                <button className="retrieve-btn">Retrieve</button>
+              </div>
+            ))
+          ) : (
+            <p className="no-items">No items found.</p>
+          )}
         </div>
-        <div className="gradient-placeholder gradient2">
-          <img src={gradient2} alt="Gradient 2" />
-        </div>
-        <div className="gradient-placeholder gradient3">
-          <img src={gradient3} alt="Gradient 3" />
-        </div>
-
-      </main>
-
-      <div 
-          className="background-image-container3"
-          style={{ backgroundImage: `url(${backgroundImage3})` }} // ✅ Corrected property name
-        ></div>
-
-      <footer className="footer">
-        {/* Your footer content */}
-        {/*<p>&copy; 2024 My Website</p>*/}
-      </footer>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default Dashboard;
