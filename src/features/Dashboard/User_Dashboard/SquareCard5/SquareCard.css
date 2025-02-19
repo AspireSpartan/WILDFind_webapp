@@ -1,0 +1,78 @@
+.square-card {
+    width: 100%; /* Allows it to stretch inside grid */
+    max-width: 193px; /* Prevents excessive width */
+    min-height: 187px; /* Ensures it doesn't shrink too much */
+    height: auto; /* Allows card to expand dynamically */
+    background: #f3eded;
+    box-shadow: 2px 0px 5.9px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between; /* Keeps button at the bottom */
+    align-self: start; /* Prevents grid from forcing equal heights */
+    overflow: hidden;
+}
+  
+.square-card-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ensures it expands when needed */
+}
+  
+.square-card-title {
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Afacad", sans-serif;
+    margin-bottom: 5px;
+    word-wrap: break-word; /* Prevents text from breaking layout */
+}
+
+  
+.square-card-device {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Afacad", sans-serif;
+}
+
+
+/* Keeps button at bottom even when text expands */
+.square-card-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Pushes the button to the bottom */
+    padding-bottom: 10px;
+}
+
+.square-card-button {
+    width: 91px;
+    height: 31px;
+    background: #702121;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-family: "Basic", sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.square-card-button:hover {
+    background: #901f1f;
+}
+
+/* Image Icon */
+.square-card-icon {
+    width: 34px;
+    height: 49px;
+    position: absolute;
+    top: 22px;
+    right: 15px;
+}
+  

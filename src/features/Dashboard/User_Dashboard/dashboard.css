@@ -32,7 +32,7 @@
 
 .background-image-container2{
   position: relative; /* or absolute/fixed, depending on your needs */
-  top: 35px;
+  top: 0px;
   width: 100%; /* Adjust as needed */
   height: 100%; /* Adjust as needed or 500px*/
   overflow: hidden; /* Ensures the image doesn't overflow the container */
@@ -82,7 +82,7 @@
     gap: 20px; /* Space between cards */
     width: 100%; /* Ensures they stretch across */
     position: absolute; /* So it doesn't mess with child positioning */
-    top: 120px;
+    top: 90px;
     z-index: 3;
 
 }
@@ -113,7 +113,7 @@
 .dashboard-title img {
     width: 450px;
     height: auto;
-    object-fit: contain; /* Maintain aspect ratio */
+    object-fit:contain; /* Maintain aspect ratio */
     position: absolute; /* Allow precise positioning */ /* Move the image to the middle vertically */
     top: 100%;
     transform: translate(-50%, -50%); /* Center the image precisely */
@@ -129,32 +129,48 @@
 
 /* Items Section */
 .items-section {
-    width: 90%;
-    max-width: 1200px;
-    /*background: #fff;*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1437px;
+    background: #fff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
+    /*min-height: 100vh;  /Ensures it doesn't shrink */
+    height: auto; /* Allows expansion */
+    overflow: hidden; /* Let it expand when needed */
 }
 
+/* Header Container (Title + Search Box) */
+.items-header {
+    display: flex;
+    justify-content: space-between; /* Title on left, search box on right */
+    align-items: center;
+    width: 100%;
+    padding: 0 100px;
+    margin-bottom: 15px; /* Space between header and items-grid */
+}
+
+
+/* Title */
 .items-title {
+    padding-left: 20px;
     font-size: 1.5rem;
     font-weight: bold;
     color: #5a1e1e;
-    margin-bottom: 15px;
+    margin: 0;
+    flex-shrink: 0; /* Prevents shrinking */
 }
 
 /* Search Box */
 .search-box {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 2px solid #c4c4c4;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    outline: none;
-    transition: 0.3s ease;
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Takes up remaining space */
+    justify-content: flex-end; /* Pushes it to the right */
 }
 
 .search-box:focus {
@@ -162,51 +178,19 @@
     box-shadow: 0px 0px 8px rgba(176, 58, 58, 0.4);
 }
 
-/* Items Grid */
 .items-grid {
+    padding-top: 80px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-flow: row; /* Ensures items are placed in rows */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates flexible columns */
     gap: 15px;
+    justify-content: center;
+    align-items: stretch; /* Ensures child items stretch vertically */
+    width: 100%;
+    padding-bottom: 100px;
 }
 
-/* Item Card */
-.item-card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: 0.3s ease;
-}
 
-.item-card h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.item-card p {
-    font-size: 0.9rem;
-    color: #777;
-}
-
-/* Retrieve Button */
-.retrieve-btn {
-    background: #b03a3a;
-    color: white;
-    padding: 8px 12px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    margin-top: 10px;
-}
-
-.retrieve-btn:hover {
-    background: #901f1f;
-    box-shadow: 0px 4px 8px rgba(144, 31, 31, 0.4);
-}
 
 
 /* Responsive Adjustments */
