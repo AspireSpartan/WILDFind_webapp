@@ -64,6 +64,9 @@
     font-family: 'Luckiest Guy', cursive;
     font-weight: 400;
     color: rgba(241, 234, 234, 0.50);
+
+    opacity: 0; /* Start hidden */
+    animation: slideRight 1.5s ease-out 0.5s forwards; /* Delayed start */
   }
   
   .find-text {
@@ -71,7 +74,45 @@
     font-family: 'Luckiest Guy', cursive;
     font-weight: 400;
     color: rgba(241, 234, 234, 0.50); 
+
+    opacity: 0; /* Start hidden */
+    animation: slideLeft 1.5s ease-out 0.5s forwards; /* Delayed start */
   }
+
+  /* Slide Right Animation */
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide Left Animation */
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
   .group-component {
     display: flex;
@@ -85,6 +126,9 @@
     top: 90px;
     z-index: 3;
 
+        /* Animation */
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out 1.8s forwards; /* Delayed start */
 }
 
 .tint {
@@ -127,6 +171,30 @@
     margin-bottom: 30px;
 }
 
+/* Slide-up Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-right Animation */
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Items Section */
 .items-section {
     display: flex;
@@ -138,10 +206,13 @@
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
-    /*min-height: 100vh;  /Ensures it doesn't shrink */
-    height: auto; /* Allows expansion */
-    overflow: hidden; /* Let it expand when needed */
+    height: auto;
+    overflow: hidden;
+
+    /* Slide-up animation */
+    animation: slideUp 1.5s ease-out forwards;
 }
+
 
 /* Header Container (Title + Search Box) */
 .items-header {
@@ -162,6 +233,9 @@
     color: #5a1e1e;
     margin: 0;
     flex-shrink: 0; /* Prevents shrinking */
+
+    /* Slide-right animation AFTER slideUp finishes */
+    animation: slideRight 1.2s ease-out 1.5s forwards;
 }
 
 /* Search Box */
@@ -171,6 +245,9 @@
     align-items: center;
     flex-grow: 1; /* Takes up remaining space */
     justify-content: flex-end; /* Pushes it to the right */
+
+    /* Slide-right animation AFTER items-title */
+    animation: slideRight 1.2s ease-out 1.8s forwards;
 }
 
 .search-box:focus {
@@ -188,6 +265,9 @@
     align-items: stretch; /* Ensures child items stretch vertically */
     width: 100%;
     padding-bottom: 100px;
+
+        /* Slide-up animation */
+        animation: slideUp 1.5s ease-out forwards;
 }
 
 

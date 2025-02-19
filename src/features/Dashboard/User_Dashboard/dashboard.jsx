@@ -13,14 +13,14 @@ import Card7 from './Cards/Card7/Card'; // ✅ Corrected import
 import Card8 from './Cards/Card8/Card'; // ✅ Corrected import
 import Card9 from './Cards/Card9/Card'; // ✅ Corrected import
 import SearchBox from '../User_Dashboard/SearchBox/SearchBox'; // ✅ Capitalized properly
-import SquareCard1 from './SquareCard1/SquareCard'; // ✅ Capitalized properly
-import SquareCard2 from './SquareCard2/SquareCard'; // ✅ Capitalized properly
-import SquareCard3 from './SquareCard3/SquareCard'; // ✅ Capitalized properly
-import SquareCard4 from './SquareCard4/SquareCard'; // ✅ Capitalized properly
-import SquareCard5 from './SquareCard5/SquareCard'; // ✅ Capitalized properly
-import SquareCard6 from './SquareCard6/SquareCard'; // ✅ Capitalized properly
-import SquareCard7 from './SquareCard7/SquareCard'; // ✅ Capitalized properly
-import SquareCard8 from './SquareCard8/SquareCard'; // ✅ Capitalized properly
+import SquareCard1 from './SquareCard/SquareCard1/SquareCard'; // ✅ Capitalized properly
+import SquareCard2 from './SquareCard/SquareCard2/SquareCard'; // ✅ Capitalized properly
+import SquareCard3 from './SquareCard/SquareCard3/SquareCard'; // ✅ Capitalized properly
+import SquareCard4 from './SquareCard/SquareCard4/SquareCard'; // ✅ Capitalized properly
+import SquareCard5 from './SquareCard/SquareCard5/SquareCard'; // ✅ Capitalized properly
+import SquareCard6 from './SquareCard/SquareCard6/SquareCard'; // ✅ Capitalized properly
+import SquareCard7 from './SquareCard/SquareCard7/SquareCard'; // ✅ Capitalized properly
+import SquareCard8 from './SquareCard/SquareCard8/SquareCard'; // ✅ Capitalized properly
 
 
 const Dashboard = ({ items = [] }) => {
