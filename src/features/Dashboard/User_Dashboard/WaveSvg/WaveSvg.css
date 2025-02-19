@@ -1,0 +1,24 @@
+.wave-svg {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    overflow: hidden; /* Keeps everything inside */
+  }
+  
+  /* Optional Animation (Fade-in & Slide-up) */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .wave-svg {
+    opacity: 0;
+    animation: fadeSlideUp 1.5s ease-out forwards;
+  }
+  

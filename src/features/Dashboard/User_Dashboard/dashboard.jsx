@@ -3,24 +3,25 @@ import backgroundImage from '../../../assets/images/background-cit.png';
 import backgroundImage2 from '../../../assets/images/Header_Crack.png';
 import backgroundImage3 from '../../../assets/images/Bottom_Rectangle_Crack.png';
 import logoImage from '../../../assets/images/CITLOGO.png';
-import Card1 from './Cards/Card1/Card'; // ✅ Corrected import
-import Card2 from './Cards/Card2/Card'; // ✅ Corrected import
-import Card3 from './Cards/Card3/Card'; // ✅ Corrected import
-import Card4 from './Cards/Card4/Card'; // ✅ Corrected import
-import Card5 from './Cards/Card5/Card'; // ✅ Corrected import
-import Card6 from './Cards/Card6/Card'; // ✅ Corrected import
-import Card7 from './Cards/Card7/Card'; // ✅ Corrected import
-import Card8 from './Cards/Card8/Card'; // ✅ Corrected import
-import Card9 from './Cards/Card9/Card'; // ✅ Corrected import
-import SearchBox from '../User_Dashboard/SearchBox/SearchBox'; // ✅ Capitalized properly
-import SquareCard1 from './SquareCard/SquareCard1/SquareCard'; // ✅ Capitalized properly
-import SquareCard2 from './SquareCard/SquareCard2/SquareCard'; // ✅ Capitalized properly
-import SquareCard3 from './SquareCard/SquareCard3/SquareCard'; // ✅ Capitalized properly
-import SquareCard4 from './SquareCard/SquareCard4/SquareCard'; // ✅ Capitalized properly
-import SquareCard5 from './SquareCard/SquareCard5/SquareCard'; // ✅ Capitalized properly
-import SquareCard6 from './SquareCard/SquareCard6/SquareCard'; // ✅ Capitalized properly
-import SquareCard7 from './SquareCard/SquareCard7/SquareCard'; // ✅ Capitalized properly
-import SquareCard8 from './SquareCard/SquareCard8/SquareCard'; // ✅ Capitalized properly
+import Card1 from './Cards/Card1/Card'; 
+import Card2 from './Cards/Card2/Card'; 
+import Card3 from './Cards/Card3/Card'; 
+import Card4 from './Cards/Card4/Card'; 
+import Card5 from './Cards/Card5/Card'; 
+import Card6 from './Cards/Card6/Card'; 
+import Card7 from './Cards/Card7/Card'; 
+import Card8 from './Cards/Card8/Card'; 
+import Card9 from './Cards/Card9/Card'; 
+import SearchBox from '../User_Dashboard/SearchBox/SearchBox'; 
+import SquareCard1 from './SquareCard/SquareCard1/SquareCard'; 
+import SquareCard2 from './SquareCard/SquareCard2/SquareCard'; 
+import SquareCard3 from './SquareCard/SquareCard3/SquareCard'; 
+import SquareCard4 from './SquareCard/SquareCard4/SquareCard'; 
+import SquareCard5 from './SquareCard/SquareCard5/SquareCard'; 
+import SquareCard6 from './SquareCard/SquareCard6/SquareCard'; 
+import SquareCard7 from './SquareCard/SquareCard7/SquareCard'; 
+import SquareCard8 from './SquareCard/SquareCard8/SquareCard'; 
+import WaveSvg from './WaveSvg/WaveSvg'; 
 
 
 const Dashboard = ({ items = [] }) => {
@@ -44,6 +45,11 @@ const Dashboard = ({ items = [] }) => {
           <div className="group-29">
             <div className="wild-text">WILD</div>
             <div className="find-text">FIND</div>
+          </div>
+
+          <div className="FindYourLostItem">
+            <div className="find-your-lost-items">Find your lost items</div>
+            <div className="lost-item-each-category">Lost item each category</div>
           </div>
 
           <div className="group-component">
@@ -95,12 +101,15 @@ const Dashboard = ({ items = [] }) => {
           </div>
         </div>
       </div>
-      {/* Uncomment this section if needed */}
-      {/* <div className="background-image-container3">
-        <img src={backgroundImage3} alt="bottom_rectangle" className="Bottom_Rectangle_Crack-img" />
-      </div> */}
 
       <div className="items-section">
+        <div className="background-image-container3">
+          <img src={backgroundImage3} alt="bottom_rectangle" className="Bottom_Rectangle_Crack-img" />
+        </div> 
+        <div className="Wave_Svg">
+        <WaveSvg />
+        </div>
+
         <div className="items-header">
           <h2 className="items-title">Items Lost</h2>
           <div className="search-box">
@@ -111,37 +120,37 @@ const Dashboard = ({ items = [] }) => {
         <div className="items-grid">
           {/* square components render here */}
           <SquareCard1 
-            title="Assault Rifle" 
+            title="Title" 
             deviceId="01" 
             imageSrc="https://placehold.co/31x45"
             onRetrieve={() => console.log("Retrieve button clicked")}
           />
           <SquareCard2 
-            title="Sniper Rifle" 
+            title="Title" 
             deviceId="02" 
             imageSrc="https://placehold.co/31x45"
             onRetrieve={() => console.log("Retrieve button clicked")}
           />
           <SquareCard3 
-            title="Machine Gun" 
+            title="Title" 
             deviceId="03" 
             imageSrc="https://placehold.co/31x45"
             onRetrieve={() => console.log("Retrieve button clicked")}
           />
           <SquareCard4 
-            title="Submachine Gun" 
+            title="Title" 
             deviceId="03" 
             imageSrc="https://placehold.co/31x45"
             onRetrieve={() => console.log("Retrieve button clicked")}
           />
           <SquareCard5 
-            title="Side Arm: Pistol" 
+            title="Title" 
             deviceId="04" 
             imageSrc="https://placehold.co/31x45"
             onRetrieve={() => console.log("Retrieve button clicked")}
           />
           <SquareCard6 
-            title="Tac-Eqpment" 
+            title="Title" 
             deviceId="05" 
             imageSrc="https://placehold.co/31x45"
             onRetrieve={() => console.log("Retrieve button clicked")}

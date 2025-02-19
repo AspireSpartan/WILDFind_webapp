@@ -1,5 +1,8 @@
 /* General Page Styling */
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad&family=Anton&display=swap');
+
 .dashboard-container {
     display: flex;
     flex-direction: column;
@@ -114,6 +117,42 @@
     }
 }
 
+.FindYourLostItem {
+    position: absolute; /* Keeps it in the same spot regardless of zoom */
+    top: 5vh; /* Relative to the viewport height */
+    left: 3vw; /* Relative to the viewport width */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    z-index: 3; /* Ensures it stays on top */
+    opacity: 0;
+    /* Slide-right animation AFTER slideUp finishes */
+    animation: slideRight 1.2s ease-in-out 1.8s forwards;
+}
+
+.find-your-lost-items {
+    text-align: center;
+    color: #702121;
+    font-size: 40px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.lost-item-each-category{ 
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    opacity: 0.7;
+    width: 134.86px;
+    height: 19.34px;
+}
+
   .group-component {
     display: flex;
     flex-wrap: nowrap;
@@ -123,7 +162,7 @@
     gap: 20px; /* Space between cards */
     width: 100%; /* Ensures they stretch across */
     position: absolute; /* So it doesn't mess with child positioning */
-    top: 90px;
+    top: 130px;
     z-index: 3;
 
         /* Animation */
@@ -200,9 +239,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1437px;
+    max-width: 1499px;
     background: #fff;
-    padding: 20px;
+    padding: 8px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
@@ -211,6 +250,39 @@
 
     /* Slide-up animation */
     animation: slideUp 1.5s ease-out forwards;
+}
+
+/* Items Section 
+.items-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1499px;
+    background: #fff;
+    padding: 1px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: auto;
+    overflow: hidden;
+
+    animation: slideUp 1.5s ease-out forwards;
+}*/
+
+
+.background-image-container3{
+    position: absolute; /* or absolute/fixed, depending on your needs */
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed or 500px*/
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+}
+
+.Bottom_Rectangle_Crack-img {
+    padding-top: 50px;
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container */
+    margin-bottom: 140px;
 }
 
 
@@ -227,27 +299,34 @@
 
 /* Title */
 .items-title {
+    padding-top: 10px;
     padding-left: 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #5a1e1e;
+    text-align: center;
+    color: #702121;
+    font-size: 40px;
+    font-family: 'Anton', sans-serif; /* Anton SC is not available, using Anton */
+    font-weight: 400;
+    word-wrap: break-word;
     margin: 0;
     flex-shrink: 0; /* Prevents shrinking */
 
     /* Slide-right animation AFTER slideUp finishes */
-    animation: slideRight 1.2s ease-out 1.5s forwards;
+    opacity: 0;
+    animation: slideRight 1.2s ease-in-out 1.10s forwards;
 }
 
 /* Search Box */
 .search-box {
+    padding-top: 20px;
     padding-left: 100px;
     display: flex;
     align-items: center;
     flex-grow: 1; /* Takes up remaining space */
     justify-content: flex-end; /* Pushes it to the right */
 
+    opacity: 0;
     /* Slide-right animation AFTER items-title */
-    animation: slideRight 1.2s ease-out 1.8s forwards;
+    animation: slideRight 1.2s ease-in-out 1.10s forwards;
 }
 
 .search-box:focus {
@@ -260,17 +339,22 @@
     display: grid;
     grid-auto-flow: row; /* Ensures items are placed in rows */
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates flexible columns */
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
     align-items: stretch; /* Ensures child items stretch vertically */
     width: 100%;
     padding-bottom: 100px;
 
         /* Slide-up animation */
-        animation: slideUp 1.5s ease-out forwards;
+        opacity: 0;
+        animation: slideUp 1.5s ease-in-out 1.20s forwards;
 }
 
-
+.Wave_Svg{
+    left: 0px;
+    position: absolute;
+    bottom: 0px;
+}
 
 
 /* Responsive Adjustments */
