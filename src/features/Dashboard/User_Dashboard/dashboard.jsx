@@ -81,6 +81,12 @@ const Dashboard = () => {
         <div className="background-image-container3">
           <img src={backgroundImage3} alt="bottom_rectangle" className="Bottom_Rectangle_Crack-img" />
         </div> 
+
+          <div className="wildfind-container2">
+            <div className="wild-text2">WILD</div>
+            <div className="find-text2">fiND</div>
+          </div>
+
         <div className={`rectangle-container ${isHidden ? "hidden" : ""}`}>
           <FloatBox />
         </div>

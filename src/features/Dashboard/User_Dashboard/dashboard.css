@@ -252,24 +252,6 @@
     animation: slideUp 1.5s ease-out forwards;
 }
 
-/* Items Section 
-.items-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1499px;
-    background: #fff;
-    padding: 1px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-    height: auto;
-    overflow: hidden;
-
-    animation: slideUp 1.5s ease-out forwards;
-}*/
-
-
 .background-image-container3{
     position: absolute; /* or absolute/fixed, depending on your needs */
     width: 100%; /* Adjust as needed */
@@ -284,6 +266,35 @@
     object-fit: cover; /* Ensures the image covers the container */
     margin-bottom: 140px;
 }
+
+/*wildfind inside the items-section*/
+.wildfind-container2 {
+    width: 2336px;
+    height: 339.29px;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .wild-text2, .find-text2 {
+    display: block;
+    width: 1168px;
+    height: 273.29px;
+    position: absolute;
+    color: rgba(241, 234, 234, 0.5);
+    font-size: 400px;
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+  }
+  
+  .wild-text2 {
+    left: -150px;
+    top: -70px;
+  }
+  
+  .find-text2 {
+    left: 750px;
+    top: -70px;
+  }
 
 
 /* Header Container (Title + Search Box) */
@@ -395,3 +406,5 @@
         padding: 6px 10px;
     }
 }
+
+

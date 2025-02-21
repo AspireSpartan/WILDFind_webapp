@@ -1,4 +1,4 @@
-.square-card {
+.square-card {  
     width: 100%;
     max-width: 150px; /* Controlled width */
     max-height: 187px; /* Prevents shrinking too much */
