@@ -10,8 +10,8 @@ import WaveSvg from './WaveSvg/WaveSvg';
 import FloatBox from './Floater/RectangleCard'; 
 import SearchBox from './SearchBox/SearchBox'; 
 
-const Dashboard = ({ items = [] }) => {
-  const [isHidden, setIsHidden] = useState(false);
+const Dashboard = () => {
+  const [isHidden, setIsHidden] = useState(true); // Start hidden
 
   const toggleOpacity = () => {
     setIsHidden((prev) => !prev);
@@ -81,9 +81,9 @@ const Dashboard = ({ items = [] }) => {
         <div className="background-image-container3">
           <img src={backgroundImage3} alt="bottom_rectangle" className="Bottom_Rectangle_Crack-img" />
         </div> 
-          <div className={`RectangleCard ${isHidden ? "hidden" : ""}`}>
-            <FloatBox />
-          </div>
+        <div className={`rectangle-container ${isHidden ? "hidden" : ""}`}>
+          <FloatBox />
+        </div>
         <div className="Wave_Svg">
         <WaveSvg />
         </div>
