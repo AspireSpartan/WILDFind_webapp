@@ -338,16 +338,25 @@
     padding-top: 80px;
     display: grid;
     grid-auto-flow: row; /* Ensures items are placed in rows */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates flexible columns */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1rem)); /* Creates flexible columns */
+    gap: 30px;
     justify-content: center;
     align-items: stretch; /* Ensures child items stretch vertically */
     width: 100%;
     padding-bottom: 100px;
+    justify-items: center;
+    
 
-        /* Slide-up animation */
-        opacity: 0;
-        animation: slideUp 1.5s ease-in-out 1.20s forwards;
+    /* Slide-up animation */
+    opacity: 0;
+    animation: slideUp 1.5s ease-in-out 1.20s forwards;
+}
+
+/* Blur effect on other square cards when one is hovered */
+.items-grid:hover .square-card:not(:hover) {
+    filter: blur(3px);
+    opacity: 0.5;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .Wave_Svg{

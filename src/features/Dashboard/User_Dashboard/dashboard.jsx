@@ -1,30 +1,46 @@
 import "./dashboard.css";
+import React, { useState } from "react";
 import backgroundImage from '../../../assets/images/background-cit.png';
 import backgroundImage2 from '../../../assets/images/Header_Crack.png';
 import backgroundImage3 from '../../../assets/images/Bottom_Rectangle_Crack.png';
 import logoImage from '../../../assets/images/CITLOGO.png';
-import Card1 from './Cards/Card1/Card'; 
-import Card2 from './Cards/Card2/Card'; 
-import Card3 from './Cards/Card3/Card'; 
-import Card4 from './Cards/Card4/Card'; 
-import Card5 from './Cards/Card5/Card'; 
-import Card6 from './Cards/Card6/Card'; 
-import Card7 from './Cards/Card7/Card'; 
-import Card8 from './Cards/Card8/Card'; 
-import Card9 from './Cards/Card9/Card'; 
-import SearchBox from '../User_Dashboard/SearchBox/SearchBox'; 
-import SquareCard1 from './SquareCard/SquareCard1/SquareCard'; 
-import SquareCard2 from './SquareCard/SquareCard2/SquareCard'; 
-import SquareCard3 from './SquareCard/SquareCard3/SquareCard'; 
-import SquareCard4 from './SquareCard/SquareCard4/SquareCard'; 
-import SquareCard5 from './SquareCard/SquareCard5/SquareCard'; 
-import SquareCard6 from './SquareCard/SquareCard6/SquareCard'; 
-import SquareCard7 from './SquareCard/SquareCard7/SquareCard'; 
-import SquareCard8 from './SquareCard/SquareCard8/SquareCard'; 
+import Card from './Cards/Card'; 
+import SquareCard from './SquareCards/SquareCard'; 
 import WaveSvg from './WaveSvg/WaveSvg'; 
-
+import FloatBox from './Floater/RectangleCard'; 
+import SearchBox from './SearchBox/SearchBox'; 
 
 const Dashboard = ({ items = [] }) => {
+  const [isHidden, setIsHidden] = useState(false);
+
+  const toggleOpacity = () => {
+    setIsHidden((prev) => !prev);
+  };
+
+  const cardData = [
+    { title: "Category 1", count: "01", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 2", count: "02", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 3", count: "03", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 4", count: "04", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 5", count: "05", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 6", count: "06", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 7", count: "07", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 8", count: "08", imageSrc: "https://placehold.co/90x90" },
+    { title: "Category 9", count: "09", imageSrc: "https://placehold.co/90x90" },
+  ];
+
+  const squareCardData = [
+    { title: "Title", deviceId: "01", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "02", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "03", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "04", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "05", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "06", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "07", imageSrc: "https://placehold.co/31x45" },
+    { title: "Title", deviceId: "08", imageSrc: "https://placehold.co/31x45" },
+
+  ];
+
   return (
     <div className="dashboard-container"> {/* Main container */}
       <div className="dashboard-title">
@@ -53,52 +69,11 @@ const Dashboard = ({ items = [] }) => {
           </div>
 
           <div className="group-component">
-          <Card1 
-          title="Title" 
-          count="01" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card2 
-          title="Title" 
-          count="02" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card3 
-          title="Title" 
-          count="03" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card4 
-          title="Title" 
-          count="04" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card5 
-          title="Title" 
-          count="05" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card6 
-          title="Title" 
-          count="06" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card7 
-          title="Title" 
-          count="07" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card8 
-          title="Title" 
-          count="08" 
-          imageSrc="https://placehold.co/90x90" 
-          />
-          <Card9 
-          title="Title" 
-          count="09" 
-          imageSrc="https://placehold.co/90x90" 
-          />
+            {cardData.map((card, index) => (
+              <Card key={index} {...card} />
+            ))}
           </div>
+
         </div>
       </div>
 
@@ -106,6 +81,9 @@ const Dashboard = ({ items = [] }) => {
         <div className="background-image-container3">
           <img src={backgroundImage3} alt="bottom_rectangle" className="Bottom_Rectangle_Crack-img" />
         </div> 
+          <div className={`RectangleCard ${isHidden ? "hidden" : ""}`}>
+            <FloatBox />
+          </div>
         <div className="Wave_Svg">
         <WaveSvg />
         </div>
@@ -113,62 +91,15 @@ const Dashboard = ({ items = [] }) => {
         <div className="items-header">
           <h2 className="items-title">Items Lost</h2>
           <div className="search-box">
-            <SearchBox />
+          <SearchBox toggleOpacity={toggleOpacity} />
           </div>
         </div>
 
         <div className="items-grid">
-          {/* square components render here */}
-          <SquareCard1 
-            title="Title" 
-            deviceId="01" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          <SquareCard2 
-            title="Title" 
-            deviceId="02" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          <SquareCard3 
-            title="Title" 
-            deviceId="03" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          <SquareCard4 
-            title="Title" 
-            deviceId="03" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          <SquareCard5 
-            title="Title" 
-            deviceId="04" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          <SquareCard6 
-            title="Title" 
-            deviceId="05" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          {/* <SquareCard7
-            title="Laptop" 
-            deviceId="00" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          />
-          <SquareCard8
-            title="Laptop" 
-            deviceId="00" 
-            imageSrc="https://placehold.co/31x45"
-            onRetrieve={() => console.log("Retrieve button clicked")}
-          /> */}
-            
-        </div>
+          {squareCardData.map((squareCard, index) => (
+            <SquareCard key={index} {...squareCard} onRetrieve={() => console.log("Retrieve button clicked")} />
+          ))}
+        </div>;
       </div>
     </div>
   );

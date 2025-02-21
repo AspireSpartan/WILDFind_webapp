@@ -1,7 +1,9 @@
-import React from 'react';
 import "./SearchBox.css";
+import React from "react";
+import FloatBox from '../Floater/RectangleCard'; 
 
-const SearchBox = () => {
+const SearchBox = ({ toggleOpacity }) => {
+
   return (
     <div className="search-bar">
       <div className="search-container">
@@ -28,7 +30,7 @@ const SearchBox = () => {
         </div>
 
         {/* Filter Icon */}
-        <div className="filter-icon">
+        <div className="filter-icon" onClick={toggleOpacity}>
           <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_286_151)">
               <path
