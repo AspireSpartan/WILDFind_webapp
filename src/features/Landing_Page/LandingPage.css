@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,400;1,400&display=swap');
+
+/* 🔹 Background Wrapper */
+.background-wrapperv2 {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* 🔹 Background Image with Fade-in */
+.background-cit-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeInBg 1.8s ease-out forwards;
+}
+
+/* 🔹 Main Content (Smooth Slide-in) */
+.Frame10 {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    animation: slideFadeIn 1.5s ease-out 0.5s forwards;
+}
+
+/* 🔹 Wildcats Wildfind */
+.WildcatsWildfind {
+    font-family: "Anton", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.wildcats-text {
+    color: #702121;
+    font-size: 4.5vw;
+}
+
+.wildfind-text {
+    margin-left: 5px;
+    color: #D0B10A;
+    font-size: 4.5vw;
+}
+
+/* 🔹 Welcome Teknoy */
+.WelcomeTeknoy {
+    font-size: 2.5vw;
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    color: black;
+}
+
+/* 🔹 Lost Something Description */
+.LostSomething {
+    font-size: 2vw;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: black;
+    max-width: 90%;
+}
+
+/* 🔹 Button (Fixed & Animated) */
+.button {
+    position: absolute;
+    top: 65vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1.2s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🔹 Button Hover Effect */
+.button:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Animations */
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideFadeIn {
+    from { opacity: 0; transform: translate(-50%, -30%); }
+    to { opacity: 1; transform: translate(-50%, -100%); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 🔹 Tablet (768px and below) */
+@media (max-width: 768px) {
+    .Frame10 {
+        width: 90%;
+        top: 45%;
+    }
+
+    .wildcats-text, .wildfind-text {
+        font-size: 6vw;
+    }
+
+    .WelcomeTeknoy {
+        font-size: 4vw;
+    }
+
+    .LostSomething {
+        font-size: 3vw;
+    }
+}
+
+/* 🔹 Mobile (480px and below) */
+@media (max-width: 480px) {
+    .Frame10 {
+        width: 95%;
+        top: 45%;
+    }
+
+    .wildcats-text, .wildfind-text {
+        font-size: 7vw;
+    }
+
+    .WelcomeTeknoy {
+        font-size: 5vw;
+    }
+
+    .LostSomething {
+        font-size: 3.5vw;
+    }
+}
