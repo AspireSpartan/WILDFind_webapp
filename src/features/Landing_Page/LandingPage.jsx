@@ -37,7 +37,7 @@ const LandingPage = () => {
                     </div>
             </div>
             <div className="button">
-            <LandingPagebtn onClick={() => navigate("/dashboard")} /> {/* ✅ Navigate on click */}
+            <LandingPagebtn onClick={() => navigate("/contact-us")} /> {/* ✅ Navigate on click */}
             </div>
         </div>
   );
