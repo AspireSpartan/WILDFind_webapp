@@ -24,6 +24,8 @@ const LandingPage = () => {
             </div>
         
             <div className="Frame10">
+              <div className="squarefloat"></div>
+                
                 <div className="WildcatsWildfind">
                     <span className="wildcats-text">WILDCATS:</span>
                     <span className="wildfind-text">WILDFIND</span>
