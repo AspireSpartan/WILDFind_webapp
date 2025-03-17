@@ -30,14 +30,14 @@ const Dashboard = () => {
   ];
 
   const squareCardData = [
-    { title: "Title", deviceId: "01", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "02", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "03", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "04", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "05", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "06", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "07", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "08", imageSrc: "https://placehold.co/31x45" },
+    { title: "Phone", deviceId: "01", imageSrc: "https://placehold.co/31x45" },
+    { title: "Laptop", deviceId: "02", imageSrc: "https://placehold.co/31x45" },
+    { title: "Arduino", deviceId: "03", imageSrc: "https://placehold.co/31x45" },
+    { title: "Breadboard", deviceId: "04", imageSrc: "https://placehold.co/31x45" },
+    { title: "RJ45", deviceId: "05", imageSrc: "https://placehold.co/31x45" },
+    { title: "Tumbler", deviceId: "06", imageSrc: "https://placehold.co/31x45" },
+    { title: "Book", deviceId: "07", imageSrc: "https://placehold.co/31x45" },
+    { title: "Mouse", deviceId: "08", imageSrc: "https://placehold.co/31x45" },
 
   ];
 
