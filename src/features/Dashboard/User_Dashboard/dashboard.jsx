@@ -4,6 +4,15 @@ import backgroundImage from '../../../assets/images/background-cit.png';
 import backgroundImage2 from '../../../assets/images/Header_Crack.png';
 import backgroundImage3 from '../../../assets/images/Bottom_Rectangle_Crack.png';
 import logoImage from '../../../assets/images/CITLOGO.png';
+import image1 from '../../../assets/images/Multiple Devices.jpg';
+import image2 from '../../../assets/images/Jumper.jpg';
+import image3 from '../../../assets/images/Shopping Bag Full.jpg';
+import image4 from '../../../assets/images/Name Tag.jpg';
+import image5 from '../../../assets/images/Sports Teams.jpg';
+import image6 from '../../../assets/images/Medical ID.jpg';
+import image7 from '../../../assets/images/Bracelet.jpg';
+import image8 from '../../../assets/images/Family.jpg';
+import image9 from '../../../assets/images/More.jpg';
 import Card from './Cards/Card'; 
 import SquareCard from './SquareCards/SquareCard'; 
 import WaveSvg from './WaveSvg/WaveSvg'; 
@@ -18,15 +27,15 @@ const Dashboard = () => {
   };
 
   const cardData = [
-    { title: "Category 1", count: "01", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 2", count: "02", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 3", count: "03", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 4", count: "04", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 5", count: "05", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 6", count: "06", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 7", count: "07", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 8", count: "08", imageSrc: "https://placehold.co/90x90" },
-    { title: "Category 9", count: "09", imageSrc: "https://placehold.co/90x90" },
+    { title: "Electronics", count: "01", imageSrc: image1 },
+    { title: "Clothing & Wearables", count: "02", imageSrc: image2 },
+    { title: "Bags & Containers", count: "03", imageSrc: image3 },
+    { title: "Documents & ID's", count: "04", imageSrc: image4 },
+    { title: "Sports & Fitness Gear", count: "05", imageSrc: image5 },
+    { title: "Medical Items", count: "06", imageSrc: image6 },
+    { title: "Personal Accessories", count: "07", imageSrc: image7 },
+    { title: "Household Items", count: "08", imageSrc: image8 },
+    { title: "Miscelleneous", count: "09", imageSrc: image9 },
   ];
 
   const squareCardData = [

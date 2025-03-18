@@ -39,10 +39,10 @@
   /* Dynamic Title */
   .CategoryTitle {
     position: absolute;
-    left: 36px;
+    left: 22px;
     top: 169px;
     color: #666666;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Afacad', sans-serif;
     font-style: italic;
     font-weight: 400;
@@ -55,7 +55,7 @@
     height: 68px;
     position: absolute;
     left: 41px;
-    top: 188px;
+    top: 198px;
     color: #702121;
     font-size: 50px;
     font-family: 'Poppins', sans-serif;
