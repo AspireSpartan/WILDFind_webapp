@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-function HelloWorld() {
+function HelloWorldv2() {
   return (
     <div>
       <h1>Hello, World!</h1>
@@ -10,4 +10,4 @@ function HelloWorld() {
   );
 }
 
-export default HelloWorld;
+export default HelloWorldv2;
