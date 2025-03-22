@@ -20,31 +20,33 @@
 }
 
 .square-card-content {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Prevents extra spacing */
-    gap: 5px; /* Controls spacing between elements */
+    align-items: flex-start; /* Align everything to the left */
+    justify-content: flex-start;
+    gap: 5px;
     overflow: hidden;
-    align-items: center; /* Centers content properly */
-    min-height: auto; /* Prevents unnecessary expansion */
-    align-items: flex-start;
+    min-height: 150px; /* Prevents shrinking */
+    text-align: left;
 }
+
+
 
 /* Title dynamically adjusts size based on content */
 .square-card-title {
-    font-size: clamp(15px, 5vw, 35px);
+    font-size: calc(12px + 0.5vw); /* Adjust size dynamically */
     width: 100%;
-    max-width: 100px;
+    max-width: 110px; /* Ensures text doesn't stretch too much */
     color: rgba(0, 0, 0, 0.5);
     font-family: "Afacad", sans-serif;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal;
-    display: block; /* Prevents flex from affecting spacing */
-    margin: 0; /* Ensures no extra space */
-    padding: 0; /* Removes any unwanted padding */
-    line-height: 1.1; /* Tightens spacing */
+    white-space: normal; /* Allows text to wrap */
+    text-align: left; /* Align text to the left */
+    display: block;
+    margin: 0; /* Remove auto margin to prevent centering */
+    padding: 0;
+    line-height: 1.2; /* Improves readability */
 }
 
 /* Device ID text */
@@ -57,12 +59,13 @@
 
 /* Button container */
 .square-card-button-container {
-    width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: auto; /* Ensures button always stays at the bottom */
+    margin-top: auto;
     padding-bottom: 10px;
+    flex-shrink: 0; /* Prevents shrinking when text is long */
 }
+
 
 /* Retrieve button */
 .square-card-button {
@@ -89,8 +92,8 @@
 
 /* Image Icon */
 .square-card-icon {
-    width: 34px;
-    height: 49px;
+    width: 31px;
+    height: 45px;
     position: absolute;
     top: 22px;
     right: 15px;
