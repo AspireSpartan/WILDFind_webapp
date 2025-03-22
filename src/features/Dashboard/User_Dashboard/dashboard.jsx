@@ -1,5 +1,7 @@
 import "./dashboard.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { ref, onValue } from "firebase/database";
+import { database } from "../../../services/firebase-config"; // Import database instance
 import backgroundImage from '../../../assets/images/background-cit.png';
 import backgroundImage2 from '../../../assets/images/Header_Crack.png';
 import backgroundImage3 from '../../../assets/images/Bottom_Rectangle_Crack.png';
@@ -20,23 +22,54 @@ import FloatBox from './Floater/RectangleCard';
 import SearchBox from './SearchBox/SearchBox'; 
 
 const Dashboard = () => {
-  const [isHidden, setIsHidden] = useState(true); // Start hidden
-
+  const [isHidden, setIsHidden] = useState(true);
+  const [categoryCounts, setCategoryCounts] = useState({});
   const toggleOpacity = () => {
     setIsHidden((prev) => !prev);
   };
 
-  const cardData = [
-    { title: "Electronics", count: "01", imageSrc: image1 },
-    { title: "Clothing & Wearables", count: "02", imageSrc: image2 },
-    { title: "Bags & Containers", count: "03", imageSrc: image3 },
-    { title: "Documents & ID's", count: "04", imageSrc: image4 },
-    { title: "Sports & Fitness Gear", count: "05", imageSrc: image5 },
-    { title: "Medical Items", count: "06", imageSrc: image6 },
-    { title: "Personal Accessories", count: "07", imageSrc: image7 },
-    { title: "Household Items", count: "08", imageSrc: image8 },
-    { title: "Miscelleneous", count: "09", imageSrc: image9 },
-  ];
+  // Declare cardData state FIRST to avoid using setCardData before it's defined
+  const [cardData, setCardData] = useState([
+    { title: "Electronics", count: "0", imageSrc: image1 },
+    { title: "Clothing & Wearables", count: "0", imageSrc: image2 },
+    { title: "Bags & Containers", count: "0", imageSrc: image3 },
+    { title: "Documents & ID's", count: "0", imageSrc: image4 },
+    { title: "Sports & Fitness Gear", count: "0", imageSrc: image5 },
+    { title: "Medical Items", count: "0", imageSrc: image6 },
+    { title: "Personal Accessories", count: "0", imageSrc: image7 },
+    { title: "Household Items", count: "0", imageSrc: image8 },
+    { title: "Miscellaneous", count: "0", imageSrc: image9 },
+  ]);
+
+  // Fetch counts from Firebase
+  useEffect(() => {
+    const itemsRef = ref(database, "reportedItems/Items");
+  
+    onValue(itemsRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const categoryCounts = {};
+
+        // Loop through all items and count the categories
+        Object.values(data).forEach((item) => {
+          const category = item["Item Category"];
+          if (category) {
+            categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+          }
+        });
+
+        // Update the state with the new counts
+        setCardData((prevCardData) =>
+          prevCardData.map((card) => ({
+            ...card,
+            count: categoryCounts[card.title] ? categoryCounts[card.title].toString().padStart(2, "0") : "00",
+          }))
+        );
+      }
+    });
+
+    return () => {}; // Cleanup function (optional)
+  }, []);
 
   const squareCardData = [
     { title: "Phone", deviceId: "01", imageSrc: "https://placehold.co/31x45" },
@@ -114,7 +147,7 @@ const Dashboard = () => {
           {squareCardData.map((squareCard, index) => (
             <SquareCard key={index} {...squareCard} onRetrieve={() => console.log("Retrieve button clicked")} />
           ))}
-        </div>;
+        </div>
       </div>
     </div>
   );

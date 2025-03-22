@@ -9,9 +9,9 @@ import { getStorage } from "firebase/storage"; // If using Firebase Storage
 const firebaseConfig = {
   apiKey: "AIzaSyCzDQuBUlLfS0jfj_oVovvVkOl4winYFcc",
   authDomain: "wildfind-d4f49.firebaseapp.com",
-  databaseURL: "https://wildfind-d4f49-default-rtdb.firebaseio.com",
+  databaseURL: "https://wildfind-d4f49-default-rtdb.firebaseio.com/",
   projectId: "wildfind-d4f49",
-  storageBucket: "wildfind-d4f49.appspot.com",
+  storageBucket: "wildfind-d4f49.firebasestorage.app",
   messagingSenderId: "58185798764",
   appId: "1:58185798764:web:db510186c50723cfe83449",
   measurementId: "G-22LQM13E4R"
