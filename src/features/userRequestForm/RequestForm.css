@@ -18,23 +18,6 @@
     justify-content: flex-start; /* Aligns content from the top */
   }
   
-  /* Adjust form container to be centered and moved lower 
-  .request-form-container {
-    background-image: url("/src/assets/images/WildFind.png");
-    background-color: #711010; 
-    color: white;
-    font-family: Arial, sans-serif;
-    padding: 15px;
-    width: 100vw; 
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 0; 
-    padding-left: 5%;
-    overflow: hidden;
-  }*/
   .request-form-container {
     background-image: url("/src/assets/images/WildFind.png");
     background-color: #711010; /* Maroon */
