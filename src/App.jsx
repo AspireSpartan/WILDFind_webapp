@@ -18,7 +18,7 @@ function App() {
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
         <Route path="/urf" element={<URF />} />
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} /> 
       </Routes>
     </Router>
   );
