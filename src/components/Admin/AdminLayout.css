@@ -121,6 +121,8 @@
 }
 
 .sidebar {
+    top:0;
+    left:0;
     width: 100px;
     height: 100%; /* Ensures it fills the full height of the parent */
     min-height: calc(100vh - 133px - 61px);
