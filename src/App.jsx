@@ -10,11 +10,11 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/adminLayout" element={<AdminLayout />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/admin-dashboard" element={<Admin />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
-        <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>
   );
