@@ -39,7 +39,9 @@ const Dashboard = () => {
     { title: "Miscellaneous", count: "00", imageSrc: image9 },
   ]);
 
+  const [searchInput, setSearchInput] = useState(""); // ✅ State for search input
   const [squareCardData, setSquareCardData] = useState([]); 
+  const [filteredData, setFilteredData] = useState([]); // ✅ Stores filtered items
 
   useEffect(() => {
     const itemsRef = ref(database, "reportedItems/Items");
@@ -81,13 +83,25 @@ const Dashboard = () => {
           }))
         );
 
-        // ✅ Update `squareCardData`
-        setSquareCardData(squareCards);
+        setSquareCardData(squareCards); // ✅ Store all items
+        setFilteredData(squareCards); // ✅ Initially, filteredData = all items
       }
     });
 
     return () => unsubscribe(); // Cleanup listener on unmount
   }, []);
+
+  // ✅ Filter items based on `searchInput`
+  useEffect(() => {
+    if (searchInput.trim() === "") {
+      setFilteredData(squareCardData); // Show all if search is empty
+    } else {
+      const filtered = squareCardData.filter((item) =>
+        item.title.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setFilteredData(filtered);
+    }
+  }, [searchInput, squareCardData]);
 
   return (
     <div className="dashboard-container"> {/* Main container */}
@@ -145,12 +159,16 @@ const Dashboard = () => {
         <div className="items-header">
           <h2 className="items-title">Items Lost</h2>
           <div className="search-box">
-          <SearchBox toggleOpacity={toggleOpacity} />
+          <SearchBox 
+              toggleOpacity={toggleOpacity} 
+              searchInput={searchInput} 
+              setSearchInput={setSearchInput} 
+            />
           </div>
         </div>
 
         <div className="items-grid">
-          {squareCardData.map((squareCard, index) => (
+          {filteredData.map((squareCard, index) => (
             <SquareCard key={index} {...squareCard} onRetrieve={() => console.log("Retrieve button clicked")} />
           ))}
         </div>
