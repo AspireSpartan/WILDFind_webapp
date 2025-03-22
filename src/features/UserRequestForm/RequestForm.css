@@ -1,0 +1,290 @@
+
+  
+  /* Ensure the body takes up full height */
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/src/assets/images/backg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Stacks child elements */
+    align-items: center; /* Centers content horizontally */
+    justify-content: flex-start; /* Aligns content from the top */
+  }
+  
+  /* Adjust form container to be centered and moved lower 
+  .request-form-container {
+    background-image: url("/src/assets/images/WildFind.png");
+    background-color: #711010; 
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    width: 100vw; 
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 0; 
+    padding-left: 5%;
+    overflow: hidden;
+  }*/
+  .request-form-container {
+    background-image: url("/src/assets/images/WildFind.png");
+    background-color: #711010; /* Maroon */
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    width: 100vw; 
+    height: 300px; /* Increase height for better spacing */
+    display: flex; /* Change layout to flex */
+    flex-direction: row; /* Arrange form and image side by side */
+    justify-content: space-between; /* Spread items across */
+    align-items: center; /* Align items vertically */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 0; /* Aligns right under the header */
+    padding-left: 5%;
+    overflow: visible; /* Allow the image placeholder to fully appear */
+}
+  
+  /* Move input fields, including the date picker, above everything */
+  .request-form-container input[type="text"],
+  .request-form-container input[type="email"],
+  .request-form-container textarea,
+  .request-form-container input[type="date"] {  /* Added date picker */
+    position: relative;
+    z-index: 2; /* Higher than the image */
+    background-color: white; /* Ensures readability */
+    color: black;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button,
+  .plus-button {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .image-category-container {
+    flex: 0 0 auto; /* Prevent it from shrinking */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* Push to the right */
+    padding-right: 100px; /* Adjust spacing from right edge */
+    position: relative; /* Prevent overlap issues */
+  }
+  
+  .form-header {
+    text-align: center;
+  padding: 20px;
+  padding-bottom: 100px;
+  width: 100%;
+  background-color: transparent; /* Ensure no background overlap */
+}
+
+.form-logo {
+    width: 280px; /* Adjust for desired size */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centers the logo */
+}
+
+.form-title {
+    font-family: "Anton SC", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: maroon;
+    margin-top: 5px;
+}
+
+.form-subtitle {
+    font-family: "Afacad", sans-serif;
+    font-size: 14px;
+    color: black;
+    max-width: 600px;
+    margin: 0 auto; /* Centers the text */
+}
+
+  
+  .image-preview-container {
+    width: 450px; /* Adjust for proper positioning */
+    height: 450px;
+    border-radius: 50%;
+    border: 10px solid #711010; /* Maroon border */
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .image-preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the circle */
+  }
+  
+  .image-preview-container p {
+    font-size: 3rem; /* Bigger placeholder "+" */
+    color: #931515; /* Maroon color */
+    font-weight: bold;
+  }
+  
+  .category-box {
+    margin-top: 10px;
+    width: 220px;
+    background-color: #931515;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+  
+  .category-text {
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    color: rgb(199, 170, 4);
+    font-weight: 8px;
+    font-size: 20px;
+  }
+  
+  .upload-text {
+    font-family: 'Afacad', sans-serif;
+    font-style: italic;
+    font-size: 10px;
+    margin: 0px;
+    font-weight: thin;
+  }
+  
+  h1 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .form-body {
+    display: flex;
+    flex-direction: column; 
+    width: 100%; 
+    max-width: 600px;
+  }
+  
+  .form-group {
+    margin-bottom: 5px; /* Reduced margin for compactness */
+    width: 100%;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 3px; /* Reduced margin for compactness */
+    font-size: 0.9em; /* Smaller font size */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  textarea {
+    width: 100%;
+    padding: 6px; /* Reduced padding */
+    font-size: 0.85em; /* Smaller font size */
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 40px; /* Reduced height of textarea */
+  }
+  
+  .upload-section,
+  .submit-section {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .upload-label {
+     display: inline-block;
+    color: #ffcc00;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .submit-button {
+    background: linear-gradient(135deg, #B10808, #702121); /* Gradient from B10808 to 702121 */
+    color: white; /* Better contrast for readability */
+    border: none;
+    padding: 6px 12px; /* Reduced padding */
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: thin; /* Changed from 'thin' to 'bold' for better visibility */
+    width: 100%;
+    max-width: 200px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .submit-section {
+    margin-top: 35px; /* Moves the submit button 30px lower */
+  }
+  
+  .plus-button {
+    background-color: #931515; /* Maroon color */
+    color: white;
+    font-size: 1.5rem; /* Larger + symbol */
+    width: 47px;
+    height: 47px;
+    border-radius: 50%; /* Makes it circular */
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative; /* Changed to absolute */
+    left: 150px; /* Position to the right side inside the container */
+    bottom: 105px; /* Center it vertically inside the container */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover effect */
+  .plus-button:hover {
+    background-color: #711010; /* Darker maroon on hover */
+  }
+  
+  .plus-button:focus {
+    outline: none; /* Removes default focus outline */
+  }
+  
+  
+  /* Optional: Add a hover effect */
+  .submit-button:hover {
+    background: linear-gradient(135deg, #702121, #B10808); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slight enlargement for interaction feedback */
+  }
+  
+  .form-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    font-size: 0.8em; /* Smaller font size */
+  }
+  
+  .categories {
+    text-align: center;
+    margin-top: 10px; /* Reduced margin */
+    font-size: 0.8em; /* Smaller font size */
+  }
+  
