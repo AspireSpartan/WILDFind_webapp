@@ -19,7 +19,7 @@ function App() {
         <Route path="/admin-dashboard" element={<Admin />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
-        <Route path="/" element={<landingPage />} /> {/* Added route for Contact Us */}
+        <Route path="/" element={<LandingPage />} /> {/* Added route for Contact Us */}
       </Routes>
     </Router>
   );
