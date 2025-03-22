@@ -27,7 +27,7 @@ const Login = () => {
       try {
         await signInWithEmailAndPassword(auth, formData.email, formData.password);
         localStorage.setItem("isAuthenticated", "true");
-        navigate("/adminLayout");
+        navigate("/dashboard");
       // eslint-disable-next-line no-unused-vars
       } catch (err) {
         setError("Invalid email or password. Please try again.");
