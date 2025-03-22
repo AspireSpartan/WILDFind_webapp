@@ -1,14 +1,22 @@
 /* General Styles */
-.contact-page {
+body.contact-us .contact-page {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1322 750" preserveAspectRatio="none"><path d="M-310.297 462.222L-80.6179 422.689L60.3826 381.689L99.8823 273.689L174.383 365.689L23.5 509.189L304 562L126 749L524 705.5L292 381.689L164 0.499995L415.883 291.189L500.382 340.189L500.382 462.222L645.883 438.689L531 47.5L702.5 273.689L859.883 14.5L702.5 509.189L624.5 705.5L716.5 726.5L893 691.5L1113 737L919 462.222L959 291.189L1038.38 14.5L1072.77 108L1077 184L1038.38 537.5L1215.5 634.5L1099.5 273.689L1246.38 462.222L1225.5 54.5L1350.5 326L1400.5 550.689L1432.88 422.689L1483.88 381.689L1597.88 438.689" stroke="%235A0000" stroke-opacity="0.2" fill="none"/></svg>');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden; /* Prevent scrollbars on Contact Us Page */
+    margin: 0;
+    padding: 0;
 }
 
+/* Prevent Body Scroll Only on Contact Us Page */
+body.contact-us {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
 /* Main Container */
 .contact-container {
@@ -17,6 +25,7 @@
     padding: 20px;
     text-align: center;
 }
+
 
 /* Header Section */
 .contact-heading {

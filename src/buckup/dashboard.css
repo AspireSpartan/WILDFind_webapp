@@ -1,96 +1,175 @@
-/* src/dashboard.css */
+/* General Page Styling */
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-/* BASE OF THE WEBPAGE */
-/* Full-screen webpage */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh; /* Allow content to extend */
-    background-color: rgb(231, 221, 221);
+@import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad&family=Anton&display=swap');
+
+.dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content at the top */
-    overflow-x: hidden; /* Keeps horizontal scrolling disabled */
-    overflow-y: auto; /* Allows vertical scrolling */
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    /*padding: 20px;*/
+    position: relative; /* Ensure positioning context for background images */
+    
 }
 
-/* Background Image Placeholder */
-
-/* if body,html{overflow: hidden; = true}
-
-@keyframes riseUp {
-    from {
-        top: -50%;
-        opacity: 0; 
-    }
-    to {
-        top: 0;
-        opacity: 1; 
-    }
-}
-
-    will-change: transform, opacity;
-    animation: riseUp 1.5s ease-out forwards;
-
-*/
-
-@keyframes riseUp {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.background-wrapper {
+    position: relative; /* Parent container to control the background layering */
+    width: 100%;
+    height: 100%; /* Fill entire viewport */
 }
 
 .background-image-container {
-    position: absolute;
-    top: -50%; /* Start position */
-    left: 0;
+    position: fixed; /* Fix the background image to the viewport */
+    top: 0; /* Ensure it starts at the top of the viewport */
+    left: 0; /* Ensure it stretches across the full width */
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Cover the entire viewport height */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1;
-    overflow-y: hidden; /* Prevent overflow */
-
-    animation: riseUp 3.5s ease-out forwards;
+    z-index: -1; /* Place the background image behind other content */
 }
 
+.background-image-container2{
+  position: relative; /* or absolute/fixed, depending on your needs */
+  top: 0px;
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed or 500px*/
+  overflow: hidden; /* Ensures the image doesn't overflow the container */
+}
 
+.Header_Crack-img {
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container */
+    margin-bottom: 140px;
+}
+
+.group-29 {
+    position: absolute;
+    top: -150px; /* Positions 20px from the top */
+    left: 50px; /* Positions 20px from the left */
+    right: 50px;
+    display: flex; /* Aligns child elements horizontally */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Adds space between the child elements */
+    align-items: center; /* Vertically centers the child elements */
+    z-index: 3;
+  }
+  
+  .wild-text {
+    font-size: 400px; /* Adjust font size */
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+    color: rgba(241, 234, 234, 0.50);
+
+    opacity: 0; /* Start hidden */
+    animation: slideRight 1.5s ease-out 0.5s forwards; /* Delayed start */
+  }
+  
+  .find-text {
+    font-size: 400px; /* Adjust font size */
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+    color: rgba(241, 234, 234, 0.50); 
+
+    opacity: 0; /* Start hidden */
+    animation: slideLeft 1.5s ease-out 0.5s forwards; /* Delayed start */
+  }
+
+  /* Slide Right Animation */
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide Left Animation */
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Start fully transparent */
+        opacity: 0;
+        transform: scale(0.9);
     }
     to {
-        opacity: 1; /* Fully visible */
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-.background-image-container2 {
-    position: absolute;
-    bottom: 140px;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 2;
-    overflow-y: hidden; /* Prevent overflow */
+.FindYourLostItem {
+    position: absolute; /* Keeps it in the same spot regardless of zoom */
+    top: 5vh; /* Relative to the viewport height */
+    left: 3vw; /* Relative to the viewport width */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 
-            /* Animation */
-            will-change: opacity;
-            animation: fadeIn 4.5s ease-out forwards;
+    z-index: 3; /* Ensures it stays on top */
+    opacity: 0;
+    /* Slide-right animation AFTER slideUp finishes */
+    animation: slideRight 1.2s ease-in-out 1.8s forwards;
 }
 
-/* Tint Layer */
+.find-your-lost-items {
+    text-align: center;
+    color: #702121;
+    font-size: 40px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.lost-item-each-category{ 
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    opacity: 0.7;
+    width: 134.86px;
+    height: 19.34px;
+}
+
+  .group-component {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;  /* Ensures they are centered */
+    align-items: center;
+    gap: 20px; /* Space between cards */
+    width: 100%; /* Ensures they stretch across */
+    position: absolute; /* So it doesn't mess with child positioning */
+    top: 130px;
+    z-index: 3;
+
+        /* Animation */
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out 1.8s forwards; /* Delayed start */
+}
+
 .tint {
     position: fixed;
     top: 0;
@@ -100,336 +179,232 @@ body, html {
     background-color: rgba(125, 115, 115, 0.36); /* Gray tint with 36% opacity */
     z-index: 1;
     overflow: hidden; /* Prevent overflow */
+    
 }
 
-/* Logo Placeholder */
-.header {
-    position: fixed;
-    top: 20px; /* Adjust spacing from the top */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+/* Title */
+.dashboard-title {
+    position: relative; /* Move the container to the middle vertically */
+    left: 100px; /* Move the container to the middle horizontally */
+    transform: translate(-50%, -50%); /* Center the container precisely */
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
     z-index: 2;
 }
 
-/*LOGO Placeholder and animation*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.logo-placeholder img {
+.dashboard-title img {
     width: 450px;
     height: auto;
-    object-fit: contain; /* Maintain aspect ratio */
-    /*z-index: 2;  if needed only*/
-
-    /* Animation */
-    opacity: 0; /* Start invisible */
-    animation: fadeIn 2.5s ease-in forwards;
+    object-fit:contain; /* Maintain aspect ratio */
+    position: absolute; /* Allow precise positioning */ /* Move the image to the middle vertically */
+    top: 100%;
+    transform: translate(-50%, -50%); /* Center the image precisely */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .logo-placeholder img {
-        max-width: 150px; /* Smaller logo for mobile */
+/* Category Section */
+.category-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Slide-up Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/*LOGO Placeholder and animation*/
-
-/* BASE OF THE WEBPAGE */
-
-/* MAIN CONTENT GOES HERE */
-
-/* Main Content Styling */
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh; /* Allow content to grow */
-    margin-top: 0;
-    position: relative;
-    gap: 50px; /* Space between items */
-    z-index: 1;
-}
-
-
-/* Group 29 Wrapper - Centered */
-.group-29 {
-    position: absolute;
-    margin-top: 230px;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Perfect center alignment */
-    display: flex;
-    flex-wrap: nowrap; /* Allow elements to stack on smaller screens */
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-    width: 100%;
-    text-align: center;
-    white-space: nowrap; /* Prevents text from wrapping */
-    z-index: 1;
-}
-
+/* Slide-right Animation */
 @keyframes slideRight {
     from {
-        transform: translateX(-100%);
         opacity: 0;
+        transform: translateX(-50px);
     }
     to {
-        transform: translateX(0);
         opacity: 1;
-    }
-}
-
-@keyframes slideLeft {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
         transform: translateX(0);
-        opacity: 1;
     }
 }
 
-.wild-text, .find-text {
-    will-change: transform, opacity;
+/* Items Section */
+.items-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1499px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: auto;
+    overflow: hidden;
+
+    /* Slide-up animation */
+    animation: slideUp 1.5s ease-out forwards;
 }
 
-/* "WILD" Text */
-.wild-text {
-    font-size: 380px;
+.background-image-container3{
+    position: absolute; /* or absolute/fixed, depending on your needs */
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed or 500px*/
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+}
+
+.Bottom_Rectangle_Crack-img {
+    padding-top: 50px;
+    width: 100%; /* Makes the image fill the container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container */
+    margin-bottom: 140px;
+}
+
+/*wildfind inside the items-section*/
+.wildfind-container2 {
+    width: 2336px;
+    height: 339.29px;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .wild-text2, .find-text2 {
+    display: block;
+    width: 1168px;
+    height: 273.29px;
+    position: absolute;
+    color: rgba(241, 234, 234, 0.5);
+    font-size: 400px;
     font-family: 'Luckiest Guy', cursive;
     font-weight: 400;
-    color: rgba(241, 234, 234, 0.50);
-    position: relative;
+  }
+  
+  .wild-text2 {
+    left: -150px;
+    top: -70px;
+  }
+  
+  .find-text2 {
+    left: 750px;
+    top: -70px;
+  }
 
-    /* Animation */
-    animation: slideRight 1s ease-out;
-    animation-delay: 0.3s; /* Delayed slightly */
+
+/* Header Container (Title + Search Box) */
+.items-header {
+    display: flex;
+    justify-content: space-between; /* Title on left, search box on right */
+    align-items: center;
+    width: 100%;
+    padding: 0 100px;
+    margin-bottom: 15px; /* Space between header and items-grid */
 }
 
-/* "FIND" Text */
-.find-text {
-    font-size: 380px;
-    font-family: 'Luckiest Guy', cursive;
+
+/* Title */
+.items-title {
+    padding-top: 10px;
+    padding-left: 20px;
+    text-align: center;
+    color: #702121;
+    font-size: 40px;
+    font-family: 'Anton', sans-serif; /* Anton SC is not available, using Anton */
     font-weight: 400;
-    color: rgba(241, 234, 234, 0.50);
-    position: relative;
+    word-wrap: break-word;
+    margin: 0;
+    flex-shrink: 0; /* Prevents shrinking */
 
-    /* Animation */
-    animation: slideLeft 2.5s ease-out;
+    /* Slide-right animation AFTER slideUp finishes */
+    opacity: 0;
+    animation: slideRight 1.2s ease-in-out 1.10s forwards;
 }
 
+/* Search Box */
+.search-box {
+    padding-top: 20px;
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Takes up remaining space */
+    justify-content: flex-end; /* Pushes it to the right */
+
+    opacity: 0;
+    /* Slide-right animation AFTER items-title */
+    animation: slideRight 1.2s ease-in-out 1.10s forwards;
+}
+
+.search-box:focus {
+    border-color: #b03a3a;
+    box-shadow: 0px 0px 8px rgba(176, 58, 58, 0.4);
+}
+
+.items-grid {
+    padding-top: 80px;
+    display: grid;
+    grid-auto-flow: row; /* Ensures items are placed in rows */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1rem)); /* Creates flexible columns */
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch; /* Ensures child items stretch vertically */
+    width: 100%;
+    padding-bottom: 100px;
+    justify-items: center;
+    
+
+    /* Slide-up animation */
+    opacity: 0;
+    animation: slideUp 1.5s ease-in-out 1.20s forwards;
+}
+
+/* Blur effect on other square cards when one is hovered */
+.items-grid:hover .square-card:not(:hover) {
+    filter: blur(3px);
+    opacity: 0.5;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.Wave_Svg{
+    left: 0px;
+    position: absolute;
+    bottom: 0px;
+}
 
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
-    .find-text, .wild-text {
-        font-size: 200px; /* Smaller size for tablets */
-    }
-}
-
 @media (max-width: 768px) {
-    .find-text, .wild-text {
-        font-size: 150px; /* Smaller size for mobile */
+    .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .items-title {
+        font-size: 1.3rem;
     }
 }
 
-/*RECTANGLE*/
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
+@media (max-width: 480px) {
+    .dashboard-title {
+        font-size: 1.5rem;
     }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+
+    .search-box {
+        font-size: 0.9rem;
     }
-}
 
-.rectangle-55 {
-    will-change: transform, opacity;
-}
-
-.rectangle-55 {
-    position: absolute;
-    bottom: -30px;
-    width: 100vw;
-    height: 100vh;
-    max-height: 400.38px;
-    background: #F4EFEF;
-    box-shadow: -10px -76px 62.8px 18px rgba(0, 0, 0, 0.25) inset;
-    border-radius: 50px 50px 0 0;
-    margin-top: 50px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Animation */
-    animation: slideUp 3s ease-out;
-}
-
-/*RECTANGLE*/
-
-/*GROUP-30 TEXT WILDFIND INSIDE RECTANGLE*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start fully transparent */
-    }
-    to {
-        opacity: 1; /* Fully visible */
+    .retrieve-btn {
+        font-size: 0.9rem;
+        padding: 6px 10px;
     }
 }
 
-.group-30 {
-    position: absolute;
-    bottom: -250px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-end; /*this positions at the bottom of the screen*/
-    flex-direction: row;
-    text-align: center;
-    z-index: 2;
-                /* Animation */
-                will-change: opacity;
-                animation: fadeIn 3.5s ease-out forwards;
-}
 
-/* TEXT STYLES (Now Responsive) */
-.wild-text2, .find-text2 {
-    font-size: 300px; /* Scales with screen width */
-    font-family: 'Luckiest Guy', cursive;
-    font-weight: 400;
-    color: rgba(166, 166, 166, 0.105); /* Darker for better readability */
-    position: relative;
-}
-
-/* MEDIA QUERIES for Fine-Tuning */
-@media (max-width: 1024px) {
-    .wild-text2, .find-text2 {
-        font-size: 10vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .wild-text2, .find-text2 {
-        font-size: 12vw;
-    }
-}
-
-/*GROUP-30 TEXT WILDFIND INSIDE RECTANGLE*/
-
-/*BOTTOM_CRACK_RECTANGLE*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start fully transparent */
-    }
-    to {
-        opacity: 1; /* Fully visible */
-    }
-}
-
-.background-image-container3 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: auto; /* ✅ Adjust based on content */
-    min-height: 500px; /* ✅ Ensures visibility */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom; /* ✅ Ensures it's at the bottom */
-    display: flex;
-    align-content:flex-end;
-    align-items: center;
-    z-index: 2; /* ✅ Higher to avoid getting hidden */
-
-        /* Animation */
-        will-change: opacity;
-        animation: fadeIn 4.5s ease-out forwards;
-}
-
-
-/*BOTTOM_CRACK_RECTANGLE*/
-
-
-/* GRADIENT PLACEHOLDERS */
-
-@keyframes slideUpGradient {
-    from {
-        transform: translateY(100%); /* Start off-screen */
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0); /* Fully visible */
-        opacity: 1;
-    }
-}
-
-.gradient-placeholder {
-    position: absolute;
-    width: 100%;
-    height: auto; /* Adjusts based on content */
-    bottom: 0;
-    z-index: 4; /* Above the background but below the main content */
-    display: flex;
-    justify-content: center; /* Ensures the gradients align properly */
-    align-items: flex-end; /* Fixes them to the bottom */
-
-
-        /* Animation */
-        will-change: transform, opacity;
-        animation: slideUpGradient 3.5s ease-out forwards;
-}
-
-.gradient-placeholder img {
-    width: 100vw;  /* Full width of the viewport */
-    height: auto;  /* Maintain aspect ratio */
-    max-width: none; /* Prevents unnecessary constraints */
-    object-fit: cover; /* Ensures it fills the space properly */
-    opacity: 0.5; /* Adjust transparency if needed */
-    transform: scale(1.0); /* Slight scaling to ensure full coverage */
-}
-
-/* Positioning the gradients */
-.gradient1, .gradient2, .gradient3 {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    z-index: 2;
-}
-
-.gradient2 {
-    opacity: 0.75;
-}
-
-.gradient3 {
-    opacity: 1;
-}
-
-
-/* GRADIENT PLACEHOLDERS */
-
-
-/* MAIN CONTENT GOES HERE */
