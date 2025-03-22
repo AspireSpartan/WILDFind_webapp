@@ -6,9 +6,10 @@
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden; /* Hides both horizontal and vertical scrollbars */
+    margin: 0;
+    padding: 0;
 }
-
 
 /* Main Container */
 .contact-container {
@@ -16,7 +17,16 @@
     margin: auto;
     padding: 20px;
     text-align: center;
+    overflow: hidden; /* Prevents scrollbars from the container */
 }
+
+/* Ensuring Body doesn't scroll */
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 
 /* Header Section */
 .contact-heading {
