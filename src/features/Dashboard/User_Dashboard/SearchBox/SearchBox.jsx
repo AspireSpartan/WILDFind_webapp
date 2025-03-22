@@ -2,12 +2,18 @@ import "./SearchBox.css";
 import React from "react";
 import FloatBox from '../Floater/RectangleCard'; 
 
-const SearchBox = ({ toggleOpacity }) => {
+const SearchBox = ({ toggleOpacity, searchInput, setSearchInput }) => {
 
   return (
     <div className="search-bar">
       <div className="search-container">
-        <input type="text" className="search-input" placeholder="Search Item here" />
+      <input
+          type="text"
+          className="search-input"
+          placeholder="Search Item here"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
         
         {/* Search Icon */}
         <div className="search-icon">
