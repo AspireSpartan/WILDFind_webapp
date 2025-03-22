@@ -15,8 +15,8 @@ function App() {
         <Route path="/admin-dashboard" element={<Admin />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
-        <Route path="/requestForm" element={<RequestForm />} /> 
-        <Route path="/" element={<LandingPage />} />
+       {/*<Route path="/requestForm" element={<RequestForm />} /> */}
+        <Route path="/" element={<RequestForm />} />
       </Routes>
     </Router>
   );

@@ -18,10 +18,10 @@
     justify-content: flex-start; /* Aligns content from the top */
   }
   
-  /* Adjust form container to be centered and moved lower */
+  /* Adjust form container to be centered and moved lower 
   .request-form-container {
     background-image: url("/src/assets/images/WildFind.png");
-    background-color: #711010; /* Maroon */
+    background-color: #711010; 
     color: white;
     font-family: Arial, sans-serif;
     padding: 15px;
@@ -31,10 +31,27 @@
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 0; /* Aligns right under the header */
+    margin-top: 0; 
     padding-left: 5%;
     overflow: hidden;
-  }
+  }*/
+  .request-form-container {
+    background-image: url("/src/assets/images/WildFind.png");
+    background-color: #711010; /* Maroon */
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    width: 100vw; 
+    height: 300px; /* Increase height for better spacing */
+    display: flex; /* Change layout to flex */
+    flex-direction: row; /* Arrange form and image side by side */
+    justify-content: space-between; /* Spread items across */
+    align-items: center; /* Align items vertically */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 0; /* Aligns right under the header */
+    padding-left: 5%;
+    overflow: visible; /* Allow the image placeholder to fully appear */
+}
   
   /* Move input fields, including the date picker, above everything */
   .request-form-container input[type="text"],
@@ -57,17 +74,15 @@
   }
   
   .image-category-container {
+    flex: 0 0 auto; /* Prevent it from shrinking */
     display: flex;
     flex-direction: column;
     align-items: center;
-    position:absolute;
-    top: 50%;
-    margin-right: 100px;
-    margin-top: 40px;
-    right: 0; /* Align to the left */
-    transform: translateY(-50%);
-    margin-left: -50px; /* Adjust this value as needed */
-}
+    justify-content: center;
+    margin-left: auto; /* Push to the right */
+    padding-right: 100px; /* Adjust spacing from right edge */
+    position: relative; /* Prevent overlap issues */
+  }
   
   .form-header {
     text-align: center;
@@ -102,11 +117,11 @@
 
   
   .image-preview-container {
-    width: 450px; /* Increased size */
+    width: 450px; /* Adjust for proper positioning */
     height: 450px;
     border-radius: 50%;
-    border: 18px solid #711010; /* Maroon border */
-    background-color: #ddd; /* Light gray background */
+    border: 10px solid #711010; /* Maroon border */
+    background-color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,20 +141,16 @@
   }
   
   .category-box {
-    margin-top: -75px; /* Space below the image */
-    width: 300px; /* Same width as the image */
-    padding: 4px;
-    background-color: #931515; /* Maroon background */
+    margin-top: 10px;
+    width: 220px;
+    background-color: #931515;
     color: white;
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
-    position: relative; /* Added to allow absolute positioning inside */
-  }
+}
   
   .category-text {
     font-family: 'Arial', sans-serif;
@@ -164,9 +175,9 @@
   
   .form-body {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    width: 100%; /* Full width */
-    max-width: 600px; /* Maximum width */
+    flex-direction: column; 
+    width: 100%; 
+    max-width: 600px;
   }
   
   .form-group {
@@ -233,7 +244,7 @@
     background-color: #931515; /* Maroon color */
     color: white;
     font-size: 1.5rem; /* Larger + symbol */
-    width: 40px;
+    width: 47px;
     height: 47px;
     border-radius: 50%; /* Makes it circular */
     border: none;
@@ -241,9 +252,9 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    position: absolute; /* Changed to absolute */
-    right: 26px; /* Position to the right side inside the container */
-    top: 385px; /* Center it vertically inside the container */
+    position: relative; /* Changed to absolute */
+    left: 150px; /* Position to the right side inside the container */
+    bottom: 105px; /* Center it vertically inside the container */
     transform: translateY(-50%); /* Adjust for perfect centering */
     transition: background-color 0.3s ease; /* Smooth hover effect */
   }
