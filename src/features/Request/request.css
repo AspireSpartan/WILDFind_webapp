@@ -1,3 +1,4 @@
+/* Request Page Styles */
 .request-container {
   display: flex;
   flex-direction: column;
@@ -68,10 +69,10 @@
 /* Sidebar Styling */
 .sidebar {
   position: fixed;
-  top: 150px; /* Adjust this value to match your header height */
+  top: 150px;
   left: -100px;
   width: 40px;
-  height: calc(100vh - 70px); /* Ensures it fills the remaining viewport */
+  height: calc(100vh - 70px);
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -99,7 +100,7 @@
 
 .container {
   position: absolute;
-  top: 170px; /* Adjust this based on your layout */
+  top: 170px;
   left: 52%;
   transform: translateX(-50%);
   width: 88%;
@@ -111,4 +112,70 @@
   font-size: 24px;
   font-weight: bold;
   color: #333;
+}
+
+/* Square Card Styles */
+.square-card {
+  width: 100%;
+  max-width: 150px;
+  max-height: 187px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #f3eded;
+  border-radius: 10px;
+  box-shadow: inset 2px 0px 5.9px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.square-card:hover {
+  transform: scale(1.05);
+}
+
+.square-card-title {
+  font-size: clamp(15px, 5vw, 35px);
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Afacad", sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+
+.square-card-device {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Afacad", sans-serif;
+  text-align: center;
+}
+
+.square-card-button {
+  width: 91px;
+  height: 31px;
+  background: #702121;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-family: "Basic", sans-serif;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.square-card-button:hover {
+  background: #901f1f;
+}
+
+.square-card-icon {
+  width: 34px;
+  height: 49px;
+  position: absolute;
+  top: 22px;
+  right: 15px;
 }

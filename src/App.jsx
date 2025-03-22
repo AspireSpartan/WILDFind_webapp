@@ -6,20 +6,25 @@ import LandingPage from "./features/Landing_Page/LandingPage";
 import ContactUs from "./features/Home/contact-us"; // Import ContactUs
 import URF from "./features/UserRequestForm/RequestForm";
 import AdminLayout from "./components/Admin/AdminLayout";
-import './index.css';
+import Request from "./features/Request/request";
+import "./index.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/landingPage" element={<LandingPage />} /> 
-        <Route path="/adminLayout" element={<AdminLayout />} /> 
+        <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/adminLayout" element={<AdminLayout />} />
         <Route path="/urf" element={<URF />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/admin-dashboard" element={<Admin />} />
         <Route path="/login" element={<AdminLogin />} />
-        <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
-        <Route path="/" element={<LandingPage />} /> {/* Added route for Contact Us */}
+        <Route path="/contact-us" element={<ContactUs />} />{" "}
+        {/* Added route for Contact Us */}
+        <Route path="/landing" element={<LandingPage />} />{" "}
+        {/* Added route for Contact Us */}
+        <Route path="/" element={<Request />} />{" "}
+        {/* Added route for Contact Us */}
       </Routes>
     </Router>
   );
