@@ -5,7 +5,7 @@ import notificationIcon from "../../assets/images/Notification.png";
 import profileIcon from "../../assets/images/pp.png";
 import HomeIcon from "../../assets/images/Home.png";
 import ReportIcon from "../../assets/images/request.png";
-import ViewIcon from "../../assets/images/Viewx.png";
+import ViewIcon from "../../assets/images/View.png";
 import RequestIcon from "../../assets/images/request.png";
 import HistoryIcon from "../../assets/images/history.png";
 import LogoutIcon from "../../assets/images/Logout.png";
