@@ -4,7 +4,6 @@
     width: 100%;
     max-height: 100vh; /* Ensures full-page coverage */ /*100vh - 90vh*/
     /*min-height: calc(100vh - 133px - 61px);*/
-    overflow: hidden; /* Prevents unwanted scrolling */
 }
 
 /* Background Image */
@@ -13,12 +12,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     background-image: url('/src//assets//images//Admin\ Dashboard\ bg.png');
-    background-size: cover; /* Makes sure the image covers the whole background */
+    background-size: cover; 
     background-position: center;
-    background-attachment: fixed; /* Keeps the background in place when scrolling */
-    z-index: -1; /* Places the background behind all content */
+    background-attachment: fixed; 
+    z-index: -1; 
 }
 
 /* Main Layout */
@@ -28,7 +27,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+    min-height: 100vh; /* Ensure it takes full height */
+  }
 
 /* Content Section 
 .content {
@@ -38,11 +38,25 @@
     border-radius: 10px;
 }*/
 
+.main-layout {
+    display: flex;
+    flex: 1; /* Takes remaining space after header */
+    min-height: calc(100vh - 133px - 61px); /* Adjust based on header and admin bar height */
+  }
+
+.content {
+    flex: 1; /* Takes remaining space after sidebar */
+    padding: 20px;
+    border-radius: 10px;
+    position: relative; /* Changed from absolute to relative */
+    margin-left: 100px; /* Match sidebar width to push content to the right */
+  }
+
 /* Header Styles */
 .header {
-    width: 100%;
-    position: relative;
-    z-index: 10;
+  width: 100%;
+  position: relative;
+  z-index: 10;
 }
 
 .header-bg {
@@ -166,30 +180,39 @@
     background: #cc0000; /* Darker red on hover */
 }
 
+
 /* Ensures Sidebar Stays Fully Stretched Dynamically */
 @media screen and (max-height: 700px) {
     .sidebar {
-        min-height: 100vh; /* Forces full height when viewport height changes */
+      min-height: 100vh; /* Forces full height when viewport height changes */
     }
-}
-
-/* Responsive Fixes */
-@media screen and (min-width: 1920px) {
+  }
+  
+  /* Responsive Fixes */
+  @media screen and (min-width: 1920px) {
     .header-bg {
-        height: 150px; /* Increase height for larger screens */
+      height: 150px; /* Increase height for larger screens */
     }
-
+  
     .header-image {
-        max-height: 150px;
+      max-height: 150px;
     }
-}
-
-@media screen and (max-width: 768px) {
+  }
+  
+  @media screen and (max-width: 768px) {
     .header-bg {
-        height: 90px; /* Decrease height for smaller screens */
+      height: 90px; /* Decrease height for smaller screens */
     }
-
+  
     .header-image {
-        max-height: 90px;
+      max-height: 90px;
     }
-}
+  
+    .sidebar {
+      width: 80px; /* Slightly smaller sidebar on mobile */
+    }
+  
+    .content {
+      margin-left: 80px; /* Adjust for smaller sidebar */
+    }
+  }
