@@ -44,14 +44,14 @@ const AdminDashboard = () => {
             count={card.count}
             gradient={card.gradient}
             iconSrc={card.iconSrc}
-          />
-        ))}
+          /> 
+        ))} {/* This DashboardCard is only rendered in the AdminDashboard's page and by passing the props to it */}
       </div>
       <div className="charts-section">
-        <StatusTrends />
-        <ClaimedItemsCategory />
+        <StatusTrends /> {/* This StatusTrends is only rendered in the AdminDashboard's page */}
+        <ClaimedItemsCategory /> {/* This ClaimedItemsCategory is only rendered in the AdminDashboard's page */}
       </div>
-      <AdminLog /> {/* Add the AdminLog component */}
+      <AdminLog /> {/* This AdminLog is only rendered in the AdminDashboard's page */}
     </div>
   );
 };
