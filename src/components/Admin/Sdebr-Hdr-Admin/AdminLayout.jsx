@@ -17,7 +17,7 @@ const AdminLayout = ({ children }) => {
           <Sidebar />
           <div className="content">
           <AdminDashboard />
-           {/* {children}  Render page content */}
+          {/* This AdminDashboard component is only rendered in the AdminLayout's page*/}
           </div>
         </div>
       </div>

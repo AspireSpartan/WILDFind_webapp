@@ -13,6 +13,7 @@
   left: 0;
   width: 100%;
   height: 100vh; 
+  background-image: url('/src//assets//images//Admin\ Dashboard\ bg.png');
   background-size: cover; 
   background-position: center;
   background-attachment: fixed; 
@@ -43,14 +44,13 @@
   min-height: calc(100vh - 133px - 61px); /* Adjust based on header and admin bar height */
 }
 
-
 .content {
   flex: 1; /* Takes remaining space after sidebar */
-  margin-top: 200px; /* Match the reduced sidebar width */
-  margin-left: 200px; /* Match the reduced sidebar width */
   padding: 20px;
   border-radius: 10px;
-  min-height: calc(100vh - 194px); /* Ensure content stretches to full height */
+  position: relative; /* Changed from absolute to relative */
+  margin-left: 100px; /* Match sidebar width to push content to the right */
+  /*min-height: calc(100vh - 194px);*/
 }
 
 /* Header Styles */
@@ -138,7 +138,7 @@ z-index: 10;
 /* Sidebar Styles */
 .sidebar {
 position: fixed; /* Fix sidebar to the left */
-top: 160px; /* Offset by header (133px) + admin bar (61px) */
+top: 167px; /* Offset by header (133px) + admin bar (61px) */
 left: 0;
 width: 80px; /* Reduced width to make it less "big" at 100% zoom */
 height: calc(100vh - 194px); /* Full height minus header and admin bar */
@@ -171,18 +171,6 @@ transition: background 0.3s, color 0.3s;
 .sidebar-item:hover {
   background: #702121; /* Change background color on hover */
   color: white;
-}
-
-.sidebar-item:hover .sidebar-icon {
-  color: white; /* Ensure icon color changes on hover */
-}
-
-/* Sidebar Icons */
-.sidebar-icon {
-  width: 30px; /* Reduced icon size to match Figma */
-  height: 30px;
-  margin-bottom: 5px; /* Space between icon and text */
-  color: #534d4d;
 }
 
 .logout {
