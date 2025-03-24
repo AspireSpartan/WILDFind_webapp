@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import "./AdminLayout.css"; // Import CSS
+import AdminDashboard from "../AdminDashoard/AdminDashboard";
 
 const AdminLayout = ({ children }) => {
   return (
@@ -15,7 +16,8 @@ const AdminLayout = ({ children }) => {
         <div className="main-layout">
           <Sidebar />
           <div className="content">
-            {children} {/* Render page content */}
+          <AdminDashboard />
+          {/* This AdminDashboard component is only rendered in the AdminLayout's page*/}
           </div>
         </div>
       </div>

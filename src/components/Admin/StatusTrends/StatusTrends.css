@@ -1,0 +1,33 @@
+.status-trends-container {
+  width: 100%;
+  max-width: 1096px; /* Match original width */
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  position: relative;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 300px; /* Match original height */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .status-trends-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .chart-wrapper {
+    height: 250px; /* Reduce height on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-wrapper {
+    height: 200px;
+  }
+}

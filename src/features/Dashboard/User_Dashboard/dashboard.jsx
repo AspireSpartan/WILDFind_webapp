@@ -15,11 +15,11 @@ import image6 from '../../../assets/images/Medical ID.jpg';
 import image7 from '../../../assets/images/Bracelet.jpg';
 import image8 from '../../../assets/images/Family.jpg';
 import image9 from '../../../assets/images/More.jpg';
-import Card from './Cards/Card'; 
-import SquareCard from './SquareCards/SquareCard'; 
-import WaveSvg from './WaveSvg/WaveSvg'; 
-import FloatBox from './Floater/RectangleCard'; 
-import SearchBox from './SearchBox/SearchBox'; 
+import Card from '../../../components/Users/Cards/Card'; 
+import SquareCard from '../../../components/Users/SquareCards/SquareCard'; 
+import WaveSvg from '../../../components/Users/WaveSvg/WaveSvg'; 
+import FloatBox from '../../../components/Users/Floater/RectangleCard'; 
+import SearchBox from '../../../components/Users/SearchBox/SearchBox'; 
 
 const Dashboard = () => {
   const [isHidden, setIsHidden] = useState(true);

@@ -11,3 +11,4 @@ you must always do this every time you download a zip from our GitHub project re
 3. npm install framer-motion
 4. npm install firebase
 5. npm install -g firebase-toolS
+6. npm install chart.js react-chartjs-2
