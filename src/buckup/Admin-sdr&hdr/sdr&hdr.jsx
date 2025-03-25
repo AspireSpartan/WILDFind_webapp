@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./ReportFoundItem.css";
 import menuIcon from "../../assets/images/Menu.png";
 import notificationIcon from "../../assets/images/Notification.png";
 import profileIcon from "../../assets/images/pp.png";
@@ -10,27 +9,12 @@ import RequestIcon from "../../assets/images/request.png";
 import HistoryIcon from "../../assets/images/history.png";
 import LogoutIcon from "../../assets/images/Logout.png";
 import AdminProfile from "../../assets/images/pp.png";
+import FoundItemForm from "../../components/Admin/FoundItemForm/ReportFoundItem"; // Import the new component
+import "./sdr&hdr.css";
 
-const ReportForm = () => {
-  const [image, setImage] = useState(null);
+const ReportFoundItem = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isProfileBarOpen, setIsProfileBarOpen] = useState(false);
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted!");
-  };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -41,11 +25,11 @@ const ReportForm = () => {
   };
 
   return (
-    <div className="app-container"> {/* Moved styles to this wrapper */}
+    <div className="app-container">
       <header className="header">
         <img src="/src/assets/images/header.png" alt="Wildfind Logo" className="header-image" />
       </header>
-      
+
       <nav className="navbar">
         <ul>
           <li className="menu-icon">
@@ -70,7 +54,7 @@ const ReportForm = () => {
           </li>
         </ul>
       </nav>
-     
+
       <div className="container">
         <aside className={`sidebar ${isSidebarOpen ? "" : "collapsed"}`}>
           <nav>
@@ -112,7 +96,7 @@ const ReportForm = () => {
             Logout
           </button>
         </aside>
-        
+
         <main className="main-content">
           <div className="Background">
             <h1>{/*WILDFIND*/}</h1>
@@ -131,71 +115,13 @@ const ReportForm = () => {
             </div>
           </div>
 
-          <div className="parent-container">        
-            <div className="form-container">
-              <div className="form-header">
-                <h2>Report Found Item</h2>
-              </div>
-              
-              <form className="report-form" onSubmit={handleSubmit}>
-                <label htmlFor="id">ID</label>
-                <input type="text" id="id" placeholder="ID" required />
-
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" placeholder="Full Name" required />
-
-                <label htmlFor="location">Location</label>
-                <input type="text" id="location" placeholder="Location" required />
-
-                <label htmlFor="date-found">Date Found</label>
-                <input type="date" id="date-found" required />
-
-                <label htmlFor="item-name">Item Name</label>
-                <input type="text" id="item-name" placeholder="e.g. Water Bottle, Backpack" required />
-
-                <label htmlFor="item-category">Item Category</label>
-                <input type="text" id="item-category" placeholder="e.g. Personal, Clothing, Electronics, School" required />
-
-                <label htmlFor="item-description">Item Description</label>
-                <textarea id="item-description" placeholder="Detailed description" required></textarea>
-                
-                <div className="image-upload-container">
-                  <div className="image-preview">
-                    {image ? (
-                      <img src={image} alt="Uploaded" />
-                    ) : (
-                      <span className="plus-icon"></span>
-                    )}
-                  </div>
-                  <input 
-                    type="file" 
-                    id="item-image" 
-                    onChange={handleImageUpload} 
-                    accept="image/*" 
-                    style={{ display: 'none' }}
-                  />
-                  <button 
-                    type="button" 
-                    className="image-upload-button"
-                    onClick={() => document.getElementById('item-image').click()} 
-                  >
-                    <span className="plus-icon">+</span>
-                  </button>
-                </div>
-
-                <div className="buttons">
-                  <button type="button" className="cancel">Cancel</button>
-                  <button type="submit" className="submit">Submit</button>
-                </div>
-              </form>
-            </div>
+          <div className="parent-container">
+            <FoundItemForm /> {/* Use the new component */}
           </div>
-
-          
         </main>
       </div>
     </div>
   );
 };
 
-export default ReportForm;
+export default ReportFoundItem;
