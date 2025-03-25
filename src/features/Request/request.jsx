@@ -13,25 +13,7 @@ import { FaBell } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import headerImage from "/src/assets/images/head1.png";
 import "./request.css";
-
-const LostItemCard = ({
-  image,
-  category,
-  name,
-  phone,
-  dateLost,
-  description,
-}) => (
-  <div className="lost-item-card">
-    <img src={image} alt={category} className="lost-item-image" />
-    <h3 className="lost-item-category">{category}</h3>
-    <p className="lost-item-name">Owner: {name}</p>
-    <p className="lost-item-phone">Contact: {phone}</p>
-    <p className="lost-item-date">Date Lost: {dateLost}</p>
-    <p className="lost-item-description">{description}</p>
-    <button className="release-button">Release</button>
-  </div>
-);
+import ContentCards from "../Request/ContentCards/ContentCards"; // Already imported
 
 const Request = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -90,7 +72,11 @@ const Request = () => {
         <h1>Retrieval Request</h1>
         <div className="lost-items-container">
           {lostItems.map((item, index) => (
-            <LostItemCard key={index} {...item} />
+            <ContentCards
+            key={index}
+            {...item}
+            onRelease={() => console.log(`Release clicked for ${item.name}`)} // Example handler
+          /> // Replace LostItemCard with ContentCards
           ))}
         </div>
       </div>
