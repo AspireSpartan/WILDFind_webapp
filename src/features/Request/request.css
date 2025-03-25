@@ -66,7 +66,7 @@
 }
 
 /* Sidebar Styling */
-.sidebar {
+.sidebar-request {
   position: fixed;
   top: 150px;
   left: -100px;
@@ -81,11 +81,11 @@
   padding-top: 20px;
   transition: left 0.3s ease;
 }
-.sidebar.open {
+.sidebar-request.open {
   left: 0;
 }
 
-.sidebar-item {
+.sidebar-request-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -97,7 +97,7 @@
   text-align: center;
 }
 
-.container {
+.request-container-content {
   position: absolute;
   top: 170px;
   left: 52%;
