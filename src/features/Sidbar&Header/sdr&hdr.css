@@ -1,0 +1,422 @@
+/* Global Styling */
+.app-container {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 14vh;
+  position: relative;
+  top: 0;
+  background-color: white;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.header-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.navbar {
+  background-color: #ffffff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between; /* Align menu left, others right */
+  align-items: center;
+  width: 100%;
+  height: 61px;
+  position: relative;
+  top: 0vh;
+  z-index: 3;
+  box-shadow: 0px 1px 11.5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 13px;
+  width: 100%;
+}
+
+/* 🔹 First Item (Menu) - Left Aligned */
+.navbar ul li.menu-icon {
+  margin-left: 15px;
+}
+
+.navbar ul li.menu-icon img {
+  width: 32px;
+  height: 27px;
+}
+
+/* 🔹 Right Section (Notification, Profile, Admin Name) */
+.navbar ul.right-section {
+  display: flex;
+  align-items: center;
+  margin-left: 55% !important; /* Push to the right */
+}
+
+/* 🔹 Notification Icon (Beside Profile) */
+.navbar ul li.notification-icon {
+  margin-right: -10px; /* Ensures notification is right beside profile */
+}
+
+.navbar ul li.notification-icon img {
+  width: 61.637px;
+  height: 44px;
+}
+
+/* 🔹 Profile (PP) Icon */
+.navbar ul li.profile-icon img {
+  width: 51.364px;
+  height: 50px;
+}
+
+/* 🔹 Navbar Links */
+.navbar ul li a {
+  text-decoration: none;
+  color: rgb(118, 117, 117);
+  font-size: 18px !important;
+  font-weight: bold;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* 🔹 Apply cursor pointer ONLY to icons */
+.navbar ul li a img {
+  display: block;
+  cursor: pointer;
+}
+
+/* 🔹 Admin Name Styling (Not Clickable) */
+.navbar ul li.admin-name {
+  font-weight: bold;
+  margin-left: -30px;
+  cursor: default;
+  margin-top: -2px;
+}
+
+/* 🔹 Hover Effect for Icons */
+.navbar ul li a:hover img {
+  opacity: 0.7;
+}
+
+.menu-image {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background: #ffffff;
+  color: rgb(118, 117, 117);
+  width: 100px; /* Sidebar width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding-top: 180px !important;
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  /* Smooth slide + fade effect */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
+  border-radius: 12px;
+}
+
+/* Sidebar Collapsed */
+.sidebar.collapsed {
+  transform: translateY(-100%); /* Moves sidebar completely off-screen upwards */
+  opacity: 0; /* Fade out */
+  pointer-events: none; /* Prevent interactions */
+}
+
+.sidebar.collapsed nav ul li a {
+  font-size: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.sidebar.collapsed nav ul li a img {
+  margin-bottom: 0; /* Adjust icon spacing */
+  transform: scale(0.9);
+}
+
+.sidebar.collapsed .logout img {
+  margin-bottom: 0;
+}
+
+/* Ensure the sidebar content remains centered */
+.sidebar.collapsed nav ul li a {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar.collapsed .logout {
+  display: flex;
+  justify-content: center;
+}
+
+/* Ensure sidebar content remains centered */
+.sidebar.collapsed nav ul li a,
+.sidebar.collapsed .logout {
+  display: flex;
+  justify-content: center;
+}
+
+/* Sidebar Navigation */
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(28, 27, 27);
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 0;
+  position: relative;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Icon Styles */
+.sidebar nav ul li a img {
+  width: 25px !important;
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.sidebar nav ul li a:hover {
+  color: black;
+  transform: translateY(-3px);
+}
+
+.sidebar nav ul li a:hover img {
+  transform: scale(1.1);
+}
+
+.sidebar nav ul li a::after {
+  content: "";
+  width: 60%;
+  height: 2px;
+  background: #702121;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar nav ul li a:hover::after {
+  opacity: 1;
+}
+/* Active Link Styling */
+.sidebar nav ul li a.active {
+  color: #702121; /* Maroon color for active link */
+  font-weight: bold;
+}
+
+.sidebar nav ul li a.active img {
+  transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+.sidebar nav ul li a.active::after {
+  opacity: 1; /* Show the underline for active link */
+}
+
+/* Logout Button */
+.logout {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+  text-align: center;
+  margin-top: -10px !important;
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking */
+  align-items: center;
+  justify-content: center;
+}
+
+.logout img {
+  width: 20px !important;
+  height: auto;
+  margin-bottom: 4px !important; /* Adjust margin for better spacing */
+}
+
+.logout:hover img {
+  transform: scale(1.1);
+}
+
+.logout:hover {
+  color: black;
+  transform: translateY(-3px);
+}
+
+.adminP-bar {
+  width: 259px;
+  height: 238px;
+  position: absolute;
+  top: 23%;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 100px !important;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.25) inset, 2px 5px 14.5px 4px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminP-bar.closed {
+  opacity: 0; /* Hidden above */
+}
+
+.adminP-bar.open {
+  opacity: 1; /* Visible */
+}
+
+.adminN-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(217, 217, 217, 0.5);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 200px;
+  height: 75px;
+}
+
+.Aprofile-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.admin-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-Name {
+  color: #534D4D;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.admin-role {
+  color: #534D4D;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.account-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.manage-account {
+  font-size: 14px;
+  color: #800000;
+  margin-bottom: 10px;
+}
+
+.sign-out {
+  background-color: white;
+  border: 1px solid #800000;
+  color: #800000;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 200px;
+  height: 37px;
+}
+
+.sign-out:hover {
+  background-color: #800000;
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+  background: url('/src/assets/images/background-cit.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Parent Container for Centering the Form */
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 10px;
+  }
+}
