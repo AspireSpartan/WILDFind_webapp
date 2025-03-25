@@ -7,12 +7,14 @@ import ContactUs from "./features/Contact-us/contact-us"; // Import ContactUs
 import URF from "./features/UserRequestForm/RequestForm";
 import AdminDashboard from "./components/Admin/AdminDashoard/AdminDashboard";
 import Sdrhdr from "./features/Admin-sdr&hdr/sdr&hdr"; 
+import Request from "./features/Request/request"; 
 import './index.css';
 
 function App() {
   return (
     <Router>
       <Routes> 
+        <Route path="/Request" element={<Request />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
         <Route path="/Sdrhdr" element={<Sdrhdr />} />     
         <Route path="/landingPage" element={<LandingPage />} />
@@ -20,8 +22,8 @@ function App() {
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/admin-dashboard" element={<Admin />} />
         <Route path="/login" element={<AdminLogin />} />
-        <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
-        <Route path="/" element={<LandingPage/>} /> {/* Added route for Contact Us */}
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/" element={<LandingPage/>} /> 
       </Routes>
     </Router>
   );
