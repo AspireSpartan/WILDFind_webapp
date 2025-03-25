@@ -68,7 +68,7 @@ const Request = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="request-container-content">
         <h1>Retrieval Request</h1>
         <div className="lost-items-container">
           {lostItems.map((item, index) => (
@@ -81,7 +81,7 @@ const Request = () => {
         </div>
       </div>
 
-      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+      <div className={`sidebar-request ${sidebarOpen ? "open" : ""}`}>
         {[FaHome, FaEdit, FaEye, FaClipboardList, FaHistory, FaSignOutAlt].map(
           (Icon, index) => (
             <div key={index} className="sidebar-item">
