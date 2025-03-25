@@ -14,6 +14,25 @@ import { useNavigate } from "react-router-dom";
 import headerImage from "/src/assets/images/head1.png";
 import "./request.css";
 
+const LostItemCard = ({
+  image,
+  category,
+  name,
+  phone,
+  dateLost,
+  description,
+}) => (
+  <div className="lost-item-card">
+    <img src={image} alt={category} className="lost-item-image" />
+    <h3 className="lost-item-category">{category}</h3>
+    <p className="lost-item-name">Owner: {name}</p>
+    <p className="lost-item-phone">Contact: {phone}</p>
+    <p className="lost-item-date">Date Lost: {dateLost}</p>
+    <p className="lost-item-description">{description}</p>
+    <button className="release-button">Release</button>
+  </div>
+);
+
 const Request = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
@@ -22,9 +41,23 @@ const Request = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const squareCardData = [
-    { title: "Title", deviceId: "01", imageSrc: "https://placehold.co/31x45" },
-    { title: "Title", deviceId: "02", imageSrc: "https://placehold.co/31x45" },
+  const lostItems = [
+    {
+      image: "https://placehold.co/299x185",
+      category: "Laptop",
+      name: "John Doe",
+      phone: "123-456-7890",
+      dateLost: "March 20, 2025",
+      description: "Lost near the university library. Contact me if found.",
+    },
+    {
+      image: "https://placehold.co/299x185",
+      category: "Phone",
+      name: "Jane Smith",
+      phone: "987-654-3210",
+      dateLost: "March 18, 2025",
+      description: "Silver laptop with a blue sticker on the back.",
+    },
   ];
 
   return (
@@ -55,23 +88,9 @@ const Request = () => {
 
       <div className="container">
         <h1>Retrieval Request</h1>
-        <div className="items-grid">
-          {squareCardData.map((card, index) => (
-            <div key={index} className="square-card">
-              <h3 className="square-card-title">{card.title}</h3>
-              <p className="square-card-device">Device: {card.deviceId}</p>
-              <button
-                className="square-card-button"
-                onClick={() => navigate("/urf")}
-              >
-                Retrieve
-              </button>
-              <img
-                src={card.imageSrc}
-                alt="Device Icon"
-                className="square-card-icon"
-              />
-            </div>
+        <div className="lost-items-container">
+          {lostItems.map((item, index) => (
+            <LostItemCard key={index} {...item} />
           ))}
         </div>
       </div>
