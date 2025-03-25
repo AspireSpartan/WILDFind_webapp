@@ -15,73 +15,93 @@ import image6 from '../../../assets/images/Medical ID.jpg';
 import image7 from '../../../assets/images/Bracelet.jpg';
 import image8 from '../../../assets/images/Family.jpg';
 import image9 from '../../../assets/images/More.jpg';
-import Card from './Cards/Card'; 
-import SquareCard from './SquareCards/SquareCard'; 
-import WaveSvg from './WaveSvg/WaveSvg'; 
-import FloatBox from './Floater/RectangleCard'; 
-import SearchBox from './SearchBox/SearchBox'; 
+import Card from '../../../components/Users/Cards/Card'; 
+import SquareCard from '../../../components/Users/SquareCards/SquareCard'; 
+import WaveSvg from '../../../components/Users/WaveSvg/WaveSvg'; 
+import FloatBox from '../../../components/Users/Floater/RectangleCard'; 
+import SearchBox from '../../../components/Users/SearchBox/SearchBox'; 
 
 const Dashboard = () => {
   const [isHidden, setIsHidden] = useState(true);
-  const [categoryCounts, setCategoryCounts] = useState({});
   const toggleOpacity = () => {
     setIsHidden((prev) => !prev);
   };
 
-  // Declare cardData state FIRST to avoid using setCardData before it's defined
   const [cardData, setCardData] = useState([
-    { title: "Electronics", count: "0", imageSrc: image1 },
-    { title: "Clothing & Wearables", count: "0", imageSrc: image2 },
-    { title: "Bags & Containers", count: "0", imageSrc: image3 },
-    { title: "Documents & ID's", count: "0", imageSrc: image4 },
-    { title: "Sports & Fitness Gear", count: "0", imageSrc: image5 },
-    { title: "Medical Items", count: "0", imageSrc: image6 },
-    { title: "Personal Accessories", count: "0", imageSrc: image7 },
-    { title: "Household Items", count: "0", imageSrc: image8 },
-    { title: "Miscellaneous", count: "0", imageSrc: image9 },
+    { title: "Electronics", count: "00", imageSrc: image1 },
+    { title: "Clothing & Wearables", count: "00", imageSrc: image2 },
+    { title: "Bags & Containers", count: "00", imageSrc: image3 },
+    { title: "Documents & ID's", count: "00", imageSrc: image4 },
+    { title: "Sports & Fitness Gear", count: "00", imageSrc: image5 },
+    { title: "Medical Items", count: "00", imageSrc: image6 },
+    { title: "Personal Accessories", count: "00", imageSrc: image7 },
+    { title: "Household Items", count: "00", imageSrc: image8 },
+    { title: "Miscellaneous", count: "00", imageSrc: image9 },
   ]);
 
-  // Fetch counts from Firebase
+  const [searchInput, setSearchInput] = useState(""); // ✅ State for search input
+  const [squareCardData, setSquareCardData] = useState([]); 
+  const [filteredData, setFilteredData] = useState([]); // ✅ Stores filtered items
+
   useEffect(() => {
     const itemsRef = ref(database, "reportedItems/Items");
-  
-    onValue(itemsRef, (snapshot) => {
+
+    const unsubscribe = onValue(itemsRef, (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
         const categoryCounts = {};
+        const squareCards = [];
 
-        // Loop through all items and count the categories
+        // Loop through Firebase data
         Object.values(data).forEach((item) => {
           const category = item["Item Category"];
+          const itemName = item["Item Name"];
+          const itemId = item["ID"];
+
+          // Count each category for `cardData`
           if (category) {
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
           }
+
+          // Populate `squareCardData`
+          if (itemName && itemId) {
+            squareCards.push({
+              title: itemName,
+              deviceId: itemId.toString().padStart(2, "0"),
+              imageSrc: "https://placehold.co/31x45", // Placeholder image
+            });
+          }
         });
 
-        // Update the state with the new counts
+        // ✅ Update `cardData` dynamically based on category counts
         setCardData((prevCardData) =>
           prevCardData.map((card) => ({
             ...card,
-            count: categoryCounts[card.title] ? categoryCounts[card.title].toString().padStart(2, "0") : "00",
+            count: categoryCounts[card.title]
+              ? categoryCounts[card.title].toString().padStart(2, "0")
+              : "00",
           }))
         );
+
+        setSquareCardData(squareCards); // ✅ Store all items
+        setFilteredData(squareCards); // ✅ Initially, filteredData = all items
       }
     });
 
-    return () => {}; // Cleanup function (optional)
+    return () => unsubscribe(); // Cleanup listener on unmount
   }, []);
 
-  const squareCardData = [
-    { title: "Phone", deviceId: "01", imageSrc: "https://placehold.co/31x45" },
-    { title: "Laptop", deviceId: "02", imageSrc: "https://placehold.co/31x45" },
-    { title: "Arduino", deviceId: "03", imageSrc: "https://placehold.co/31x45" },
-    { title: "Breadboard", deviceId: "04", imageSrc: "https://placehold.co/31x45" },
-    { title: "RJ45", deviceId: "05", imageSrc: "https://placehold.co/31x45" },
-    { title: "Tumbler", deviceId: "06", imageSrc: "https://placehold.co/31x45" },
-    { title: "Book", deviceId: "07", imageSrc: "https://placehold.co/31x45" },
-    { title: "Mouse", deviceId: "08", imageSrc: "https://placehold.co/31x45" },
-
-  ];
+  // ✅ Filter items based on `searchInput`
+  useEffect(() => {
+    if (searchInput.trim() === "") {
+      setFilteredData(squareCardData); // Show all if search is empty
+    } else {
+      const filtered = squareCardData.filter((item) =>
+        item.title.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setFilteredData(filtered);
+    }
+  }, [searchInput, squareCardData]);
 
   return (
     <div className="dashboard-container"> {/* Main container */}
@@ -139,12 +159,16 @@ const Dashboard = () => {
         <div className="items-header">
           <h2 className="items-title">Items Lost</h2>
           <div className="search-box">
-          <SearchBox toggleOpacity={toggleOpacity} />
+          <SearchBox 
+              toggleOpacity={toggleOpacity} 
+              searchInput={searchInput} 
+              setSearchInput={setSearchInput} 
+            />
           </div>
         </div>
 
         <div className="items-grid">
-          {squareCardData.map((squareCard, index) => (
+          {filteredData.map((squareCard, index) => (
             <SquareCard key={index} {...squareCard} onRetrieve={() => console.log("Retrieve button clicked")} />
           ))}
         </div>

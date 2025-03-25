@@ -1,0 +1,90 @@
+.Group101 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  max-width: 400px; /* Optional: sets a maximum width */
+}
+
+.Rectangle87 {
+  width: 100%; /* Changed from fixed 373px to full width */
+  max-width: 373px; /* Maintains original width as maximum */
+  height: auto; /* Allows height to adjust */
+  aspect-ratio: 373 / 177; /* Maintains original proportions */
+  min-height: 120px; /* Minimum height for small screens */
+  left: 0;
+  top: 0;
+  position: relative;
+  box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.OpenBox {
+  width: 22%; /* Relative to parent (approx 83.82/373) */
+  max-width: 83.82px;
+  height: auto;
+  aspect-ratio: 83.82 / 53.37; /* Maintains proportions */
+  left: 8%; /* Relative positioning */
+  top: 30%; /* Adjusted for responsiveness */
+  position: absolute;
+}
+
+.Number20 {
+  width: 40%; /* Relative to parent */
+  max-width: 146.69px;
+  height: auto;
+  left: 40%; /* Adjusted for responsiveness */
+  top: 20%;
+  position: absolute;
+  color: white;
+  font-size: clamp(40px, 18vw, 70px); /* Scales between 40px and 70px */
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.UnclaimedItems {
+  width: 60%; /* Relative to parent */
+  max-width: 220.73px;
+  height: auto;
+  left: 12%; /* Adjusted for responsiveness */
+  top: 68%;
+  position: absolute;
+  color: white;
+  font-size: clamp(14px, 5vw, 20px); /* Scales between 14px and 20px */
+  font-family: 'Fustat', sans-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 480px) {
+  .Rectangle87 {
+    min-height: 100px;
+  }
+
+  .OpenBox {
+    width: 20%;
+    left: 6%;
+    top: 25%;
+  }
+
+  .Number20 {
+    width: 35%;
+    left: 35%;
+    top: 15%;
+  }
+
+  .UnclaimedItems {
+    width: 55%;
+    left: 10%;
+    top: 65%;
+  }
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  .Rectangle87 {
+    width: 373px; /* Returns to original size on larger screens */
+    height: 177px;
+  }
+}
