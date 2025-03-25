@@ -55,8 +55,8 @@ const ReportForm = () => {
         </ul>
       </nav>
      
-      <div className="container">
-        <aside className={`sidebar ${isSidebarOpen ? "" : "collapsed"}`}>
+      <div className="container-admin">
+        <aside className={`sidebar-admin ${isSidebarOpen ? "" : "collapsed"}`}>
           <nav>
             <ul>
               <li>
