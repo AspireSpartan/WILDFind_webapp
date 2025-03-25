@@ -6,7 +6,6 @@ import LandingPage from "./features/Landing_Page/LandingPage";
 import ContactUs from "./features/Home/contact-us"; // Import ContactUs
 import URF from "./features/UserRequestForm/RequestForm";
 import AdminLayout from "./components/Admin/AdminLayout";
-import Request from "./features/Request/request";
 import "./index.css";
 
 function App() {
@@ -20,11 +19,8 @@ function App() {
         <Route path="/admin-dashboard" element={<Admin />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} />{" "}
-        {/* Added route for Contact Us */}
         <Route path="/landing" element={<LandingPage />} />{" "}
-        {/* Added route for Contact Us */}
-        <Route path="/" element={<Request />} />{" "}
-        {/* Added route for Contact Us */}
+        <Route path="/" element={<LandingPage />} />{" "}
       </Routes>
     </Router>
   );
