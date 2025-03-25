@@ -23,7 +23,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} /> {/* Added route for Contact Us */}
         <Route path="/" element={<RfI />} /> {/* Added route for Contact Us */}
       </Routes>
-    </Router>
+    </Router> 
   );
 }
 
