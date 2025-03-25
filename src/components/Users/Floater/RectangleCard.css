@@ -9,7 +9,8 @@
     transition: opacity 0.3s ease-in-out;
 }
 .rectangle-container.hidden {
-    opacity: 0; /* When toggled, this class is added */
+    /*opacity: 0;  When toggled, this class is added */
+    display: none;
 }
 
 .rectangle-box {
