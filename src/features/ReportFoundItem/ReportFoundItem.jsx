@@ -5,7 +5,7 @@ import notificationIcon from "../../assets/images/Notification.png";
 import profileIcon from "../../assets/images/pp.png";
 import HomeIcon from "../../assets/images/Home.png";
 import ReportIcon from "../../assets/images/request.png";
-import ViewIcon from "../../assets/images/View.png";
+import ViewIcon from "../../assets/images/Viewx.png";
 import RequestIcon from "../../assets/images/request.png";
 import HistoryIcon from "../../assets/images/history.png";
 import LogoutIcon from "../../assets/images/Logout.png";
@@ -13,6 +13,8 @@ import AdminProfile from "../../assets/images/pp.png";
 
 const ReportForm = () => {
   const [image, setImage] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isProfileBarOpen, setIsProfileBarOpen] = useState(false);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -29,34 +31,29 @@ const ReportForm = () => {
     event.preventDefault();
     console.log("Form submitted!");
   };
-  
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const [isProfileBarOpen, setIsProfileBarOpen] = useState(false);
   const toggleProfileBar = () => {
     setIsProfileBarOpen(!isProfileBarOpen);
   };
 
   return (
-    <>
+    <div className="app-container"> {/* Moved styles to this wrapper */}
       <header className="header">
         <img src="/src/assets/images/header.png" alt="Wildfind Logo" className="header-image" />
       </header>
       
       <nav className="navbar">
         <ul>
-          {/* Menu Icon (Left) */}
           <li className="menu-icon">
             <a href="#" onClick={toggleSidebar}>
               <img src={menuIcon} alt="Menu" />
             </a>
           </li>
         </ul>
-
-        {/* Right Section (Notification, Profile, Admin Name) */}
         <ul className="right-section">
           <li className="notification-icon">
             <a href="#">
@@ -71,11 +68,11 @@ const ReportForm = () => {
           <li className="admin-name">
             <a>Admin Name</a>
           </li>
-        </ul> 
+        </ul>
       </nav>
      
       <div className="container">
-      <aside className={`sidebar ${isSidebarOpen ? "" : "collapsed"}`}>
+        <aside className={`sidebar ${isSidebarOpen ? "" : "collapsed"}`}>
           <nav>
             <ul>
               <li>
@@ -110,31 +107,29 @@ const ReportForm = () => {
               </li>
             </ul>
           </nav>
-            <button className="logout">
-              <img src={LogoutIcon} alt="Logout" className="icon" />
-              Logout
-            </button>
+          <button className="logout">
+            <img src={LogoutIcon} alt="Logout" className="icon" />
+            Logout
+          </button>
         </aside>
         
         <main className="main-content">
-          <div className = "Background">
-              <h1>
-              {/*WILDFIND*/}
-              </h1>
+          <div className="Background">
+            <h1>{/*WILDFIND*/}</h1>
           </div>
-            <div className={`adminP-bar ${isProfileBarOpen ? "open" : "closed"}`}>
-              <div className="adminN-card">
-                  <img src={AdminProfile} alt="AProfile-icon" className="Aprofile-icon" />
-                  <div className="admin-details">
-                      <h2 className="admin-Name">Admin name</h2>
-                      <p className="admin-role">Admin</p>
-                  </div>
-              </div>
-              <div className="account-actions">
-                  <p className="manage-account">Manage Account</p>
-                  <button className="sign-out">Sign out</button>
+          <div className={`adminP-bar ${isProfileBarOpen ? "open" : "closed"}`}>
+            <div className="adminN-card">
+              <img src={AdminProfile} alt="AProfile-icon" className="Aprofile-icon" />
+              <div className="admin-details">
+                <h2 className="admin-Name">Admin name</h2>
+                <p className="admin-role">Admin</p>
               </div>
             </div>
+            <div className="account-actions">
+              <p className="manage-account">Manage Account</p>
+              <button className="sign-out">Sign out</button>
+            </div>
+          </div>
 
           <div className="parent-container">        
             <div className="form-container">
@@ -195,10 +190,11 @@ const ReportForm = () => {
               </form>
             </div>
           </div>
+
           
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

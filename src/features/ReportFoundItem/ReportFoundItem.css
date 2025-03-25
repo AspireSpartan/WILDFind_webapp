@@ -1,9 +1,8 @@
- /* Global Styling */
- body {
+/* Global Styling */
+.app-container {
   font-family: 'Poppins', sans-serif;
   background: #f4f4f4;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +71,7 @@
 .navbar ul.right-section {
   display: flex;
   align-items: center;
-  margin-left: 60%; /* Push to the right */
+  margin-left: 55% !important; /* Push to the right */
 }
 
 /* 🔹 Notification Icon (Beside Profile) */
@@ -95,7 +94,7 @@
 .navbar ul li a {
   text-decoration: none;
   color: rgb(118, 117, 117);
-  font-size: 20px;
+  font-size: 18px !important;
   font-weight: bold;
   padding: 20px;
   display: flex;
@@ -113,9 +112,9 @@
 /* 🔹 Admin Name Styling (Not Clickable) */
 .navbar ul li.admin-name {
   font-weight: bold;
-  padding-left: 10px;
+  margin-left: -30px;
   cursor: default;
-  margin-top: -5px;
+  margin-top: -2px;
 }
 
 /* 🔹 Hover Effect for Icons */
@@ -132,33 +131,12 @@
 .sidebar {
   background: #ffffff;
   color: rgb(118, 117, 117);
-  width: 100px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  padding-top: 250px;
-  box-sizing: border-box;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  opacity: 1;
-  border-radius: 12px;
-}
-
-/* Sidebar Styles */
-.sidebar {
-  background: #ffffff;
-  color: rgb(118, 117, 117);
   width: 100px; /* Sidebar width */
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  padding-top: 250px;
+  padding-top: 180px !important;
   box-sizing: border-box;
   z-index: 2;
   display: flex;
@@ -240,7 +218,7 @@
 
 /* Icon Styles */
 .sidebar nav ul li a img {
-  width: 35px;
+  width: 25px !important;
   height: auto;
   margin-bottom: 10px;
   transition: transform 0.3s ease-in-out;
@@ -275,6 +253,7 @@
 
 /* Logout Button */
 .logout {
+  margin-top: auto;
   padding: 10px;
   border: none;
   background: none;
@@ -282,14 +261,17 @@
   transition: 0.3s ease-in-out;
   width: 100%;
   text-align: center;
-  margin-top: 35px !important; 
+  margin-top: -10px !important;
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking */
+  align-items: center;
+  justify-content: center;
 }
 
 .logout img {
-  width: 30px;
+  width: 20px !important;
   height: auto;
-  margin-bottom: 10px;
-  margin-left: 2px;
+  margin-bottom: 4px !important; /* Adjust margin for better spacing */
 }
 
 .logout:hover img {
@@ -297,7 +279,7 @@
 }
 
 .logout:hover {
-  color: white;
+  color: black;
   transform: translateY(-3px);
 }
 
@@ -305,10 +287,10 @@
   width: 259px;
   height: 238px;
   position: absolute;
-  top: 0;
+  top: 23%;
   right: 0;
   margin-top: 10px;
-  margin-right: 190px;
+  margin-right: 100px !important;
   border-radius: 20px;
   background-color: #fff;
   box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.25) inset, 2px 5px 14.5px 4px rgba(0, 0, 0, 0.25);
@@ -319,11 +301,11 @@
 }
 
 .adminP-bar.closed {
-  transform: translateY(-150%); /* Hidden above */
+  opacity: 0; /* Hidden above */
 }
 
 .adminP-bar.open {
-  transform: translateY(0); /* Visible */
+  opacity: 1; /* Visible */
 }
 
 .adminN-card {
@@ -408,6 +390,7 @@
   padding: 20px;
   box-sizing: border-box;
   display: flex;
+  overflow: hidden;
 }
 
 /*Header of  the form*/
@@ -437,37 +420,22 @@
   overflow: hidden;
 }
 
-.parent-container {
-  display: flex;
-  flex-direction: row; /* Side by side on larger screens */
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 1658px;
-  margin: auto;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
 /* Form Container */
 .form-container {
   background: linear-gradient(356deg, rgba(33, 5, 5, 0.85) 20.63%, rgba(108, 5, 5, 0.85) 77.9%);
   padding: 30px;
   border-radius: 30px;
-  width: 1658px;
-  height: 624px;
+  width: 1258px;
+  height: 454px;
   max-width: 1500px; /* Prevents stretching too much */
   box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: white;
   position: relative;
   z-index: 5;  
-  bottom: 105px;
+  margin-bottom: 265px;
+  margin-left: 100px;
   display: flex;
   max-height: 700px;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0px;
-  flex: 1;
   overflow: hidden;
 }
 
@@ -484,35 +452,37 @@
 }
 
 .report-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Ensures even spacing between elements */
-  width: 40%;
-  justify-content: flex-start;
-  padding: 10px; 
+  position: absolute;/**/
+  left: 0; /**/
+  top:0; /**/
+  flex-direction: column;/**/
+  flex-wrap: nowrap; /**/
+  max-width: 900px;
+  display: flex; /**/
 }
 
 /* Form Fields */
 .report-form label {
   font-weight: bold;
   display: flex;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 15px;
   text-align: left;
+  font-size: 13px;
 }
 
 .report-form input,
 .report-form textarea {
-  width: 80%; /* Expanded input width */
-  max-width: 500px; /* Set a max width */
-  padding: 10px;
+  width: 400px; /* Expanded input width */
+  max-width: 1000px; /* Set a max width */
+  padding: 8px;
   border: none;
   border-radius: 5px;
   margin-top: 0px;
   margin-left: 15px;
   background: rgba(255, 255, 255, 0.2);
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   display: flex;
 }
 
@@ -522,12 +492,13 @@
 }
 
 .buttons {
+  position: relative;
   display: flex;
-  gap: 20px; /* Adds space between buttons */
-  margin-top: 15px; 
-  margin-left: 175px;
-  bottom: 50px;
-  height: 42px;
+  gap: 10px; /* Adds space between buttons */
+  /*margin-top: 20px; */
+  bottom: 500px;
+  left: 60px;
+  height: 38px;
 }
 
 .cancel {
@@ -574,8 +545,11 @@
 
 /* Image Upload Container */
 .image-upload-container {
-  width: 885px;
-  height: 684px;
+  position: relative;
+  left: 510px; /* Align to the right side of the parent */
+  bottom: 450px;
+  width: 785px;
+  height: 514px;
   border-radius: 50%;
   overflow: hidden;
   background-color: lightgray;
@@ -586,10 +560,6 @@
   border-left: 25px solid #967F04;
   box-shadow: 8px -7px 12.7px 2px rgba(0, 0, 0, 0.25) inset;  
   max-width: 900px;
-  flex-direction: column;
-  position: absolute;
-  top: 0px;
-  right: 0px;
 }
 
 .image-upload-container input[type="file"] {
@@ -603,7 +573,7 @@
   justify-content: center;
   align-items: center;
   width: 885px;
-  height: 784px;
+  height: 584px;
   object-fit: cover; /* Make the image fill the container */
   border-radius: 500px 30px 30px 500px;
   overflow: hidden;
