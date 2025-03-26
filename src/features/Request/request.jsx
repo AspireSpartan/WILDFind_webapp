@@ -40,6 +40,38 @@ const Request = () => {
       dateLost: "March 18, 2025",
       description: "Silver laptop with a blue sticker on the back.",
     },
+    {
+      image: "https://placehold.co/299x185",
+      category: "Phone",
+      name: "Jane Smith",
+      phone: "987-654-3210",
+      dateLost: "March 18, 2025",
+      description: "Silver laptop with a blue sticker on the back.",
+    },
+    {
+      image: "https://placehold.co/299x185",
+      category: "Phone",
+      name: "Jane Smith",
+      phone: "987-654-3210",
+      dateLost: "March 18, 2025",
+      description: "Silver laptop with a blue sticker on the back.",
+    },
+    {
+      image: "https://placehold.co/299x185",
+      category: "Phone",
+      name: "Jane Smith",
+      phone: "987-654-3210",
+      dateLost: "March 18, 2025",
+      description: "Silver laptop with a blue sticker on the back.",
+    },
+    {
+      image: "https://placehold.co/299x185",
+      category: "Phone",
+      name: "Jane Smith",
+      phone: "987-654-3210",
+      dateLost: "March 18, 2025",
+      description: "Silver laptop with a blue sticker on the back.",
+    },
   ];
 
   return (

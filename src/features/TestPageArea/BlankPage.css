@@ -1,0 +1,18 @@
+.blank-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(58, 58, 58);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-component-area {
+  background-color: rgb(181, 181, 181);
+  border-radius: 15px;
+  height: 80vh;
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
