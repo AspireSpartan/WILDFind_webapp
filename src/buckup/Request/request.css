@@ -1,0 +1,74 @@
+.request-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.request-container-content {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100vw;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+.lost-items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.lost-item-card {
+  width: 20%;
+  max-width: 500px;
+  height: 100%;
+  background: rgb(102, 167, 18);
+  box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.lost-item-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.lost-item-category {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.lost-item-description {
+  font-size: 14px;
+  color: #555;
+}
+
+.release-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.release-button:hover {
+  background-color: #218838;
+}
