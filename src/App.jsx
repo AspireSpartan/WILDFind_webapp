@@ -8,12 +8,14 @@ import AdminDashboard from "./components/Admin/AdminDashoard/AdminDashboard";
 import Sdrhdr from "./features/Sidbar&Header/sdr&hdr"; 
 import Request from "./features/Request/request"; 
 import ReportFoundItem from "./components/Admin/FoundItemForm/ReportFoundItem"; 
+import BlankPage from "./features/TestPageArea/BlankPage";  {/*this page is only for testing in Admin Request Page*/}
 import './index.css';
 
 function App() {
   return (
     <Router>
       <Routes> 
+        <Route path="/BlankPage" element={<BlankPage />} /> {/*this page is only for testing in Admin Request Page*/}
         <Route path="/ReportFoundItem" element={<ReportFoundItem />} />
         <Route path="/Request" element={<Request />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />

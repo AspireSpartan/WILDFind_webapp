@@ -1,7 +1,7 @@
 .admin-dashboard-container {
   position: relative;
   top: 10px;
-  left: 40%;
+  left: 45%;
   transform: translateX(-50%);
   width: 88%;
   min-height: 400px; /* Increased to accommodate all sections */
