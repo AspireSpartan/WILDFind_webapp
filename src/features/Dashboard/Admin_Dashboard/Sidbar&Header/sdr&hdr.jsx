@@ -1,4 +1,6 @@
+// src/components/Admin/SdrHdr.jsx
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./sdr&hdr.css";
 import menuIcon from "../../../../assets/images/Menu.png";
 import notificationIcon from "../../../../assets/images/Notification.png";
@@ -12,33 +14,36 @@ import LogoutIcon from "../../../../assets/images/Logout.png";
 import AdminProfile from "../../../../assets/images/pp.png";
 import AdminDashboard from "../../../../components/Admin/AdminDashoard/AdminDashboard.jsx"; // Corrected typo in path
 import FoundItemForm from "../../../../components/Admin/FoundItemForm/ReportFoundItem.jsx";
+import RequestPage from "../../../../components/Admin/RequestPage/RequestPage.jsx";
 /*import View from "../View";
 import History from "../History";*/
-import RequestPage from "../../../../components/Admin/RequestPage/RequestPage.jsx";
-import Login from "../../Admin_Dashboard/Login/admin-login.jsx";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import "../../../../services/firebase-config.js";
-
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../../../services/firebase-config.js";
 
 const SdrHdr = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isProfileBarOpen, setIsProfileBarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Default to false until auth state is checked
-  const auth = getAuth();
+  const [adminName, setAdminName] = useState("");
+  const [adminRole, setAdminRole] = useState("");
+  const navigate = useNavigate();
 
-  // Check authentication state on component mount
+  // Check authentication state and load admin data on mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user || localStorage.getItem("isAuthenticated") === "true") {
-        setIsLoggedIn(true);
+      if (!user && localStorage.getItem("isAuthenticated") !== "true") {
+        navigate("/"); // Redirect to login if not authenticated
       } else {
-        setIsLoggedIn(false);
+        // Load admin data from localStorage
+        const name = localStorage.getItem("adminName") || "Admin Name";
+        const role = localStorage.getItem("adminRole") || "Admin";
+        setAdminName(name);
+        setAdminRole(role);
       }
     });
 
     return () => unsubscribe(); // Cleanup on unmount
-  }, [auth]);
+  }, [navigate]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -51,23 +56,19 @@ const SdrHdr = () => {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("adminName"); // Clear admin data
+    localStorage.removeItem("adminRole"); // Clear admin data
     auth.signOut().then(() => {
-      setIsLoggedIn(false);
+      navigate("/"); // Redirect to login page
+    }).catch((err) => {
+      console.error("Logout error:", err.message);
+      navigate("/");
     });
-  };
-
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    setActiveSection("Home");
   };
 
   const handleSectionChange = (section) => {
     setActiveSection(section);
   };
-
-  if (!isLoggedIn) {
-    return <Login onLogin={handleLogin} />;
-  }
 
   return (
     <div className="app-container">
@@ -95,7 +96,7 @@ const SdrHdr = () => {
             </a>
           </li>
           <li className="admin-name">
-            <a>Admin Name</a>
+            <a>{adminName}</a> {/* Display admin name in navbar */}
           </li>
         </ul>
       </nav>
@@ -170,8 +171,8 @@ const SdrHdr = () => {
             <div className="adminN-card">
               <img src={AdminProfile} alt="AProfile-icon" className="Aprofile-icon" />
               <div className="admin-details">
-                <h2 className="admin-Name">Admin name</h2>
-                <p className="admin-role">Admin</p>
+                <h2 className="admin-Name">{adminName}</h2> {/* Display admin name */}
+                <p className="admin-role">{adminRole}</p> {/* Display admin role */}
               </div>
             </div>
             <div className="account-actions">
