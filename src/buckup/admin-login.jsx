@@ -1,44 +1,43 @@
-// src/features/Login/admin-login.jsx
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, get } from "firebase/database";
 import "./admin-login.css";
-import { auth } from "../../../../services/firebase-config";
+import "../../../../services/firebase-config";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [adminData, setAdminData] = useState(null);
   const navigate = useNavigate();
+  const auth = getAuth();
   const db = getDatabase();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetchAdminData(user.email);
+      }
+    });
+    return () => unsubscribe();
+  }, [auth]);
 
   const fetchAdminData = async (email) => {
     try {
-      const dbRef = ref(db, "AdminAccounts/Accounts");
+      const dbRef = ref(db, "admins");
       const snapshot = await get(dbRef);
       if (snapshot.exists()) {
-        const accounts = snapshot.val();
-        console.log("Fetched accounts:", accounts); // Log the data
-        console.log("Searching for email:", email); // Log the email being searched
-        const admin = Object.values(accounts).find((account) => {
-          const accountEmail = account.Email ? account.Email.trim().toLowerCase() : "";
-          console.log("Checking account email:", accountEmail);
-          return accountEmail === email.trim().toLowerCase();
-        });
+        const admins = snapshot.val();
+        const admin = Object.values(admins).find((admin) => admin.email === email);
         if (admin) {
-          console.log("Admin found:", admin); // Log the found admin data
-          localStorage.setItem("adminName", admin.Name);
-          localStorage.setItem("adminRole", admin.Role);
-        } else {
-          setError("Admin account not found in database.");
+          setAdminData(admin);
+          localStorage.setItem("adminName", admin.name);
+          localStorage.setItem("adminRole", admin.role);
         }
-      } else {
-        setError("No admin accounts found in database.");
       }
     } catch (error) {
-      console.error("Error fetching admin data:", error.code, error.message);
-      setError("Failed to fetch admin data. Please try again.");
+      console.error("Error fetching admin data:", error);
     }
   };
 
@@ -55,20 +54,15 @@ const Login = () => {
       e.preventDefault();
       setError("");
       try {
-        const userCredential = await signInWithEmailAndPassword(auth, formData.email.trim(), formData.password);
-        await fetchAdminData(formData.email.trim());
-        if (localStorage.getItem("adminName") && localStorage.getItem("adminRole")) {
-          localStorage.setItem("isAuthenticated", "true");
-          navigate("/Sdrhdr");
-        } else {
-          setError("Admin data not found. Please contact support.");
-        }
+        const userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
+        await fetchAdminData(formData.email);
+        localStorage.setItem("isAuthenticated", "true");
+        navigate("/Sdrhdr");
       } catch (err) {
         setError("Invalid email or password. Please try again.");
-        console.error("Login error:", err.code, err.message);
       }
     },
-    [formData, navigate]
+    [auth, formData, navigate]
   );
 
   return (
