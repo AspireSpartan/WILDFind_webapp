@@ -13,8 +13,8 @@ import AdminProfile from "../../assets/images/pp.png";
 import AdminDashboard from "../../components/Admin/AdminDashoard/AdminDashboard"; // Corrected typo in path
 import FoundItemForm from "../../components/Admin/FoundItemForm/ReportFoundItem";
 /*import View from "../View";
-import Request from "../Request";
 import History from "../History";*/
+import RequestPage from "../../features/RequestPage/RequestPage";
 import Login from "../../features/Login/admin-login";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import "../../services/firebase-config.js";
@@ -190,12 +190,7 @@ const SdrHdr = () => {
                 <p>This section is under development.</p>
               </div>
             )}
-            {activeSection === "Request" && (
-              <div>
-                <h2>Request Page (In Progress)</h2>
-                <p>This section is under development.</p>
-              </div>
-            )}
+            {activeSection === "Request" && <RequestPage />}
             {activeSection === "History" && (
               <div>
                 <h2>History Page (In Progress)</h2>
