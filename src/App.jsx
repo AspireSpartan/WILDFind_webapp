@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AdminLogin from "./features/Login/admin-login";
-import UserDashboard from "./features/Dashboard/User_Dashboard/dashboard";
+import AdminLogin from "./features/Dashboard/Admin_Dashboard/Login/admin-login";
+import UserDashboard from "./features/Dashboard/User_Dashboard/Dashboard/dashboard";
 import LandingPage from "./features/Landing_Page/LandingPage";
 import ContactUs from "./features/Contact-us/contact-us"; // Import ContactUs
-import URF from "./features/UserRequestForm/RequestForm";
+import URF from "./features/Dashboard/User_Dashboard/UserRequestForm/RequestForm";
 import AdminDashboard from "./components/Admin/AdminDashoard/AdminDashboard";
-import Sdrhdr from "./features/Sidbar&Header/sdr&hdr"; 
+import Sdrhdr from "./features/Dashboard/Admin_Dashboard/Sidbar&Header/sdr&hdr"; 
 import ReportFoundItem from "./components/Admin/FoundItemForm/ReportFoundItem"; 
 import BlankPage from "./features/TestPageArea/BlankPage";  {/*this page is only for testing in Admin Request Page*/}
-import RequestPage from "./features/RequestPage/RequestPage"; 
+import RequestPage from "./components/Admin/RequestPage/RequestPage"; 
 import './index.css';
 
 function App() {

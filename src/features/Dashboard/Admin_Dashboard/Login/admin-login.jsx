@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"; 
 import "./admin-login.css";
-import "../../services/firebase-config.js";
+import "../../../../services/firebase-config";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });

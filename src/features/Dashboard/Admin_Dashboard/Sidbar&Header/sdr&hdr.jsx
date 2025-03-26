@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./sdr&hdr.css";
-import menuIcon from "../../assets/images/Menu.png";
-import notificationIcon from "../../assets/images/Notification.png";
-import profileIcon from "../../assets/images/pp.png";
-import HomeIcon from "../../assets/images/Home.png";
-import ReportIcon from "../../assets/images/request.png";
-import ViewIcon from "../../assets/images/Viewx.png";
-import RequestIcon from "../../assets/images/request.png";
-import HistoryIcon from "../../assets/images/history.png";
-import LogoutIcon from "../../assets/images/Logout.png";
-import AdminProfile from "../../assets/images/pp.png";
-import AdminDashboard from "../../components/Admin/AdminDashoard/AdminDashboard"; // Corrected typo in path
-import FoundItemForm from "../../components/Admin/FoundItemForm/ReportFoundItem";
+import menuIcon from "../../../../assets/images/Menu.png";
+import notificationIcon from "../../../../assets/images/Notification.png";
+import profileIcon from "../../../../assets/images/pp.png";
+import HomeIcon from "../../../../assets/images/Home.png";
+import ReportIcon from "../../../../assets/images/request.png";
+import ViewIcon from "../../../../assets/images/Viewx.png";
+import RequestIcon from "../../../../assets/images/request.png";
+import HistoryIcon from "../../../../assets/images/history.png";
+import LogoutIcon from "../../../../assets/images/Logout.png";
+import AdminProfile from "../../../../assets/images/pp.png";
+import AdminDashboard from "../../../../components/Admin/AdminDashoard/AdminDashboard.jsx"; // Corrected typo in path
+import FoundItemForm from "../../../../components/Admin/FoundItemForm/ReportFoundItem.jsx";
 /*import View from "../View";
 import History from "../History";*/
-import RequestPage from "../../features/RequestPage/RequestPage";
-import Login from "../../features/Login/admin-login";
+import RequestPage from "../../../../components/Admin/RequestPage/RequestPage.jsx";
+import Login from "../../Admin_Dashboard/Login/admin-login.jsx";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import "../../services/firebase-config.js";
+import "../../../../services/firebase-config.js";
+
 
 const SdrHdr = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
