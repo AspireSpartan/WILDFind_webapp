@@ -1,188 +1,145 @@
-.Group136 {
-    width: 299.14px; /* Match the width of Rectangle134 */
-    height: 406px; /* Match the height of Rectangle134 */
-    position: relative;
-    flex-shrink: 0; /* Prevent the card from shrinking in a flex container */
-  }
-  
-  .Rectangle134 {
-    width: 100%; /* Use 100% to fill the parent (Group136) */
-    height: 100%; /* Use 100% to fill the parent (Group136) */
-    position: absolute; /* Ensure it fills the card */
-    background: white;
-    box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-  }
-  
-  .FullName {
-    width: 150px; /* Increased width to fit longer names */
-    left: 59.20px;
-    top: 220px;
-    position: absolute;
-    color: #AFAFAF;
-    font-size: 12px;
-    font-family: 'Afacad', sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .YourNumber {
-    width: 150px; /* Increased width to fit longer numbers */
-    left: 110.10px;
-    top: 241px;
-    position: absolute;
-    color: #AFAFAF;
-    font-size: 12px;
-    font-family: 'Afacad', sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .DateLost {
-    width: 150px; /* Increased width to fit longer dates */
-    left: 81.02px;
-    top: 259px;
-    position: absolute;
-    color: #AFAFAF;
-    font-size: 12px;
-    font-family: 'Afacad', sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .DescriptionText {
-    width: 250px; /* Adjusted to fit within the card */
-    left: 34.28px;
-    top: 302px;
-    position: absolute;
-    color: #AFAFAF;
-    font-size: 12px;
-    font-family: 'Afacad', sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .Name {
-    width: 38.43px;
-    left: 14.54px;
-    top: 219px;
-    position: absolute;
-    color: #010000;
-    font-size: 13px;
-    font-family: 'Afacad', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .PhoneNumber {
-    width: 86.21px;
-    left: 14.54px;
-    top: 240px;
-    position: absolute;
-    color: #010000;
-    font-size: 13px;
-    font-family: 'Afacad', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .DateLostLabel {
-    width: 56.09px;
-    left: 14.54px;
-    top: 258px;
-    position: absolute;
-    color: #010000;
-    font-size: 13px;
-    font-family: 'Afacad', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .Description {
-    width: 66.47px;
-    left: 14.54px;
-    top: 286px;
-    position: absolute;
-    color: #010000;
-    font-size: 13px;
-    font-family: 'Afacad', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .Info {
-    width: 62.32px;
-    height: 22px;
-    left: 14.54px;
-    top: 185px;
-    position: absolute;
-    color: rgba(0, 0, 0, 0.75);
-    font-size: 20px;
-    font-family: 'Basic', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .Rectangle138 {
-    width: 100%; /* Use 100% to fill the card width */
-    height: 185px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover; /* Ensure the image scales properly */
-    border-radius: 10px 10px 0 0; /* Round only the top corners */
-  }
-  
-  .Rectangle163 {
-    width: 119.45px;
-    height: 22px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: #F0B504;
-    box-shadow: 2px 4px 4.5px rgba(0, 0, 0, 0.25);
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 11px;
-  }
+/* Card Container */
+.ContentCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px; /* Adjust width as needed */
+  min-height: auto; /* Ensure it grows dynamically */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden; /* Prevent content from breaking */
+  text-align: center;
+  word-wrap: break-word; /* Ensures text doesn't overflow */
+}
 
-  
-  .Laptop {
-    width: 62.32px;
-    height: 22px;
-    left: 34.28px;
-    top: 1px;
-    position: absolute;
-    color: #540404;
-    font-size: 15px;
-    font-family: 'Basic', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
-  
-  .Rectangle140 {
-    width: 100.75px;
-    height: 25px;
-    left: 175.54px;
-    top: 367px;
-    position: absolute;
-    background: linear-gradient(90deg, #540404 0%, rgba(128, 0, 0, 0.75) 100%);
-    box-shadow: 2px 4px 4.5px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-  }
-  
-  .Release {
-    width: 52.97px;
-    height: 18px;
-    left: 206.70px;
-    top: 371px;
-    position: absolute;
-    color: white;
-    font-size: 12px;
-    font-family: 'Basic', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
+
+.content-card {
+  width: 299px;
+  height: 406px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.card-container {
+  width: 100%;
+  height: auto; /* Allows dynamic height */
+  min-height: 420px; /* Ensures consistency across cards */
+  background: white;
+  box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Category Badge */
+.category-badge {
+  position: absolute;
+  top: 8px; /* Keep it fixed at the top */
+  left: 8px;
+  background: #F0B504;
+  color: #540404;
+  font-size: 14px;
+  font-family: 'Basic', sans-serif;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  white-space: nowrap;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 15; /* Ensure it's always on top */
+}
+
+
+/* Image */
+.item-image {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+
+/* Card Content */
+.card-content {
+  flex-grow: 1;
+  padding: 10px 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-title {
+  font-size: 20px;
+  font-family: 'Basic', sans-serif;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 5px;
+}
+
+/* Info Rows */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-family: 'Afacad', sans-serif;
+  margin-bottom: 4px;
+}
+
+.info-label {
+  color: #010000;
+  font-weight: 400;
+}
+
+.info-value {
+  color: #AFAFAF;
+  font-style: italic;
+  text-align: right;
+}
+
+/* Description Styling */
+.description-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.description-row .info-value {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Allow wrapping */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limits to 3 lines */
+  -webkit-box-orient: vertical;
+}
+
+/* Release Button */
+.release-btn {
+  width: 100%;
+  height: 32px;
+  background: linear-gradient(90deg, #540404 0%, rgba(128, 0, 0, 0.75) 100%);
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-family: 'Basic', sans-serif;
+  font-weight: 400;
+  border-radius: 20px;
+  margin-top: auto; /* Ensures it's at the bottom */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.release-btn:hover {
+  background: #720000;
+  transform: scale(1.05);
+}
