@@ -45,6 +45,10 @@ const RequestForm = () => {
                         <input type="date" id="dateLost" required />
                     </div>
                     <div className="form-group">
+                        <label htmlFor="phoneNumber">Phone Number</label>
+                        <input id="phoneNumber" placeholder="Phone number" required />
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="itemDescription">Item Description</label>
                         <textarea id="itemDescription" placeholder="Detail description" required />
                     </div>
