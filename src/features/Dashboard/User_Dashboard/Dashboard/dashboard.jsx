@@ -1,25 +1,25 @@
 import "./dashboard.css";
 import React, { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
-import { database } from "../../../services/firebase-config"; // Import database instance
-import backgroundImage from '../../../assets/images/background-cit.png';
-import backgroundImage2 from '../../../assets/images/Header_Crack.png';
-import backgroundImage3 from '../../../assets/images/Bottom_Rectangle_Crack.png';
-import logoImage from '../../../assets/images/CITLOGO.png';
-import image1 from '../../../assets/images/Multiple Devices.jpg';
-import image2 from '../../../assets/images/Jumper.jpg';
-import image3 from '../../../assets/images/Shopping Bag Full.jpg';
-import image4 from '../../../assets/images/Name Tag.jpg';
-import image5 from '../../../assets/images/Sports Teams.jpg';
-import image6 from '../../../assets/images/Medical ID.jpg';
-import image7 from '../../../assets/images/Bracelet.jpg';
-import image8 from '../../../assets/images/Family.jpg';
-import image9 from '../../../assets/images/More.jpg';
-import Card from '../../../components/Users/Cards/Card'; 
-import SquareCard from '../../../components/Users/SquareCards/SquareCard'; 
-import WaveSvg from '../../../components/Users/WaveSvg/WaveSvg'; 
-import FloatBox from '../../../components/Users/Floater/RectangleCard'; 
-import SearchBox from '../../../components/Users/SearchBox/SearchBox'; 
+import { database } from "../../../../services/firebase-config"; // Import database instance
+import backgroundImage from '../../../../assets/images/background-cit.png';
+import backgroundImage2 from '../../../../assets/images/Header_Crack.png';
+import backgroundImage3 from '../../../../assets/images/Bottom_Rectangle_Crack.png';
+import logoImage from '../../../../assets/images/CITLOGO.png';
+import image1 from '../../../../assets/images/Multiple Devices.jpg';
+import image2 from '../../../../assets/images/Jumper.jpg';
+import image3 from '../../../../assets/images/Shopping Bag Full.jpg';
+import image4 from '../../../../assets/images/Name Tag.jpg';
+import image5 from '../../../../assets/images/Sports Teams.jpg';
+import image6 from '../../../../assets/images/Medical ID.jpg';
+import image7 from '../../../../assets/images/Bracelet.jpg';
+import image8 from '../../../../assets/images/Family.jpg';
+import image9 from '../../../../assets/images/More.jpg';
+import Card from '../../../../components/Users/Cards/Card'; 
+import SquareCard from '../../../../components/Users/SquareCards/SquareCard'; 
+import WaveSvg from '../../../../components/Users/WaveSvg/WaveSvg'; 
+import FloatBox from '../../../../components/Users/Floater/RectangleCard'; 
+import SearchBox from '../../../../components/Users/SearchBox/SearchBox'; 
 
 const Dashboard = () => {
   const [isHidden, setIsHidden] = useState(true);
