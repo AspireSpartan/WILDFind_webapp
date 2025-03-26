@@ -1,6 +1,6 @@
 import React from "react";
 import "./RequestPage.css";
-import ContentCards from "./ContentCards/ContentCards"; // Already imported
+import ContentCards from "../../../components/Admin/ContentCards/ContentCards"; // Already imported
 
 const RequestPage = () => {
   const lostItems = [
