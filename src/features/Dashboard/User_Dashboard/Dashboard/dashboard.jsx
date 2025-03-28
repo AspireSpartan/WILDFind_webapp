@@ -56,7 +56,7 @@ const Dashboard = () => {
         Object.values(data).forEach((item) => {
           const category = item["Item Category"];
           const itemName = item["Item Name"];
-          const itemId = item["ID"];
+          const itemId = item["Date Found"];
 
           // Count each category for `cardData`
           if (category) {
