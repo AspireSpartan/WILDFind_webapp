@@ -25,7 +25,7 @@ function App() {
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/" element={<LandingPage/>} /> 
+        <Route path="/" element={<LandingPage/>} />
       </Routes>
     </Router>
   );
