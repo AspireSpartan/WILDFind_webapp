@@ -42,7 +42,7 @@
     font-family: Arial, sans-serif;
     padding: 15px;
     width: 100vw; 
-    height: 300px; /* Increase height for better spacing */
+    height: 350px; /* Increase height for better spacing */
     display: flex; /* Change layout to flex */
     flex-direction: row; /* Arrange form and image side by side */
     justify-content: space-between; /* Spread items across */
@@ -80,6 +80,7 @@
     align-items: center;
     justify-content: center;
     margin-left: auto; /* Push to the right */
+    margin-top: 50px;
     padding-right: 100px; /* Adjust spacing from right edge */
     position: relative; /* Prevent overlap issues */
   }
