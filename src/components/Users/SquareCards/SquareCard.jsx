@@ -12,7 +12,7 @@ const SquareCard = ({ title, deviceId, imageSrc }) => {
     <div className="square-card">
       <div className="square-card-content">
         <h3 className="square-card-title">{title}</h3>
-        <p className="square-card-device">Device: {deviceId}</p>
+        <p className="square-card-device">Date Lost: {deviceId}</p>
         <button className="square-card-button" onClick={handleRetrieveClick}>
           Retrieve
         </button>
