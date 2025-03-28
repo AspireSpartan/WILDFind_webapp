@@ -1,0 +1,55 @@
+.request-containerView {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.request-container-contentView {
+  position: relative;
+  top: 20px;
+  left: 51%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 95vw;
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  overflow-y: auto;
+}
+
+.unclaimed-items-containerView {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
