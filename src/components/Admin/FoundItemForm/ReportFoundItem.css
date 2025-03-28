@@ -130,7 +130,7 @@
 }
 
   /* Buttons */
-  .buttons {
+  .buttons-found-item {
     position: relative;
     display: flex;
     gap: 10px;
