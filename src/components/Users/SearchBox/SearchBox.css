@@ -1,4 +1,4 @@
-.search-bar {
+.search-bar-user {
     width: 100%;
 }
 
@@ -28,9 +28,9 @@
     outline: none;
 }
 
-.search-icon {
+.search-icon-user {
     position: absolute;
-    left: 15px;
+    left: 25px;
     cursor: pointer;
 }
 

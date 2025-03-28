@@ -16,7 +16,7 @@ const SearchBar = () => {
       <div className="status-bar">
         <input type="text" placeholder="Status" className="status-input" />
       </div>
-      <div className="buttons">
+      <div className="buttons-search">
         <button type="button" className="import"><img src={Import} alt="Import" /></button>
         <button type="submit" className="export"><img src={Export} alt="Export" /></button>
       </div>
