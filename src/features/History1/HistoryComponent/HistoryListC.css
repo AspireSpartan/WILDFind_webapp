@@ -1,0 +1,162 @@
+.claim-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 95%;
+    height: 85%;
+    background: white;
+    box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 5px;
+    gap: 5px;
+  }
+  
+  .c-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px 15px;
+  }
+  
+  .line1-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px 10px;
+    width: 1px;
+    height: 70px;
+  }
+  
+  .NameId-container-c {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    padding: 5px 10px 5px 10px; /* top, right, bottom, left */
+    gap: 3px;
+    max-width: 270px;
+  }
+  
+  .name-h-c {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    padding: 5px 5px;
+    font-weight: bold;
+    font-size: 14px;
+    width: 253px;
+  }
+  
+  .Id-num-h-c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px 5px;
+  }
+  
+  .line2-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 1px;
+    height: 70px;
+    padding: 5px 5px;
+  }
+  
+  .details1-container-h-c {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    padding: 2px;
+    max-width: 598px;
+  }
+  
+  .item-type-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 2px;
+  }
+  
+  .description-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 590px;
+    padding: 2px;
+  }
+  
+  .details2-container-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    justify-content: flex-start;
+    padding: 2px;
+    gap: 50px;
+  }
+  
+  .item-category-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px;
+  }
+  
+  .date-found-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px;
+  }
+  
+  .location-found-h-c {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px;
+  }
+  
+  .image-placeholder-h-c {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    color: #777;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 2px;
+    max-width: 272.5px;
+  }
