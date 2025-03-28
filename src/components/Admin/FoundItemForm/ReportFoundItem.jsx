@@ -263,7 +263,7 @@ const FoundItemForm = () => {
                     </button>
                 </div>
 
-                <div className="buttons">
+                <div className="buttons-found-item">
                     <button
                         type="button"
                         className="cancel"
