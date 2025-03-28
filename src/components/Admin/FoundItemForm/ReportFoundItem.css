@@ -50,51 +50,85 @@
     flex-shrink: 0;
     position: absolute;
     right: 0px;
-    top: -21px;
+    top: 0px;
     z-index: 9;
     overflow: hidden;
   }
   
-  /* Form Fields */
-  .report-form {
-    position: absolute;
-    left: 0;
-    top: 0;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    max-width: 900px;
-    display: flex;
-  }
-  
-  .report-form label {
-    font-weight: bold;
-    display: flex;
-    margin-top: 10px;
-    margin-left: 15px;
-    text-align: left;
-    font-size: 13px;
-  }
-  
-  .report-form input,
-  .report-form textarea {
-    width: 400px;
-    max-width: 1000px;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 0px;
-    margin-left: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 12px;
-    display: flex;
-  }
-  
-  .report-form input::placeholder,
-  .report-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
+/* Form Fields */
+.report-form {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-width: 415px;
+  display: flex;
+}
+
+.report-form label {
+  font-weight: bold;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 15px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.report-form input,
+.report-form textarea,
+.report-form select {
+  width: 400px;
+  max-width: 1000px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-left: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 12px;
+  display: flex;
+}
+
+/* Specific styles for the select element */
+.report-form select {
+  -webkit-appearance: none; /* Remove default browser styling (Chrome/Safari) */
+  -moz-appearance: none; /* Remove default browser styling (Firefox) */
+  appearance: none; /* Remove default browser styling */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom white dropdown arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+}
+
+/* Style the placeholder option */
+.report-form select option[disabled] {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Style the dropdown options */
+.report-form select option {
+  color: rgb(255, 255, 255); /* Change the text color to black for better readability against the white background */
+  background: #333; /* Set a dark background for the options */
+}
+
+/* Ensure placeholder styling for input and textarea */
+.report-form input::placeholder,
+.report-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Add hover and focus effects for better UX */
+.report-form select:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.report-form select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
   /* Buttons */
   .buttons {
     position: relative;
