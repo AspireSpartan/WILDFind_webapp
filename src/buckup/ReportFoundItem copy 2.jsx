@@ -19,19 +19,6 @@ const FoundItemForm = () => {
     const [imageFile, setImageFile] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false); // To prevent multiple submissions
 
-    // Mapping of categories to their icon URLs
-    const categoryIcons = {
-        "Electronics": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FElectronic.svg?alt=media&token=cfb61e5e-a0c8-4a03-adb5-5b8bc0d9b3c5",
-        "Clothing & Wearables": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FClothing%26Wearables.svg?alt=media&token=773254bf-8028-45d4-9074-0007f2b43768",
-        "Bags & Containers": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FBags%26Containers.svg?alt=media&token=934e9a73-5780-4440-ac86-381b6fa5844b",
-        "Documents & ID's": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FDocuments%26ID's.svg?alt=media&token=42ad1085-362d-4942-b8f9-1e7a681da8f4",
-        "Sports & Fitness Gear": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FSports%26FitnessGear.svg?alt=media&token=a9937b47-83f3-45f6-871e-577314aa693a",
-        "Medical Items": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FMedicalItems.svg?alt=media&token=f4ab246f-649b-4865-84e4-f7a4bc3ed7e8",
-        "Personal Accessories": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FPersonal%20Accessories.svg?alt=media&token=4a85fd02-15d4-4a51-a29e-5612e242c0e8",
-        "Household Items": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FHouseholdItems.svg?alt=media&token=16026fbd-8531-4e56-90ff-4ca0cfe190e1",
-        "Miscellaneous": "https://firebasestorage.googleapis.com/v0/b/wildfind-d4f49.firebasestorage.app/o/CategoryIcons%2FMiscellaneous.svg?alt=media&token=39f76843-b88d-403e-81c6-b19ed63c5a02",
-    };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -103,10 +90,7 @@ const FoundItemForm = () => {
                 imageUrl = await getDownloadURL(snapshot.ref);
             }
 
-            // Step 3: Get the icon URL based on the selected category
-            const iconUrl = categoryIcons[formData.itemCategory] || ""; // Fallback to empty string if category not found
-
-            // Step 4: Prepare the data to save
+            // Step 3: Prepare the data to save
             const itemData = {
                 SchoolID: formData.schoolID.trim(),
                 Name: formData.name.trim(),
@@ -116,15 +100,14 @@ const FoundItemForm = () => {
                 "Item Category": formData.itemCategory,
                 "Item Description": formData.itemDescription.trim(),
                 Picture: imageUrl || "",
-                icon: iconUrl, // Add the icon URL for the selected category
                 Timestamp: new Date().toISOString(), // Add timestamp for reference
             };
 
-            // Step 5: Save the data to Firebase Realtime Database
+            // Step 4: Save the data to Firebase Realtime Database
             const newItemRef = ref(database, `reportedItems/Items/Item${nextItemNumber}`);
             await set(newItemRef, itemData);
 
-            // Step 6: Reset the form
+            // Step 5: Reset the form
             setFormData({
                 schoolID: "",
                 name: "",

@@ -15,8 +15,7 @@ import AdminProfile from "../../../../assets/images/pp.png";
 import AdminDashboard from "../../../../components/Admin/AdminDashoard/AdminDashboard.jsx"; // Corrected typo in path
 import FoundItemForm from "../../../../components/Admin/FoundItemForm/ReportFoundItem.jsx";
 import RequestPage from "../../../../components/Admin/RequestPage/RequestPage.jsx";
-/*import View from "../View";
-import History from "../History";*/
+import HistoryPage from "../../../History1/HistoryPage/HistoryPage.jsx";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../../services/firebase-config.js";
 
@@ -193,12 +192,7 @@ const SdrHdr = () => {
               </div>
             )}
             {activeSection === "Request" && <RequestPage />}
-            {activeSection === "History" && (
-              <div>
-                <h2>History Page (In Progress)</h2>
-                <p>This section is under development.</p>
-              </div>
-            )}
+            {activeSection === "History" && <HistoryPage />}
           </div>
         </main>
       </div>
