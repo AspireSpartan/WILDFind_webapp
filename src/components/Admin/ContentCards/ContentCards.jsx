@@ -5,6 +5,7 @@ const ContentCards = ({
   image,
   itemName,
   name,
+  idNumber, // ✅ Added ID Number
   phone,
   dateLost,
   description,
@@ -20,6 +21,10 @@ const ContentCards = ({
           <div className="info-row">
             <span className="info-label">Name:</span>
             <span className="info-value">{name}</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">ID Number:</span>
+            <span className="info-value">{idNumber}</span> {/* ✅ Display ID Number */}
           </div>
           <div className="info-row">
             <span className="info-label">Phone Number:</span>
