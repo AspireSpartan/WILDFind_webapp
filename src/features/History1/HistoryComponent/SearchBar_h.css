@@ -1,0 +1,131 @@
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.upper-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    animation: fadeInScale 0.8s ease-in-out;
+  }
+  
+  .search-bar {
+    width:740px;
+    height: 61px;
+    display: flex;
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    box-shadow: 3px 7px 21px -1px rgba(0, 0, 0, 0.25);
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .search-icon {
+    color: #b00020;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+  }
+  
+  .line-s {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 10px;
+    width: 1px;
+    height: 55px;
+  }
+  
+  .search-input {
+    font-size: 20px;
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    max-width: 610px;
+    background: transparent;
+  }
+  
+  .status-bar {
+    width: 400px;
+    height: 61px;
+    border-radius: 15px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    box-shadow: 3px 7px 21px -1px rgba(0, 0, 0, 0.25);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .status-input {
+    font-size: 20px;
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    max-width: 360px;
+    text-align: left;
+    display: flex;
+    position: relative;
+    left: 10px;
+    background: transparent;
+  }
+  
+  .buttons-search {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0px;
+    bottom: -1px;
+    left: 0px;
+    margin: 0px 0px 0px;
+  }
+  
+  .import {
+    width: 100px;
+    height: 62px;
+    border-radius: 0px 30px;
+    background: white;
+    box-shadow: 7px 14px 21.4px -4px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 30.5px;
+    border-radius: 0 0 0 30.5px;
+  }
+  
+  .export {
+    width: 100px;
+    height: 62px;
+    border-radius: 0px 30.082px 0px 0px;
+    background: white;
+    box-shadow: 0px 14px 21.4px -4px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 30.08px;
+  }
+  
+  .import:hover,
+  .export:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0px 20px 30px -5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
