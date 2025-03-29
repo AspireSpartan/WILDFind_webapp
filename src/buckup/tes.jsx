@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // Added useNavigate for redirection
+import { useLocation } from "react-router-dom";
 import { ref, set, get } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { database, storage } from "../../../../services/firebase-config";
+import { database, storage, auth } from "../../../../services/firebase-config";
 import "./requestForm.css";
 
 const RequestForm = () => {
     const location = useLocation();
-    const navigate = useNavigate(); // Initialize navigate for routing
-
     const [formData, setFormData] = useState({
         name: "",
         idNumber: "",
@@ -32,13 +30,14 @@ const RequestForm = () => {
         }));
     }, [location.state]);
 
+    // Input change handler with validation
     const handleChange = (e) => {
         const { id, value } = e.target;
-
+    
         if (id === "idNumber") {
-            let cleanedValue = value.replace(/\D/g, ""); 
+            let cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
             let formattedValue = "";
-
+    
             if (cleanedValue.length > 2) {
                 formattedValue += cleanedValue.slice(0, 2) + "-";
                 if (cleanedValue.length > 6) {
@@ -50,16 +49,16 @@ const RequestForm = () => {
             } else {
                 formattedValue = cleanedValue;
             }
-
+    
             setFormData((prevFormData) => ({
                 ...prevFormData,
-                idNumber: formattedValue.slice(0, 12),
+                idNumber: formattedValue.slice(0, 12), // Ensure full length with dashes
             }));
             return;
         }
-
+    
         if (id === "phoneNumber") {
-            let cleanedValue = value.replace(/\D/g, "");
+            let cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
             if (!cleanedValue.startsWith("63")) {
                 cleanedValue = "63";
             }
@@ -72,12 +71,16 @@ const RequestForm = () => {
             }));
             return;
         }
-
+    
         setFormData((prevFormData) => ({
             ...prevFormData,
             [id]: value,
         }));
     };
+    
+    
+    
+    
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
@@ -125,23 +128,6 @@ const RequestForm = () => {
             });
 
             alert("Request submitted successfully!");
-
-            // ✅ Clear form after successful submission
-            setFormData({
-                name: "",
-                idNumber: "",
-                email: "",
-                phoneNumber: "",
-                itemDescription: "",
-                dateLost: "",
-                category: "",
-                title: ""
-            });
-            setImagePreview(null);
-            setImageFile(null);
-
-            // ✅ Redirect back to dashboard
-            navigate("/dashboard");
         } catch (error) {
             console.error("Submission error:", error);
             alert("Failed to submit request. Check console for details.");

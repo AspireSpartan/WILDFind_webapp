@@ -16,6 +16,7 @@
     flex-direction: column; /* Stacks child elements */
     align-items: center; /* Centers content horizontally */
     justify-content: flex-start; /* Aligns content from the top */
+    overflow-y: auto;
   }
   
   /* Adjust form container to be centered and moved lower 
@@ -42,7 +43,7 @@
     font-family: Arial, sans-serif;
     padding: 15px;
     width: 100vw; 
-    height: 350px; /* Increase height for better spacing */
+    height: 450px; /* Increase height for better spacing */
     display: flex; /* Change layout to flex */
     flex-direction: row; /* Arrange form and image side by side */
     justify-content: space-between; /* Spread items across */
@@ -143,7 +144,7 @@
   
   .category-box {
     margin-top: 10px;
-    width: 220px;
+    width: 270px;
     background-color: #931515;
     color: white;
     text-align: center;
@@ -154,6 +155,14 @@
 }
   
   .category-text {
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    color: rgb(199, 170, 4);
+    font-weight: 8px;
+    font-size: 20px;
+  }
+
+  .item-name {
     font-family: 'Arial', sans-serif;
     font-style: italic;
     color: rgb(199, 170, 4);
@@ -239,6 +248,7 @@
   
   .submit-section {
     margin-top: 35px; /* Moves the submit button 30px lower */
+    margin-bottom: 100px;
   }
   
   .plus-button {
