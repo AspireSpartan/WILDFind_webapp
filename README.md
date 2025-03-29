@@ -12,6 +12,8 @@ you must always do this every time you download a zip or clone from our GitHub p
 4. npm install firebase
 5. npm install -g firebase-toolS
 6. npm install chart.js react-chartjs-2
+
+
 NEW
 7. npm install prop-types
 
