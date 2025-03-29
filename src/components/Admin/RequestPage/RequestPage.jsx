@@ -24,15 +24,16 @@ const RequestPage = () => {
 
           // Map the requests with unique keys and sort by date (newest first)
           const mappedItems = Object.keys(requestsData)
-            .map((key) => ({
-              key: key, // e.g., "Request1"
-              image: requestsData[key].Picture || "https://placehold.co/299x185",
-              itemName: requestsData[key].ItemName,
-              name: requestsData[key].Name,
-              phone: requestsData[key].PhoneNumber,
-              dateLost: requestsData[key].Date,
-              description: requestsData[key].ItemDescription,
-            }))
+          .map((key) => ({
+            key: key, // e.g., "Request1"
+            image: requestsData[key].Image || "https://placehold.co/299x185",
+            itemName: requestsData[key]["Item Title"], // ✅ Fixed property name
+            name: requestsData[key].Name,
+            idNumber: requestsData[key].IDNumber, // ✅ Added ID Number
+            phone: requestsData[key].PhoneNumber,
+            dateLost: requestsData[key]["Date Lost"], // ✅ Fixed property name
+            description: requestsData[key]["Item Description"], // ✅ Fixed property name
+          }))
             .sort((a, b) => new Date(b.dateLost) - new Date(a.dateLost)); // Sort by date, newest first
 
           setLostItems(mappedItems);
