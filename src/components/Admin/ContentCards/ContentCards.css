@@ -39,8 +39,8 @@
   justify-content: space-between;
 }
 
-/* Category Badge */
-.category-badge {
+/* nameItem Badge */
+.nameItem-badge {
   position: absolute;
   top: 8px; /* Keep it fixed at the top */
   left: 8px;

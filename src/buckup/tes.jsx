@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ref, set, get } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { database, storage } from "../../../../services/firebase-config";
+import { database, storage, auth } from "../../../../services/firebase-config";
 import "./requestForm.css";
 
 const RequestForm = () => {
     const location = useLocation();
-    const navigate = useNavigate();
-
     const [formData, setFormData] = useState({
         name: "",
         idNumber: "",
@@ -22,7 +20,6 @@ const RequestForm = () => {
 
     const [imagePreview, setImagePreview] = useState(null);
     const [imageFile, setImageFile] = useState(null);
-    const [isFormValid, setIsFormValid] = useState(false);
 
     useEffect(() => {
         setFormData((prev) => ({
@@ -33,31 +30,14 @@ const RequestForm = () => {
         }));
     }, [location.state]);
 
-    useEffect(() => {
-        validateForm();
-    }, [formData]);
-
-    const validateForm = () => {
-        const { name, idNumber, email, phoneNumber, itemDescription, dateLost, category, title } = formData;
-        setIsFormValid(
-            name.trim() !== "" &&
-            idNumber.trim() !== "" &&
-            email.trim() !== "" &&
-            phoneNumber.trim() !== "" &&
-            itemDescription.trim() !== "" &&
-            dateLost !== "" &&
-            category !== "" &&
-            title !== ""
-        );
-    };
-
+    // Input change handler with validation
     const handleChange = (e) => {
         const { id, value } = e.target;
-
+    
         if (id === "idNumber") {
-            let cleanedValue = value.replace(/\D/g, "");
+            let cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
             let formattedValue = "";
-
+    
             if (cleanedValue.length > 2) {
                 formattedValue += cleanedValue.slice(0, 2) + "-";
                 if (cleanedValue.length > 6) {
@@ -69,25 +49,38 @@ const RequestForm = () => {
             } else {
                 formattedValue = cleanedValue;
             }
-
-            setFormData((prev) => ({ ...prev, idNumber: formattedValue.slice(0, 12) }));
+    
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                idNumber: formattedValue.slice(0, 12), // Ensure full length with dashes
+            }));
             return;
         }
-
+    
         if (id === "phoneNumber") {
-            let cleanedValue = value.replace(/\D/g, "");
+            let cleanedValue = value.replace(/\D/g, ""); // Remove non-numeric characters
             if (!cleanedValue.startsWith("63")) {
                 cleanedValue = "63";
             }
             if (cleanedValue.length > 12) {
                 cleanedValue = cleanedValue.slice(0, 12);
             }
-            setFormData((prev) => ({ ...prev, phoneNumber: cleanedValue }));
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                phoneNumber: cleanedValue,
+            }));
             return;
         }
-
-        setFormData((prev) => ({ ...prev, [id]: value }));
+    
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [id]: value,
+        }));
     };
+    
+    
+    
+    
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
@@ -107,36 +100,20 @@ const RequestForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-        // Check for empty required fields
-        if (
-            !formData.name.trim() ||
-            !formData.idNumber.trim() ||
-            !formData.email.trim() ||
-            !formData.phoneNumber.trim() ||
-            !formData.itemDescription.trim() ||
-            !formData.dateLost.trim() ||
-            !formData.category.trim() ||
-            !formData.title.trim()
-        ) {
-            console.warn("⚠️ Submission failed: All fields (except image upload) must be filled out.");
-            alert("Please fill out all required fields before submitting.");
-            return;
-        }
-    
+
         try {
             const requestsRef = ref(database, "RequestRetrieval");
             const snapshot = await get(requestsRef);
             const requestCount = snapshot.exists() ? Object.keys(snapshot.val()).length + 1 : 1;
             const requestId = `Request${requestCount}`;
-    
+
             let imageUrl = "";
             if (imageFile) {
                 const storageReference = storageRef(storage, `retrievals/${requestId}/${imageFile.name}`);
                 await uploadBytes(storageReference, imageFile);
                 imageUrl = await getDownloadURL(storageReference);
             }
-    
+
             await set(ref(database, `RequestRetrieval/${requestId}`), {
                 Name: formData.name.trim(),
                 IDNumber: formData.idNumber.trim(),
@@ -149,32 +126,13 @@ const RequestForm = () => {
                 Image: imageUrl || "",
                 Timestamp: new Date().toISOString(),
             });
-    
+
             alert("Request submitted successfully!");
-    
-            // ✅ Clear form after successful submission
-            setFormData({
-                name: "",
-                idNumber: "",
-                email: "",
-                phoneNumber: "",
-                itemDescription: "",
-                dateLost: "",
-                category: "",
-                title: "",
-            });
-            setImagePreview(null);
-            setImageFile(null);
-    
-            // ✅ Redirect back to dashboard
-            navigate("/dashboard");
         } catch (error) {
-            console.error("❌ Submission error:", error);
+            console.error("Submission error:", error);
             alert("Failed to submit request. Check console for details.");
         }
     };
-    
-    
 
     return (
         <div className="background-container">
@@ -191,12 +149,20 @@ const RequestForm = () => {
                 <form className="form-body" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="text" id="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required />
+                        <input type="text" id="name" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required />
                     </div>
-
+                    
                     <div className="form-group">
                         <label htmlFor="idNumber">ID Number</label>
-                        <input type="text" id="idNumber" placeholder="##-####-###" value={formData.idNumber} onChange={handleChange} maxLength="12" required />
+                        <input 
+                            type="text" 
+                            id="idNumber" 
+                            placeholder="##-####-###" 
+                            value={formData.idNumber} 
+                            onChange={handleChange} 
+                            maxLength="12" 
+                            required 
+                        />
                     </div>
 
                     <div className="form-group">
@@ -211,7 +177,15 @@ const RequestForm = () => {
 
                     <div className="form-group">
                         <label htmlFor="phoneNumber">Phone Number</label>
-                        <input type="tel" id="phoneNumber" placeholder="63##########" value={formData.phoneNumber} onChange={handleChange} maxLength="12" required />
+                        <input 
+                            type="tel" 
+                            id="phoneNumber" 
+                            placeholder="63##########" 
+                            value={formData.phoneNumber} 
+                            onChange={handleChange} 
+                            maxLength="12" 
+                            required 
+                        />
                     </div>
 
                     <div className="form-group">
@@ -238,7 +212,7 @@ const RequestForm = () => {
             <input type="file" id="fileUpload" accept="image/*" onChange={handleImageUpload} style={{ display: "none" }} />
 
             <div className="submit-section">
-                <button type="submit" className="submit-button" onClick={handleSubmit} disabled={!isFormValid}>Submit</button>
+                <button type="submit" className="submit-button" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     );

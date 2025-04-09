@@ -3,8 +3,9 @@ import './ContentCards.css';
 
 const ContentCards = ({
   image,
-  category,
+  itemName,
   name,
+  idNumber, // ✅ Added ID Number
   phone,
   dateLost,
   description,
@@ -13,13 +14,17 @@ const ContentCards = ({
   return (
     <div className="content-card">
       <div className="card-container">
-        <div className="category-badge">{category}</div>
-        <img className="item-image" src={image} alt={category} />
+        <div className="nameItem-badge">{itemName}</div>
+        <img className="item-image" src={image} alt={itemName} />
         <div className="card-content">
           <h3 className="info-title">Info</h3>
           <div className="info-row">
             <span className="info-label">Name:</span>
             <span className="info-value">{name}</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">ID Number:</span>
+            <span className="info-value">{idNumber}</span> {/* ✅ Display ID Number */}
           </div>
           <div className="info-row">
             <span className="info-label">Phone Number:</span>
