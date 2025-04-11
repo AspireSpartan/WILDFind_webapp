@@ -29,6 +29,7 @@
   width: 100%;
   height: auto; /* Allows dynamic height */
   min-height: 420px; /* Ensures consistency across cards */
+  max-height: 470px; /* Ensures consistency across cards */
   background: white;
   box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
