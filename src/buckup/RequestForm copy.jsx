@@ -25,36 +25,13 @@ const RequestForm = () => {
     const [isFormValid, setIsFormValid] = useState(false);
 
     useEffect(() => {
-        const fetchItemData = async () => {
-            const itemId = location.state?.itemId;
-            if (!itemId) return;
-    
-            try {
-
-                const itemRef = ref(database, `reportedItems/Items/${itemId}`);
-                const snapshot = await get(itemRef);
-    
-                if (snapshot.exists()) {
-                    const itemData = snapshot.val();
-                    setFormData((prev) => ({
-                        ...prev,
-                        dateLost: itemData["Date Lost"] || prev.dateLost,
-                        category: itemData["Item Category"] || prev.category,
-                        title: itemData["Item Title"] || prev.title,
-                    }));
-                } else {
-                    console.warn("Item data not found in database.");
-                }
-            } catch (error) {
-                console.error("Error fetching item data:", error);
-            }
-        };
-    
-        if (location.state?.itemId) {
-        fetchItemData();
-        }
+        setFormData((prev) => ({
+            ...prev,
+            dateLost: location.state?.dateLost || "",
+            category: location.state?.category || "",
+            title: location.state?.title || ""
+        }));
     }, [location.state]);
-    
 
     useEffect(() => {
         validateForm();
@@ -152,12 +129,6 @@ const RequestForm = () => {
             const snapshot = await get(requestsRef);
             const requestCount = snapshot.exists() ? Object.keys(snapshot.val()).length + 1 : 1;
             const requestId = `Request${requestCount}`;
-            const itemId = location.state?.itemId;
-
-            if (itemId) {
-                const itemToDeleteRef = ref(database, `reportedItems/Items/${itemId}`);
-                await set(itemToDeleteRef, null); // this deletes the item
-            }
     
             let imageUrl = "";
             if (imageFile) {
@@ -194,8 +165,7 @@ const RequestForm = () => {
             });
             setImagePreview(null);
             setImageFile(null);
-            
-
+    
             // ✅ Redirect back to dashboard
             navigate("/dashboard");
         } catch (error) {
