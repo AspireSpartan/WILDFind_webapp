@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchBar_h.css";
 import SearchIcon from "../../../assets/images/Search.png";
 import Line from "../../../assets/images/Line1.png";
 import Import from "../../../assets/images/Import.png";
 import Export from "../../../assets/images/Export.png";
 
-const SearchBar = () => {
+const SearchBar = ({ onStatusChange }) => { // Receive a callback prop
+  const [selectedStatus, setSelectedStatus] = useState("Status");
+
+  const statusOptions = [
+    "Claimed Items",
+    "Unclaimed Items",
+    "Pending Request"
+  ];
+
+  const handleStatusChange = (status) => {
+    setSelectedStatus(status);
+    if (onStatusChange) {
+      onStatusChange(status); // Call the callback function with the new status
+    }
+  };
+
   return (
     <div className="upper-containerview">
       <div className="search-barview">
@@ -14,11 +29,31 @@ const SearchBar = () => {
         <input type="text" placeholder="Search" className="search-inputview" />
       </div>
       <div className="status-bar-view">
-        <input type="text" placeholder="Status" className="status-inputview" />
+        <div className="dropdown-container">
+          <div className="dropdown-selected">
+            {selectedStatus}
+            <span className="dropdown-arrow">▼</span>
+          </div>
+          <div className="dropdown-menu">
+            {statusOptions.map((status, index) => (
+              <div
+                key={index}
+                className="dropdown-item"
+                onClick={() => handleStatusChange(status)}
+              >
+                {status}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="buttons">
-        <button type="button" className="importview"><img src={Import} alt="Import" /></button>
-        <button type="submit" className="exportview"><img src={Export} alt="Export" /></button>
+        <button type="button" className="importview">
+          <img src={Import} alt="Import" />
+        </button>
+        <button type="submit" className="exportview">
+          <img src={Export} alt="Export" />
+        </button>
       </div>
     </div>
   );

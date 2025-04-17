@@ -14,6 +14,7 @@ const FoundItemForm = () => {
         itemName: "",
         itemCategory: "",
         itemDescription: "",
+        status: "Unclaimed",
     });
     const [image, setImage] = useState(null);
     const [imageFile, setImageFile] = useState(null);
@@ -118,6 +119,7 @@ const FoundItemForm = () => {
                 Picture: imageUrl || "",
                 icon: iconUrl, // Add the icon URL for the selected category
                 Timestamp: new Date().toISOString(), // Add timestamp for reference
+                Status: formData.status,
             };
 
             // Step 5: Save the data to Firebase Realtime Database
