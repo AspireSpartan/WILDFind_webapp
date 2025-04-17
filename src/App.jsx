@@ -9,6 +9,7 @@ import Sdrhdr from "./features/Dashboard/Admin_Dashboard/Sidbar&Header/sdr&hdr";
 import ReportFoundItem from "./components/Admin/FoundItemForm/ReportFoundItem"; 
 import BlankPage from "./features/TestPageArea/BlankPage";  {/*this page is only for testing in Admin Request Page*/}
 import RequestPage from "./components/Admin/RequestPage/RequestPage"; 
+import Error404 from"./components/Users/404/Error404";
 import './index.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/" element={<LandingPage/>} />
+        <Route path="*" element={<Error404/>}/>
       </Routes>
     </Router>
   );
