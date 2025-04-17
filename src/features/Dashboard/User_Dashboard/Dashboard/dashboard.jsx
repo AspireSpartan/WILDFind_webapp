@@ -206,6 +206,7 @@ const Dashboard = () => {
                         filteredData.map((squareCard) => (
                             <SquareCard 
                                 key={squareCard.deviceId || Math.random()} // Use Math.random() as a fallback // Use the folder name (e.g., Item1, Item2) as the key
+                                itemId={squareCard.deviceId} // Pass deviceId as itemId
                                 title={squareCard.title} // ItemName
                                 dateLost={squareCard.dateLost} // Date Found
                                 imageSrc={squareCard.imageSrc} // Now uses the icon field (category-specific SVG)

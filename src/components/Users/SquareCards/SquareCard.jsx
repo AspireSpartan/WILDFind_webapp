@@ -1,14 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "./SquareCard.css";
-import PropTypes from "prop-types"; // Import prop-types
+import PropTypes from "prop-types";
 
-const SquareCard = ({ title = "Unknown Item", deviceId = "N/A", dateLost = "Not Available", imageSrc, category = "Miscellaneous" }) => {
-
-    const navigate = useNavigate(); // Initialize navigate function
+const SquareCard = ({ itemId, title = "Unknown Item", deviceId = "N/A", dateLost = "Not Available", imageSrc, category = "Miscellaneous" }) => {
+    const navigate = useNavigate();
 
     const handleRetrieveClick = () => {
-        navigate("/request-form", { state: { title, dateLost, category } });
+        console.log("Item ID before navigation:", itemId); // Added console.log
+        navigate("/request-form", { state: { itemId, title, dateLost, category } });
     };
 
     return (
@@ -20,23 +20,22 @@ const SquareCard = ({ title = "Unknown Item", deviceId = "N/A", dateLost = "Not 
                     Retrieve
                 </button>
                 <img 
-                    src={imageSrc || "/default-image.png"} // Provide a fallback image
-                    alt="Device Icon" 
-                    className="square-card-icon" 
+                    src={imageSrc || "/default-image.png"}
+                    alt="Device Icon"
+                    className="square-card-icon"
                 />
             </div>
         </div>
     );
 };
 
-// ✅ Add PropTypes to catch type errors
 SquareCard.propTypes = {
+    itemId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    deviceId: PropTypes.string.isRequired, // Ensure deviceId is always a string
-    dateLost: PropTypes.string.isRequired, // Ensure dateLost is a string (date in YYYY-MM-DD format)
-    imageSrc: PropTypes.string.isRequired, // Ensure imageSrc is a valid string
+    deviceId: PropTypes.string.isRequired,
+    dateLost: PropTypes.string.isRequired,
+    imageSrc: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
 };
 
 export default SquareCard;
-
