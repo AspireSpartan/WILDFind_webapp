@@ -29,6 +29,7 @@
   width: 100%;
   height: auto; /* Allows dynamic height */
   min-height: 420px; /* Ensures consistency across cards */
+  max-height: 470px; /* Ensures consistency across cards */
   background: white;
   box-shadow: 5px 3px 8px -2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -123,7 +124,7 @@
   -webkit-box-orient: vertical;
 }
 
-/* Release Button */
+/* Release Button (existing styles) */
 .release-btn {
   width: 100%;
   height: 32px;
@@ -141,5 +142,72 @@
 
 .release-btn:hover {
   background: #720000;
+  transform: scale(1.05);
+}
+
+/* Release Options Container */
+.release-options {
+  display: flex;
+  gap: 8px;
+  margin-top: auto; /* Ensures it's at the bottom */
+}
+
+/* Deny Button */
+.deny-btn {
+  flex-grow: 1;
+  height: 32px;
+  background-color: #ff4d4d; /* Reddish color */
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-family: 'Basic', sans-serif;
+  font-weight: 400;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deny-btn:hover {
+  background-color: #e00000;
+  transform: scale(1.05);
+}
+
+/* Cancel Button */
+.cancel-btn {
+  flex-grow: 1;
+  height: 32px;
+  background-color: #f0ad4e; /* Orange/Yellowish color */
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-family: 'Basic', sans-serif;
+  font-weight: 400;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #d9534f; /* Slightly darker */
+  transform: scale(1.05);
+}
+
+/* Approve Button */
+.approve-btn {
+  flex-grow: 1;
+  height: 32px;
+  background-color: #5cb85c; /* Greenish color */
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-family: 'Basic', sans-serif;
+  font-weight: 400;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.approve-btn:hover {
+  background-color: #4cae4c;
   transform: scale(1.05);
 }

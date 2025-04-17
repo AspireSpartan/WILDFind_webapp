@@ -1,44 +1,83 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ViewListContainer.css";
 import ContentCardsView from "./ViewListC";
+import { ref, onValue } from "firebase/database";
+import { database } from "../../../services/firebase-config";
 
-// Import example images
-import walletImage from "../../../assets/images/wallet.jpg";
-import phoneImage from "../../../assets/images/applewatch.jpg";
-import backpackImage from "../../../assets/images/bracelet.webp";
-import umbrellaImage from "../../../assets/images/wallet.jpg";
-import laptopImage from "../../../assets/images/laptop.webp";
-import notebookImage from "../../../assets/images/wallet.jpg";
-import watchImage from "../../../assets/images/applewatch.jpg";
-import earphonesImage from "../../../assets/images/bracelet.webp";
-import jacketImage from "../../../assets/images/Iphone.webp";
-import idCardImage from "../../../assets/images/bracelet.webp";
+const ViewListContainer = ({ selectedStatus }) => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const lostItems = [
-  { image: walletImage, itemName: "Wallet", category: "Accessories", dateLost: "03/28/2025" },
-  { image: phoneImage, itemName: "Phone", category: "Electronics", dateLost: "03/25/2025" },
-  { image: backpackImage, itemName: "Backpack", category: "Bags", dateLost: "03/20/2025" },
-  { image: umbrellaImage, itemName: "Umbrella", category: "Accessories", dateLost: "03/18/2025" },
-  { image: laptopImage, itemName: "Laptop", category: "Electronics", dateLost: "03/15/2025" },
-  { image: notebookImage, itemName: "Notebook", category: "Stationery", dateLost: "03/10/2025" },
-  { image: watchImage, itemName: "Watch", category: "Accessories", dateLost: "03/05/2025" },
-  { image: earphonesImage, itemName: "Earphones", category: "Electronics", dateLost: "03/02/2025" },
-  { image: jacketImage, itemName: "Jacket", category: "Clothing", dateLost: "02/28/2025" },
-  { image: idCardImage, itemName: "ID Card", category: "Documents", dateLost: "02/25/2025" },
-];
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    setItems([]); // Clear previous items
 
-const ViewListContainer = () => {
+    let itemsRef;
+
+    if (selectedStatus === "Unclaimed Items") {
+      itemsRef = ref(database, "reportedItems/Items");
+    } else if (selectedStatus === "Pending Request") {
+      itemsRef = ref(database, "RequestRetrieval");
+    } else {
+      // Optionally fetch a default set of data or do nothing
+      itemsRef = ref(database, "reportedItems/Items"); // Default to unclaimed for now
+    }
+
+    const unsubscribe = onValue(itemsRef, (snapshot) => {
+      const fetchedItems = [];
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          fetchedItems.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+
+        if (selectedStatus === "Unclaimed Items") {
+          // If your items have a status field, filter here
+          const unclaimed = fetchedItems.filter(
+            (item) => item.status === undefined || item.status === "unclaimed" || item.status === ""
+          );
+          setItems(unclaimed);
+        } else {
+          setItems(fetchedItems);
+        }
+      } else {
+        setItems([]);
+      }
+      setLoading(false);
+    }, (err) => {
+      setError(err);
+      setLoading(false);
+      console.error("Error fetching data:", err);
+    });
+
+    return () => unsubscribe(); // Cleanup listener on unmount
+  }, [selectedStatus]);
+
+  if (loading) {
+    return <div>Loading items...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading items: {error.message}</div>;
+  }
+
   return (
     <div className="request-containerView">
       <div className="request-container-contentView">
         <div className="unclaimed-items-containerView">
-          {lostItems.map((item, index) => (
+          {items.map((item) => (
             <ContentCardsView
-              key={index}
-              image={item.image}
-              itemName={item.itemName}
-              category={item.category}
-              dateLost={item.dateLost}
+              key={item.id}
+              image={item.Picture || item.Image ||"https://placehold.co/100x100"} // Use Picture URL
+              itemName={item.ItemName || item['Item Title'] || "No Name"}
+              category={item["Item Category"] || item.category || "No Category"}
+              dateLost={item["Date Found"] || item["Date Lost"] || "N/A"}
+              status={item.Status}
+              itemId={item.id}
             />
           ))}
         </div>
