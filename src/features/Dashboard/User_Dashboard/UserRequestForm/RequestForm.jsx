@@ -177,6 +177,7 @@ const RequestForm = () => {
                 "Item Description": formData.itemDescription.trim(),
                 Image: imageUrl || "",
                 Timestamp: new Date().toISOString(),
+                Status: "Pending Request",
             });
     
             alert("Request submitted successfully!");

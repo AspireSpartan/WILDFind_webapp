@@ -33,6 +33,8 @@ const RequestPage = () => {
             phone: requestsData[key].PhoneNumber,
             dateLost: requestsData[key]["Date Lost"], // ✅ Fixed property name
             description: requestsData[key]["Item Description"], // ✅ Fixed property name
+            category: requestsData[key]["Item Category"], // ✅ Add category
+            status: requestsData[key].Status,           // ✅ Add status
           }))
             .sort((a, b) => new Date(b.dateLost) - new Date(a.dateLost)); // Sort by date, newest first
 

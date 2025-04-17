@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ContentCards.css';
 
 const ContentCards = ({
@@ -11,31 +11,6 @@ const ContentCards = ({
   description,
   onRelease,
 }) => {
-  const [showReleaseOptions, setShowReleaseOptions] = useState(false);
-
-  const handleReleaseClick = () => {
-    setShowReleaseOptions(true);
-    if (onRelease) {
-      onRelease(); // Keep the original onRelease function call
-    }
-  };
-
-  const handleCancelClick = () => {
-    setShowReleaseOptions(false);
-  };
-
-  const handleDenyClick = () => {
-    // Implement your deny logic here
-    console.log('Deny clicked for:', itemName);
-    setShowReleaseOptions(false); // Optionally hide buttons after action
-  };
-
-  const handleApproveClick = () => {
-    // Implement your approve logic here
-    console.log('Approve clicked for:', itemName);
-    setShowReleaseOptions(false); // Optionally hide buttons after action
-  };
-
   return (
     <div className="content-card">
       <div className="card-container">
@@ -63,15 +38,7 @@ const ContentCards = ({
             <span className="info-label">Description:</span>
             <span className="info-value">{description}</span>
           </div>
-          {showReleaseOptions ? (
-            <div className="release-options">
-              <button className="deny-btn">Deny</button>
-              <button className="cancel-btn" onClick={handleCancelClick}>Cancel</button>
-              <button className="approve-btn">Approve</button>
-            </div>
-          ) : (
-            <button className="release-btn" onClick={handleReleaseClick}>Release</button>
-          )}
+          <button className="release-btn" onClick={onRelease}>Release</button>
         </div>
       </div>
     </div>
